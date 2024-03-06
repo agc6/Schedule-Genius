@@ -1,35 +1,24 @@
-# This is an example Starter pipeline configuration
-# Use a skeleton to build, test and deploy using manual and parallel steps
-# -----
-# You can specify a custom docker image from Docker Hub as your build environment.
-
-image: atlassian/default-image:3
+image: node
 
 pipelines:
   default:
-    - parallel:
-      - step:
-          name: 'Build and Test'
-          script:
-            - echo "Your build and test goes here..."
-      - step:
-          name: 'Lint'
-          script:
-            - echo "Your linting goes here..."
-      - step:
-          name: 'Security scan'
-          script:
-            - echo "Your security scan goes here..."
+    - step:
+        name: Test
+        script:
+          - npm install && npm test
 
-    # The following deployment steps will be executed for each pipeline run. To configure your steps and conditionally deploy see https://support.atlassian.com/bitbucket-cloud/docs/configure-bitbucket-pipelinesyml/
     - step:
-        name: 'Deployment to Staging'
-        deployment: staging
+        name: Build
         script:
-          - echo "Your deployment to staging script goes here..."
+          - npm install && npm run build
+        artifacts:
+          - build/**
+
     - step:
-        name: 'Deployment to Production'
+        name: Deploy to Firebase
         deployment: production
-        trigger: 'manual'
         script:
-          - echo "Your deployment to production script goes here..."
+          - pipe: atlassian/firebase-deploy:0.2.4
+            variables:
+              FIREBASE_TOKEN: $FIREBASE_TOKEN
+              PROJECT_ID: $FIREBASE_PROJECT
