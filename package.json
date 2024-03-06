@@ -1,5 +1,6 @@
 {
   "name": "schedule_generator",
+  "homepage": "schedule-genius-3585f.firebaseapp.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
