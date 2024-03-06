@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up</title>
+<link rel="stylesheet" href="signup.css">
+</head>
+<body>
+
+<main>
+    <div class="logo-container">
+        <img src="todo.png" alt="Schedule Genius Logo">
+    </div>
+    <div class="box">
+        <div class="inner-box">
+            <div class="forms-wrap"></div>
+<div class="container">
+    <h2>Sign Up</h2>
+    <form action="/signup" method="post" class="signup-form">
+        <div>
+            <label for="username">Username <span>(required, 150 characters or fewer, letters, digits, '@', '.', '-', '_' only)</span>:</label><br>
+            <input type="text" id="username" name="username" pattern="[A-Za-z0-9@.\-_]{1,150}" required><br>
+        </div>
+        <div>
+            <label for="email">Email <span>(required)</span>:</label><br>
+            <input type="email" id="email" name="email" required><br>
+        </div>
+        <div>
+            <label for="password">Password <span>(required, at least 8 characters long, containing letters, digits, and special characters)</span>:</label><br>
+            <input type="password" id="password" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@\.\-_])[A-Za-z\d@.\-_]{8,}$" required><br>
+        </div>
+        <div>
+            <label for="confirm_password">Confirm Password:</label><br>
+            <input type="password" id="confirm_password" name="confirm_password" required><br>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+
+    </div>
+    </div>
+
+</div>
+</main>
+
+</body>
+</html>
