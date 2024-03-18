@@ -1,7 +1,10 @@
 {
+<<<<<<< 9dd75aaee21b4f2d2a23d85a577d94ec5ec34230
   "functions": {
     "source": "functions"
   },
+=======
+>>>>>>> reinit firebase attemp 2
   "hosting": {
     "public": "build",
     "ignore": [
