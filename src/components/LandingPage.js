@@ -1,8 +1,9 @@
 import React from 'react';
 import './LandingPage.css'; // import of css
-import logo from './logo.jpg';
-import flatImage from './flat.jpg';
-import todoLogo from './todo.png';
+import logo from '../images/logo.jpg';
+import flatImage from '../images/flat.jpg';
+import todoLogo from '../images/todo.png';
+
 
 const LandingPage = () => {
     return (
