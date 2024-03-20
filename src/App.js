@@ -1,17 +1,14 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'; // Import BrowserRouter, Route, and Switch
+import { BrowserRouter as Router, Route } from 'react-router-dom'; // Import BrowserRouter and Route
 import LandingPage from './components/LandingPage'; // Import LandingPage
 import SignUpPage from './components/SignUpPage'; // Import SignUpPage
-
 
 const App = () => {
   return (
     <Router>
       <div>
-        <Switch>
-          <Route exact path="/" component={LandingPage} />
-          <Route path="/signup" component={SignUpPage} />
-        </Switch>
+        <Route exact path="/" component={LandingPage} />
+        <Route path="/signup" component={SignUpPage} />
       </div>
     </Router>
   );
