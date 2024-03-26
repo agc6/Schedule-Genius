@@ -22,6 +22,7 @@ li {
 
 img {
   max-width: 100%;
+    border-radius: 25px;
 }
 
 h1,
@@ -88,11 +89,11 @@ h6 {
 }
 
 .btn-primary:hover {
-  animation: rainbowEffect 4s infinite;
+  background-color: #a99aed;
 }
 
 .btn-primary:active {
-  background-color: #992751;
+  background-color: #6c5abe;
 }
 
 .btn-secondary {
@@ -100,9 +101,8 @@ h6 {
 }
 
 .btn-secondary:hover {
-  border: #fff;
+  background-color: var(--primary-color);
   color: #fff;
-  animation: rainbowEffect 4s infinite;
 }
 
 .section-subheading {
@@ -155,7 +155,7 @@ header {
 }
 
 .header_logo {
-  width: 100px;
+  width: 70px;
 }
 
 .header_menu {
@@ -208,51 +208,6 @@ header .right {
 
 .sched__img {
   width: 60%;
-}
-
-.header_logo img:hover {
-  animation: rotateYAxis 2s linear infinite;
-  animation-delay: 1ms;
-}
-
-@keyframes rotateYAxis {
-  0% {
-    transform: rotateY(0deg);
-  }
-
-  100% {
-    transform: rotateY(306deg);
-  }
-}
-
-@keyframes rainbowEffect {
-  0% {
-    background-color: #db1061;
-  }
-
-  16.666% {
-    background-color: orange;
-  }
-
-  33.333% {
-    background-color: gold;
-  }
-
-  50% {
-    background-color: green;
-  }
-
-  66.666% {
-    background-color: blue;
-  }
-
-  83.33% {
-    background-color: indigo;
-  }
-
-  100% {
-    background-color: violet;
-  }
 }
 
 .fade_in {

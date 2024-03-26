@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css'; // Make sure to create this CSS file
-import logo from './logo.jpg';
+import logo from './logo.png';
 import flatImage from './flat.jpg';
 import todoLogo from './todo.png';
 
