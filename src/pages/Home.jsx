@@ -1,7 +1,7 @@
 import React from 'react';
-import './Home.css'; // Importing the CSS file for Home.jsx
-import logo from '../assets/images/logo.png'; // Importing the logo image
-import flatImage from '../assets/images/flatImage.png'; // Importing the flatImage
+import './Home.css'; // Correct path to Home.css
+import logo from '../images/logo.jpg'; // Adjusted path to logo.png
+import flatImage from '../images/flat.jpg'; // Adjusted path to flatImage.png
 
 const Home = () => {
     return (
@@ -9,7 +9,7 @@ const Home = () => {
             <header>
                 <div className="container flex-row">
                     <div className="header_logo">
-                        <img src={logo} alt="Logo" />
+                        <img src={logo} alt="Schedule Genius Logo" />
                     </div>
                     <nav>
                         <ul className="header_menu flex-row">
