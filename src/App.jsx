@@ -10,7 +10,7 @@ const LandingPage = () => {
       <header>
         <div className="container flex-row">
           <div className="header_logo">
-            <img src={todoLogo} alt="Logo" />
+            <img src={logo} alt="Logo" />
           </div>
           <nav>
             <ul className="header_menu flex-row">
