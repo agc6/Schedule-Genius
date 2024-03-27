@@ -1,0 +1,226 @@
+:root {
+    --primary-color: #907fdc;
+    --secondary-color: #111111;
+    --primary-font: 'Poppins', sans-serif;
+    --secondary-font: 'Overpass', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 25px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--secondary-font);
+    margin-bottom: 1rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-primary {
+    color: var(--primary-color);
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.btn {
+    display: inline-block;
+    max-width: max-content;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #a99aed;
+}
+
+.btn-primary:active {
+    background-color: #6c5abe;
+}
+
+.btn-secondary {
+    border: 1px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.section-subheading {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.section-heading {
+    font-size: 3rem;
+    max-width: 600px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+}
+
+.section-heading.left {
+    margin-right: auto;
+}
+
+.section-heading.right {
+    margin-left: auto;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--primary-font);
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-x: hidden;
+    color: var(--secondary-color);
+}
+
+section {
+    position: relative;
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+}
+
+header {
+    padding: 1rem 0;
+    width: 100%;
+    position: absolute;
+    z-index: 999;
+}
+
+.header_logo {
+    width: 70px;
+}
+
+.header_menu {
+    gap: 1rem;
+}
+
+.header_menu li a {
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.header_menu li a:hover {
+    color: var(--primary-color);
+}
+
+header .right {
+    gap: 1rem;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+#sched {
+    min-height: 100vh;
+}
+
+.sched__content {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sched__content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.sched__content h2 {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+.sched__img {
+    width: 60%;
+}
+
+.fade_in {
+    opacity: 0;
+    animation: fadeIn 2s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
