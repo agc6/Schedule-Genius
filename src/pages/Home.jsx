@@ -27,7 +27,8 @@ const Home = () => {
                         </ul>
                     </nav>
                     <div className="right flex-center">
-                        <a href="signin.html" className="btn btn-secondary">Sign In</a>
+                        {/* Replace anchor tag with Link */}
+                        <Link to="/signin" className="btn btn-secondary">Sign In</Link>
                         <div className="menu-btn">
                             <i className="fas fa-bars"></i>
                         </div>

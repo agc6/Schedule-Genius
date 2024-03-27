@@ -1,19 +1,21 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'; // Updated import statement
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Signin from './pages/Signin'; // Correct import
 
 function App() {
   return (
     <div>
-      <BrowserRouter> {/* Fixed BrowserRouter */}
+      <Router> {/* Fixed BrowserRouter */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/signin" element={<Signin />} /> {/* Corrected path */}
         </Routes>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }
