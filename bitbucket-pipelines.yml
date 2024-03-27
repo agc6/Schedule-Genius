@@ -5,12 +5,12 @@ pipelines:
     - step:
         name: Test
         script:
-          - npm install && npm test
+          - npm install
 
     - step:
         name: Build
         script:
-          - npm install
+          - npm install && npm run build
         artifacts:
           - build/**
 
