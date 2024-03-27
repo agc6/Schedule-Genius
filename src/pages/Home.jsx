@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link component
 import './Home.css'; // Correct path to Home.css
 import logo from '../images/logo.jpg'; // Adjusted path to logo.png
 import flatImage from '../images/flat.jpg'; // Adjusted path to flatImage.png
@@ -13,8 +14,9 @@ const Home = () => {
                     </div>
                     <nav>
                         <ul className="header_menu flex-row">
+                            {/* Replace anchor tag with Link */}
                             <li>
-                                <a href="#about">About</a>
+                                <Link to="/about">About</Link>
                             </li>
                             <li>
                                 <a href="#features">Features</a>
