@@ -19,10 +19,10 @@ const Home = () => {
                                 <Link to="/about">About</Link>
                             </li>
                             <li>
-                                <a href="#features">Features</a>
+                                <Link to="/features">Features</Link>
                             </li>
                             <li>
-                                <a href="#support">Support</a>
+                                <Link to="/support">Support</Link>
                             </li>
                         </ul>
                     </nav>
@@ -44,7 +44,7 @@ const Home = () => {
                         <h2 className="text">Get your stuff done with <i><strong>ease.</strong></i></h2>
                         <br />
                         <h2 className="text">The ultimate tool for crafting the perfect schedule.</h2>
-                        <a href="signup.html" className="btn btn-primary">Sign Up</a>
+                        <Link to="/signup" className="btn btn-secondary">Sign Up</Link>
                     </div>
                     <div className="sched__img">
                         <img src={flatImage} alt="Students using laptops." />
