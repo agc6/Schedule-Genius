@@ -19,10 +19,10 @@ const Home = () => {
                                 <Link to="/about">About</Link>
                             </li>
                             <li>
-                                <a href="#features">Features</a>
+                                <Link to="/features">Features</Link>
                             </li>
                             <li>
-                                <a href="#support">Support</a>
+                                <Link to="/support">Support</Link>
                             </li>
                         </ul>
                     </nav>
