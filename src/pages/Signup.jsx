@@ -21,7 +21,7 @@ const SignupPage = () => {
         event.preventDefault(); //To prevent default form submission behavior
 
         const validateMessage = validatePassword(password); //Calls validatePassword to ensure it is correctly formatted
-        if(validateMessage != 'Password is valid.'){
+        if(validateMessage !== 'Password is valid.'){
             setErrorMessage(validateMessage);   //If password not valid then set error message as validate message
             return;
         }
