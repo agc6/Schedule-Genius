@@ -1,6 +1,5 @@
 {
   "name": "schedule_generator",
-  "homepage": "schedulegenius-v2.firebaseapp.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
