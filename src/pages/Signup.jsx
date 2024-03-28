@@ -2,7 +2,7 @@ import React, {useState} from 'react';  //useState to save user info that could 
 import './Signin.css'; // Reusing the CSS file from the Signin page for consistency
 import logo from '../images/logo.jpg'; // Using the same logo
 import { Link } from 'react-router-dom'; // Import Link component for SPA navigation
-import validatePassword from '../passwordValidator'; //Import for password validator
+import validatePassword from '../components/passwordValidator'; //Import for password validator
 
 const SignupPage = () => {
     //Const vars for user input using useState incase of user changing
