@@ -11,6 +11,23 @@ const SignupPage = () => {
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
+    //handlePasswordChange function that takes an event as an argument
+    const handlePasswordChange = (event) => {
+        setPassword(event.target.value);    //Updates state of password
+        setErrorMessage(' ');   //Clears error message
+    };
+    //handleSubmit function for new users, takes an event as an argument
+    const handleSubmit = (event) =>{
+        event.preventDefault(); //To prevent default form submission behavior
+
+        const validateMessage = validatePassword(password); //Calls validatePassword to ensure it is correctly formatted
+        if(validateMessage != 'Password is valid.'){
+            setErrorMessage(validateMessage);   //If password not valid then set error message as validate message
+            return;
+        }
+        
+    };
+
     return (
         <main>
             <div className="box">
