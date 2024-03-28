@@ -2,6 +2,11 @@ import React from 'react';
 import './Signin.css'; // Make sure to create this CSS file
 import logo from '../images/logo.jpg'; // Adjusted path to logo.png
 import { Link } from 'react-router-dom'; // Import Link component for SPA navigation
+import { getAuth, signInWithEmailAndPassword, connectAuthEmulator } from "firebase/auth";
+import { firebaseApp } from '../firebase/firebase-config';
+
+const auth = getAuth(firebaseApp);
+connectAuthEmulator(auth, 'http://localhost:9099');
 
 const SignInPage = () => {
     return (
