@@ -1,10 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';  //useState to save user info that could change
 import './Signin.css'; // Reusing the CSS file from the Signin page for consistency
 import logo from '../images/logo.jpg'; // Using the same logo
 import { Link } from 'react-router-dom'; // Import Link component for SPA navigation
 import validatePassword from '../passwordValidator'; //Import for password validator
 
 const SignupPage = () => {
+    //Const vars for user input using useState incase of user changing
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+
     return (
         <main>
             <div className="box">
