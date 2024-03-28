@@ -41,19 +41,20 @@ const SignupPage = () => {
                     <div className="right">
                         <div className="wrapper">
                             <h1 className="heading">Create Your Account</h1>
-                            <form action="#" className="form">
+                            <form onSubmit={handleSubmit} className="form">
                                 <div className="input-group">
-                                    <input type="text" id="username" />
+                                    <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
                                     <label htmlFor="username">Username</label>
                                 </div>
                                 <div className="input-group">
-                                    <input type="email" id="email" />
+                                    <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                                     <label htmlFor="email">Email</label>
                                 </div>
                                 <div className="input-group">
-                                    <input type="password" id="password" />
+                                    <input type="password" id="password" value={password} onChange={handlePasswordChange} />
                                     <label htmlFor="password">Password</label>
                                 </div>
+                                {errorMessage && <p className="error-messag">{errorMessage}</p>}
                                 <button className="btn">Sign Up</button>
                                 <p className="bottom-text">
                                     Already have an account?
