@@ -1,5 +1,4 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-Resources\toks\tok.txt
 # dependencies
 /node_modules
 /.pnp
@@ -22,5 +21,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-
-settings.json
+# resources folder
+/Resources
+Resources/toks/tok.txt
+.vscode/settings.json
