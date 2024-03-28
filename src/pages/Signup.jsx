@@ -1,5 +1,5 @@
 import React from 'react'
-import validatePassword from '../components/passwordValidator';
+//import validatePassword from '../components/passwordValidator';
 
 const SignUpPage = () => {
     return (
