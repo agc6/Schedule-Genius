@@ -2,6 +2,7 @@ import React from 'react';
 import './Signin.css'; // Reusing the CSS file from the Signin page for consistency
 import logo from '../images/logo.jpg'; // Using the same logo
 import { Link } from 'react-router-dom'; // Import Link component for SPA navigation
+import validatePassword from '../passwordValidator'; //Import for password validator
 
 const SignupPage = () => {
     return (
