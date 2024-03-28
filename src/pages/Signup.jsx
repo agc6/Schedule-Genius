@@ -25,7 +25,8 @@ const SignupPage = () => {
             setErrorMessage(validateMessage);   //If password not valid then set error message as validate message
             return;
         }
-        
+        //Placeholder for when form is submitted
+        console.log('Form submitted successfully!')
     };
 
     return (
