@@ -1,6 +1,7 @@
 import React from 'react';
 import './Signin.css'; // Make sure to create this CSS file
 import logo from '../images/logo.jpg'; // Adjusted path to logo.png
+import { Link } from 'react-router-dom'; // Import Link component for SPA navigation
 
 const SignInPage = () => {
     return (
@@ -27,7 +28,8 @@ const SignInPage = () => {
                                 <button className="btn">Sign In</button>
                                 <p className="bottom-text">
                                     Don't have an account?
-                                    <a href="#">Sign Up.</a>
+                                    {/* Update the <a> tag to use Link component for SPA navigation */}
+                                    <Link to="/signup">Sign Up.</Link>
                                 </p>
                             </form>
                         </div>
