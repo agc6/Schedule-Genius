@@ -24,6 +24,13 @@ const SignInPage = () => {
                                 <div className="input-group">
                                     <input type="password" id="password" />
                                     <label htmlFor="password">Password</label>
+                                    <img src="https://svgshare.com/i/uqQ.svg" alt="" className="eye" />
+                                    <img
+                                        src="https://svgshare.com/i/uqu.svg"
+                                        alt=""
+                                        className="close-eye"
+                                        style={{ display: 'none' }} 
+                                    />
                                 </div>
                                 <button className="btn">Sign In</button>
                                 <p className="bottom-text">

@@ -53,6 +53,13 @@ const SignupPage = () => {
                                 <div className="input-group">
                                     <input type="password" id="password" value={password} onChange={handlePasswordChange} />
                                     <label htmlFor="password">Password</label>
+                                    <img src="https://svgshare.com/i/uqQ.svg" alt="" className="eye" />
+                                    <img
+                                        src="https://svgshare.com/i/uqu.svg"
+                                        alt=""
+                                        className="close-eye"
+                                        style={{ display: 'none' }} 
+                                    />
                                 </div>
                                 {errorMessage && <p className="error-messag">{errorMessage}</p>}
                                 <button className="btn">Sign Up</button>
