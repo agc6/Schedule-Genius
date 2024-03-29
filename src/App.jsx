@@ -5,6 +5,16 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Signin from './pages/Signin'; // Correct import
 import Signup from './pages/Signup'; // Correct import
+import { auth } from './firebase/firebase-config';
+import { onAuthStateChanged } from 'firebase/auth';
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log('User is signed in');
+  } else {
+    console.log('User is signed out');
+  }
+});
 
 function App() {
   return (
