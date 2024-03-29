@@ -8,6 +8,22 @@ import { firebaseApp } from '../firebase/firebase-config';
 const auth = getAuth(firebaseApp);
 connectAuthEmulator(auth, 'http://localhost:9099');
 
+const handleSubmit = (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
+    // get the username and password from the form
+    const loginEmail = document.getElementById('email').value;
+    console.log(loginEmail);
+    const loginPassword = document.getElementById('password').value;
+    console.log(loginPassword);
+    // try to sign in with email and password
+    signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+    console.log('Form submitted successfully!');
+};
+
+//TODO: implement monitorAuthState function
+//TODO: implement logout function
+//TODO: implement button click event listeners to adapt to firebase doc example
+
 const SignInPage = () => {
     return (
         <main>
@@ -21,10 +37,10 @@ const SignInPage = () => {
                     <div className="right">
                         <div className="wrapper">
                             <h1 className="heading">Welcome Back</h1>
-                            <form action="#" className="form">
+                            <form onSubmit={handleSubmit} className="form">
                                 <div className="input-group">
-                                    <input type="text" id="name" className="" />
-                                    <label htmlFor="name">Username</label>
+                                    <input type="text" id="email" className="" />
+                                    <label htmlFor="email">Email</label>
                                 </div>
                                 <div className="input-group">
                                     <input type="password" id="password" />
