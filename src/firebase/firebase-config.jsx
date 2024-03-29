@@ -1,14 +1,21 @@
+// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+//import { getAnalytics } from "firebase/analytics";
 
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyBaddwW8WvnpT5uGucrR49vEh-7yf8KvW0",
-  authDomain: "localhost",
+  authDomain: "schedulegenius-v2.firebaseapp.com",
   projectId: "schedulegenius-v2",
-  storageBucket: "dummy-authDomain.firebaseapp.com", //not setup
-  messagingSenderId: "123456789012", //not setup
-  appId: "1:123456789012:web:7c7abae699b868b7f896ec", //not setup
-  measurementId: "G-ABCDEFGHIJ" //not setup
+  storageBucket: "schedulegenius-v2.appspot.com",
+  messagingSenderId: "469542297163",
+  appId: "1:469542297163:web:f871ec22dd609e0873b7ce",
+  measurementId: "G-Q826G5TS9G"
 };
 
 // Initialize Firebase
-export const firebaseApp = initializeApp(firebaseConfig);
+export const firebaseapp = initializeApp(firebaseConfig);
+export const auth = getAuth(firebaseapp);
+//const analytics = getAnalytics(firebaseapp);
