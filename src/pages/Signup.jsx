@@ -3,7 +3,9 @@ import './Signin.css'; // Reusing the CSS file from the Signin page for consiste
 import logo from '../images/logo.jpg'; // Using the same logo
 import { Link } from 'react-router-dom'; // Import Link component for SPA navigation
 import validatePassword from '../components/passwordValidator'; //Import for password validator
-import { togglePasswordVisibility } from '../components/passwordVisibility';
+import { togglePasswordVisibility } from '../components/passwordVisibility'; //Import for password visibility
+//import { auth } from '../firebase/firebase-config'; // TODO: Import the auth object from firebase-config
+//import { createUserWithEmailAndPassword } from "firebase/auth"; //TODO: use this function to create a new user
 
 const SignupPage = () => {
     //Const vars for user input using useState incase of user changing
@@ -26,6 +28,7 @@ const SignupPage = () => {
             setErrorMessage(validateMessage);   //If password not valid then set error message as validate message
             return;
         }
+
         //Placeholder for when form is submitted
         console.log('Form submitted successfully!')
     };

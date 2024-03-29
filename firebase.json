@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "schedulegenius-v2",
     "public": "build",
     "ignore": [
       "firebase.json",

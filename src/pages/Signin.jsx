@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import './Signin.css'; // Make sure to create this CSS file
 import logo from '../images/logo.jpg'; // Adjusted path to logo.png
 import { Link } from 'react-router-dom'; // Import Link component for SPA navigation
+//import { auth } from '../firebase/firebase-config'; // TODO: Import the auth object from firebase-config
+//import { signInWithEmailAndPassword } from "firebase/auth"; // TODO: use signInWithEmailAndPassword function to sign in a user
 import { togglePasswordVisibility } from '../components/passwordVisibility';
 
 
@@ -34,8 +36,8 @@ const SignInPage = () => {
                             <h1 className="heading">Welcome Back</h1>
                             <form action="#" className="form">
                                 <div className="input-group">
-                                    <input type="text" id="name" className="" />
-                                    <label htmlFor="name">Username</label>
+                                    <input type="text" id="email" className="" />
+                                    <label htmlFor="email">Email</label>
                                 </div>
                                 <div className="input-group">
                                     <input type="password" id="password" />
