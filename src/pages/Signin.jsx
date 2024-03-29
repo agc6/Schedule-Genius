@@ -23,6 +23,7 @@ const handleSubmit = (event) => {
 //TODO: implement monitorAuthState function
 //TODO: implement logout function
 //TODO: implement button click event listeners to adapt to firebase doc example
+//TODO: implement username login
 
 const SignInPage = () => {
     return (
