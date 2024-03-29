@@ -207,12 +207,12 @@ header .right {
 }
 
 .sched__img {
-    width: 60%;
+    width: 55%;
 }
 
 .fade_in {
     opacity: 0;
-    animation: fadeIn 2s ease-in forwards;
+    animation: fadeIn 1.1s ease-in forwards;
 }
 
 @keyframes fadeIn {
