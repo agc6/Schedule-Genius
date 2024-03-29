@@ -1,4 +1,4 @@
-import React, {useState} from 'react';  //useState to save user info that could change
+import React, {useState, useEffect} from 'react';  //useState to save user info that could change
 import './Signin.css'; // Reusing the CSS file from the Signin page for consistency
 import logo from '../images/logo.jpg'; // Using the same logo
 import { Link } from 'react-router-dom'; // Import Link component for SPA navigation
@@ -32,6 +32,19 @@ const SignupPage = () => {
         console.log('Form submitted successfully!')
     };
 
+    useEffect(() => {
+        const inputs = document.querySelectorAll(".input-group input");
+        inputs.forEach((input) => {
+            input.addEventListener("change", () => {
+                if (input.value) {
+                    input.classList.add("filled");
+                } else {
+                    input.classList.remove("filled");
+                }
+            });
+        });
+    }, []);
+
     return (
         <main>
             <div className="box">
@@ -56,6 +69,14 @@ const SignupPage = () => {
                                 <div className="input-group">
                                     <input type="password" id="password" value={password} onChange={handlePasswordChange} />
                                     <label htmlFor="password">Password</label>
+                                    <img src="https://svgshare.com/i/uqQ.svg" alt="" className="eye" onClick={togglePasswordVisibility}/>
+                                    <img
+                                        src="https://svgshare.com/i/uqu.svg"
+                                        alt=""
+                                        className="close-eye"
+                                        style={{ display: 'none' }} 
+                                        onClick={togglePasswordVisibility}
+                                    />
                                 </div>
                                 {errorMessage && <p className="error-messag">{errorMessage}</p>}
                                 <button className="btn">Sign Up</button>

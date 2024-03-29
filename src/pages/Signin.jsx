@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Signin.css'; // Make sure to create this CSS file
 import logo from '../images/logo.jpg'; // Adjusted path to logo.png
 import { Link } from 'react-router-dom'; // Import Link component for SPA navigation
 //import { auth } from '../firebase/firebase-config'; // TODO: Import the auth object from firebase-config
 //import { signInWithEmailAndPassword } from "firebase/auth"; // TODO: use signInWithEmailAndPassword function to sign in a user
+import { togglePasswordVisibility } from '../components/passwordVisibility';
+
 
 const SignInPage = () => {
+
+    useEffect(() => {
+        const inputs = document.querySelectorAll(".input-group input");
+        inputs.forEach((input) => {
+            input.addEventListener("change", () => {
+                if (input.value) {
+                    input.classList.add("filled");
+                } else {
+                    input.classList.remove("filled");
+                }
+            });
+        });
+    }, []);
+    
     return (
         <main>
             <div className="box">
@@ -26,6 +42,14 @@ const SignInPage = () => {
                                 <div className="input-group">
                                     <input type="password" id="password" />
                                     <label htmlFor="password">Password</label>
+                                    <img src="https://svgshare.com/i/uqQ.svg" alt="" className="eye" onClick={togglePasswordVisibility}/>
+                                    <img
+                                        src="https://svgshare.com/i/uqu.svg"
+                                        alt=""
+                                        className="close-eye"
+                                        style={{ display: 'none' }} 
+                                        onClick={togglePasswordVisibility}
+                                    />
                                 </div>
                                 <button className="btn">Sign In</button>
                                 <p className="bottom-text">
