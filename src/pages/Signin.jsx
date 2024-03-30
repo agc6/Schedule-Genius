@@ -18,12 +18,13 @@ const SignInPage = () => {
 
         try {
             // Attempt to sign in with email and password
-            await signInWithEmailAndPassword(auth, email, password);
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            console.log('userCredential:', userCredential.user);
             // Redirect or do something upon successful sign in
         } catch (error) {
             console.error("error signing in", error);
             // Handle errors (e.g., user not found, wrong password)
-            setError(error.message);
+            setError(error.message); // TODO: implement error handling UI
         }
         console.log('Form submitted successfully!')
     };

@@ -31,7 +31,8 @@ const SignupPage = () => {
 
         //Use the createUserWithEmailAndPassword function to create a new user
         try {
-            await createUserWithEmailAndPassword(auth, email, password);
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            console.log('userCredential:', userCredential.user); //If successful then log userCredential        
         } catch(error){
             console.error("error signing up", error);   //If error occurs then log error
             setErrorMessage(error.message); //If error occurs then set error message as error message
