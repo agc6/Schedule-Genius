@@ -20,7 +20,7 @@ const SignupPage = () => {
         setErrorMessage(' ');   //Clears error message
     };
     //handleSubmit function for new users, takes an event as an argument
-    const handleSubmit = (event) =>{
+    const handleSubmit = async(event) =>{
         event.preventDefault(); //To prevent default form submission behavior
 
         const validateMessage = validatePassword(password); //Calls validatePassword to ensure it is correctly formatted
@@ -31,13 +31,11 @@ const SignupPage = () => {
 
         //Use the createUserWithEmailAndPassword function to create a new user
         try {
-            createUserWithEmailAndPassword(auth, email, password);
+            await createUserWithEmailAndPassword(auth, email, password);
         } catch(error){
             console.error("error signing up", error);   //If error occurs then log error
             setErrorMessage(error.message); //If error occurs then set error message as error message
         }
-
-        //Placeholder for when form is submitted
         console.log('Form submitted successfully!')
     };
 
