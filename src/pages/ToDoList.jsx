@@ -1,10 +1,12 @@
 import React from 'react';
-
+import './ToDolist.css';
 const ToDoList = () => {
     return (
-        <div>
-            <h2><strong>Create a Unique To-Do List for you!</strong></h2>
-            <p>This is the ToDoList page content.</p>
+        <div className='todo-list'>
+            <h2>To-Do List</h2>
+            <div className='input-container'>
+                
+            </div>
         </div>
     );
 };

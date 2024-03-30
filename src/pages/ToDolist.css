@@ -1,0 +1,41 @@
+.todo-list{
+    max-width:max-content;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #907fdc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #111111;
+}
+
+.todo-list h2{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.input-container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.input-container input{
+    flex: 2;
+    width: 75%;
+    border: 1px solid #111111;
+    color: #907fdc;
+    border-radius: 5px;
+}
+
+.input-container button{
+    background-color: #907fdc;
+    width: 25%;
+    color: #fff;
+    border: 1px solid #111111;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.input-container button:hover{
+    background-color: darkviolet;
+}
