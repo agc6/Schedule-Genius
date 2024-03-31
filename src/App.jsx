@@ -7,6 +7,8 @@ import Signin from './pages/Signin'; // Correct import
 import Signup from './pages/Signup'; // Correct import
 import { auth } from './firebase/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
+import { adminRoutes,} from "./routes/routes";
+import Adminlayout from "./layout/Adminlayout";
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -15,6 +17,18 @@ onAuthStateChanged(auth, (user) => {
     console.log('User is signed out');
   }
 });
+
+const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
+  <Route
+    {...rest}
+    render={(props) => (
+      <Layout>
+        <Component {...props}></Component>
+      </Layout>
+    )}
+    exact
+  ></Route>
+);
 
 function App() {
   return (
@@ -27,6 +41,14 @@ function App() {
           <Route path="/signin" element={<Signin />} /> {/* Corrected path */}
           <Route path="/signup" element={<Signup />} /> {/* added signup */}
         </Routes>
+        {adminRoutes.map((route, idx) => (
+          <AppRoute
+            key={idx}
+            path={route.path}
+            component={route.component}
+            layout={Adminlayout}
+          />
+        ))}
       </Router>
     </div>
   );
