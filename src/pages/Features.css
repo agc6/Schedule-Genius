@@ -106,14 +106,17 @@ header {
 
 .feature button {
     display: block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
+    margin: 20px auto 40px;
+    /* Increase the bottom margin to add more space between buttons */
+    padding: 5px 40px;
+    background-color: #7c29e1;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
+
+
 
 .feature button:hover {
     background-color: #0056b3;
