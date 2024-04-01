@@ -24,6 +24,9 @@ const Home = () => {
                             <li>
                                 <Link to="/support">Support</Link>
                             </li>
+                            <li>
+                                <Link to="/tempDashboard">Temp Dashboard</Link> {/* delete late when redirect is set up*/}
+                            </li>
                         </ul>
                     </nav>
                     <div className="right flex-center">
@@ -40,7 +43,7 @@ const Home = () => {
                     <div className="sched__content">
                         <h1 className="title">Schedule Genius: Organize your college life efficiently</h1>
                         <h2 className="text">Get your stuff done with <i><strong>ease. </strong></i>
-                        The ultimate tool for crafting the perfect schedule.</h2>
+                            The ultimate tool for crafting the perfect schedule.</h2>
                         <Link to="/signup" className="btn btn-secondary">Sign Up</Link>
                     </div>
                     <div className="sched__img">
