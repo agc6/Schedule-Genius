@@ -7,6 +7,7 @@ import Signin from './pages/Signin'; // Correct import
 import Signup from './pages/Signup'; // Correct import
 import { auth } from './firebase/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
+import Features from './pages/Features';
 
 const monitorAuthState = async () => {
   onAuthStateChanged(auth, (user) => {
@@ -29,8 +30,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/signin" element={<Signin />} /> {/* Corrected path */}
-          <Route path="/signup" element={<Signup />} /> {/* added signup */}
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/features" element={<Features />} />
         </Routes>
       </Router>
     </div>
