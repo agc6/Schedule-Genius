@@ -46,19 +46,20 @@ const Features = () => {
             </div>
             <div className="features-container">
                 <div className="feature">
-                    <h3>Easy Schedule Creation</h3>
-                    <p>Create your schedule with just a few clicks. Our intuitive interface makes it easy to add, remove, and edit your classes.</p>
-                    <button>Try f1</button>
+                    <h3>Schedule Generator</h3>
+                    <p>Create your schedule with just a few clicks. Our intuitive interface makes it easy to add, remove, and edit your dynamic schedule
+                    </p>
+                    <button>Try Schedule Generator</button>
                 </div>
                 <div className="feature">
-                    <h3>Customizable Options</h3>
-                    <p>Customize your schedule with various options such as preferred time slots, room preferences, and more.</p>
-                    <button>Try f2</button>
+                    <h3>To-Do Generator</h3>
+                    <p>Create a seamless To-Do list that can be adjusted. This is for the daily tasks!</p>
+                    <button>Try To-Do List</button>
                 </div>
                 <div className="feature">
-                    <h3>Smart Conflict Detection</h3>
-                    <p>Our app detects conflicts in your schedule and suggests alternative options to ensure you have a conflict-free timetable.</p>
-                    <button>Try f3</button>
+                    <h3>Connect with Friends</h3>
+                    <p>Connect with your friends, classmates, and collegues. View eachother schedules for effortless meeting plans, whether it is business related or for fun!</p>
+                    <button>Coming Soon..</button>
                 </div>
             </div>
         </div>
