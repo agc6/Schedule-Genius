@@ -8,13 +8,18 @@ import Signup from './pages/Signup'; // Correct import
 import { auth } from './firebase/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
 
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    console.log('User is signed in');
-  } else {
-    console.log('User is signed out');
-  }
-});
+const monitorAuthState = async () => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      console.log('User is signed in');
+      console.log('User:', user);
+    } else {
+      console.log('User is signed out');
+    }
+  });
+};
+
+monitorAuthState();
 
 function App() {
   return (
