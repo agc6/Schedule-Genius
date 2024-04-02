@@ -7,6 +7,7 @@ import Signin from './pages/Signin'; // Correct import
 import Signup from './pages/Signup'; // Correct import
 import { auth } from './firebase/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
+import Settings from './pages/Settings';
 
 const monitorAuthState = async () => {
   onAuthStateChanged(auth, (user) => {
