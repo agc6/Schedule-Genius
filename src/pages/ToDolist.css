@@ -39,3 +39,23 @@
 .input-container button:hover{
     background-color: darkviolet;
 }
+
+ul{
+    list-style-type: disc;
+    padding: 0px;
+}
+
+li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0px;
+}
+
+li button{
+    background-color: orange;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

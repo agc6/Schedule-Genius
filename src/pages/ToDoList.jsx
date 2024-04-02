@@ -9,7 +9,22 @@ const ToDoList = () => {
         //Function for user changing value of text field
         const handleInputChange = (e) => {
             setInput(e.target.value);
-        }
+        };
+
+        //Function to add a task
+        const addTask = () => {
+            if(input.trim() !== ''){
+                setTasks([...tasks, input]);
+                setInput('');
+            }
+        };
+
+        //Function to delete a task
+        const deleteTask = (index) => {
+            const updatedTasks = tasks.filter((task, i) => i !== index);
+            setTasks(updatedTasks);
+        };
+
     };
 
     return (
@@ -22,8 +37,16 @@ const ToDoList = () => {
                 value={input}
                 onChange={handleInputChange}
                 />
-
+                <button onClick={addTask}>Add</button>
             </div>
+            <ul>
+                {tasks.map((task, index) => (
+                    <li key={index}>
+                        {task}
+                        <button onClick={()=> deleteTask(index)}>X</button>
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 };
