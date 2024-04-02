@@ -49,7 +49,7 @@ const ToDoList = () => {
 
     return (
         <div className='to-do-list'>
-            <h1>Create a Unique To-Do List for you!</h1>
+            <h1>Create a To-Do List!</h1>
             <div>
                 <input
                     type="text"
@@ -63,9 +63,9 @@ const ToDoList = () => {
                 {tasks.map((task, index) => (
                     <li key={index}>
                         {task}
-                        <button onClick={() => deleteTask(index)}>Delete</button>
-                        <button onClick={() => moveTaskDown(index)}>Move Down</button>
-                        <button onClick={() => moveTaskUp(index)}>Move Up</button>
+                        <button onClick={() => deleteTask(index)}>❌</button>
+                        <button onClick={() => moveTaskDown(index)}>👇🏻</button>
+                        <button onClick={() => moveTaskUp(index)}>☝🏻</button>
                     </li>
                 ))}
             </ul>
