@@ -9,6 +9,7 @@ import { auth } from './firebase/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
 import Features from './pages/Features';
 
+
 const monitorAuthState = async () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
