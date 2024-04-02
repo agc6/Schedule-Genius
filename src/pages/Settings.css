@@ -1,4 +1,36 @@
+.settings-container{
+    padding: 20px;
+}
+
 h1{
     font-size: 20px;
     color: violet;
 }
+
+label{
+    font-size: 16px;
+}
+
+form{
+    display: grid;
+    gap: 10px;
+}
+
+input[type='text'],
+input[type='email'],
+select{
+    width: auto;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: violet;
+    color: white;
+    cursor: pointer;
+}
+
