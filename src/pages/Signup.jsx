@@ -1,8 +1,11 @@
-import React, {useState} from 'react';  //useState to save user info that could change
+import React, {useState, useEffect} from 'react';  //useState to save user info that could change
 import './Signin.css'; // Reusing the CSS file from the Signin page for consistency
 import logo from '../images/logo.jpg'; // Using the same logo
 import { Link } from 'react-router-dom'; // Import Link component for SPA navigation
 import validatePassword from '../components/passwordValidator'; //Import for password validator
+import { togglePasswordVisibility } from '../components/passwordVisibility'; //Import for password visibility
+import { auth } from '../firebase/firebase-config'; //Import the auth object from firebase-config
+import { createUserWithEmailAndPassword } from "firebase/auth"; //use this function to create a new user
 
 const SignupPage = () => {
     //Const vars for user input using useState incase of user changing
@@ -17,7 +20,7 @@ const SignupPage = () => {
         setErrorMessage(' ');   //Clears error message
     };
     //handleSubmit function for new users, takes an event as an argument
-    const handleSubmit = (event) =>{
+    const handleSubmit = async(event) =>{
         event.preventDefault(); //To prevent default form submission behavior
 
         const validateMessage = validatePassword(password); //Calls validatePassword to ensure it is correctly formatted
@@ -25,9 +28,30 @@ const SignupPage = () => {
             setErrorMessage(validateMessage);   //If password not valid then set error message as validate message
             return;
         }
-        //Placeholder for when form is submitted
+
+        //Use the createUserWithEmailAndPassword function to create a new user
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            console.log('userCredential:', userCredential.user); //If successful then log userCredential        
+        } catch(error){
+            console.error("error signing up", error);   //If error occurs then log error
+            setErrorMessage(error.message); //If error occurs then set error message as error message
+        }
         console.log('Form submitted successfully!')
     };
+
+    useEffect(() => {
+        const inputs = document.querySelectorAll(".input-group input");
+        inputs.forEach((input) => {
+            input.addEventListener("change", () => {
+                if (input.value) {
+                    input.classList.add("filled");
+                } else {
+                    input.classList.remove("filled");
+                }
+            });
+        });
+    }, []);
 
     return (
         <main>
@@ -53,6 +77,14 @@ const SignupPage = () => {
                                 <div className="input-group">
                                     <input type="password" id="password" value={password} onChange={handlePasswordChange} />
                                     <label htmlFor="password">Password</label>
+                                    <img src="https://svgshare.com/i/uqQ.svg" alt="" className="eye" onClick={togglePasswordVisibility}/>
+                                    <img
+                                        src="https://svgshare.com/i/uqu.svg"
+                                        alt=""
+                                        className="close-eye"
+                                        style={{ display: 'none' }} 
+                                        onClick={togglePasswordVisibility}
+                                    />
                                 </div>
                                 {errorMessage && <p className="error-messag">{errorMessage}</p>}
                                 <button className="btn">Sign Up</button>
