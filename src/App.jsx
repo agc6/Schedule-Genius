@@ -9,6 +9,7 @@ import { auth } from './firebase/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
 import { adminRoutes,} from "./routes/routes";
 import Adminlayout from "./layout/Adminlayout";
+import Dashboard from './pages/admin/Dashboard';
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -39,7 +40,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/signin" element={<Signin />} /> {/* Corrected path */}
-          <Route path="/signup" element={<Signup />} /> {/* added signup */}
+          <Route path="/signup" element={<Signup />} /> {/* added signup */}\
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         {adminRoutes.map((route, idx) => (
           <AppRoute
