@@ -8,6 +8,7 @@ import Signup from './pages/Signup'; // Correct import
 import { auth } from './firebase/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
 import Features from './pages/Features';
+import ToDoList from './pages/ToDoList';
 
 
 const monitorAuthState = async () => {
@@ -34,6 +35,7 @@ function App() {
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/features" element={<Features />} />
+          <Route path="/todo" element={<ToDoList />} />
         </Routes>
       </Router>
     </div>
