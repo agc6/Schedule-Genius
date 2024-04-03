@@ -43,6 +43,9 @@ const Home = () => {
                             <li>
                                 <Link to="/support">Support</Link>
                             </li>
+                            <li>
+                                <Link to="/todo">ToDoList</Link>
+                            </li>
                         </ul>
                     </nav>
                     <div className="right flex-center">
