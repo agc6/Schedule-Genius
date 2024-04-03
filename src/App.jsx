@@ -7,17 +7,25 @@ import Signin from './pages/Signin'; // Correct import
 import Signup from './pages/Signup'; // Correct import
 import { auth } from './firebase/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
+import ToDoList from './pages/ToDoList';
+import Features from './pages/Features';
 import { adminRoutes,} from "./routes/routes";
 import Adminlayout from "./layout/Adminlayout";
 import Dashboard from './pages/admin/Dashboard';
 
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    console.log('User is signed in');
-  } else {
-    console.log('User is signed out');
-  }
-});
+
+const monitorAuthState = async () => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      console.log('User is signed in');
+      console.log('User:', user);
+    } else {
+      console.log('User is signed out');
+    }
+  });
+};
+
+monitorAuthState();
 
 const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
   <Route
@@ -42,6 +50,8 @@ function App() {
           <Route path="/signin" element={<Signin />} /> {/* Corrected path */}
           <Route path="/signup" element={<Signup />} /> {/* added signup */}\
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/features" element={<Features />} />
+          <Route path="/todo" element={<ToDoList />} />
         </Routes>
         {adminRoutes.map((route, idx) => (
           <AppRoute

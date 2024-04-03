@@ -3,6 +3,25 @@ import { Link } from 'react-router-dom'; // Import Link component
 import './Home.css'; // Correct path to Home.css
 import logo from '../images/logo.jpg'; // Adjusted path to logo.png
 import flatImage from '../images/flat.jpg'; // Adjusted path to flatImage.png
+//import { auth } from '../firebase/firebase-config'; /* TODO: Implement sign out functionality
+//import { signOut } from "firebase/auth"; /* TODO: Implement sign out functionality
+
+/* TODO: Implement sign out functionality
+const handleSignOut = async(event) => {
+    event.preventDefault(); // Prevent the default form submission
+    setError(''); // Clear any existing errors
+
+    try {
+        // Attempt to sign out
+        await signOut(auth);
+        // Redirect or do something upon successful sign out
+    } catch (error) {
+        console.error("error signing out", error);
+        setError(error.message); // TODO: implement error handling UI
+    }
+    console.log('Form submitted successfully!')
+};
+*/
 
 const Home = () => {
     return (
@@ -12,7 +31,7 @@ const Home = () => {
                     <div className="header_logo">
                         <img src={logo} alt="Schedule Genius Logo" />
                     </div>
-                    <nav>
+                    <nav> {/* add signout button */}
                         <ul className="header_menu flex-row">
                             {/* Replace anchor tag with Link */}
                             <li>
@@ -25,7 +44,10 @@ const Home = () => {
                                 <Link to="/support">Support</Link>
                             </li>
                             <li>
-                                <Link to="/tempDashboard">Temp Dashboard</Link> {/* delete late when redirect is set up*/}
+                                <Link to="/todo">ToDoList</Link>
+                            </li>
+                            <li>
+                                <Link to="/dashboard">Temp Dashboard</Link> {/* delete late when redirect is set up*/}
                             </li>
                         </ul>
                     </nav>

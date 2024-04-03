@@ -4,8 +4,8 @@ import logo from '../images/logo.jpg'; // Using the same logo
 import { Link } from 'react-router-dom'; // Import Link component for SPA navigation
 import validatePassword from '../components/passwordValidator'; //Import for password validator
 import { togglePasswordVisibility } from '../components/passwordVisibility'; //Import for password visibility
-//import { auth } from '../firebase/firebase-config'; // TODO: Import the auth object from firebase-config
-//import { createUserWithEmailAndPassword } from "firebase/auth"; //TODO: use this function to create a new user
+import { auth } from '../firebase/firebase-config'; //Import the auth object from firebase-config
+import { createUserWithEmailAndPassword } from "firebase/auth"; //use this function to create a new user
 
 const SignupPage = () => {
     //Const vars for user input using useState incase of user changing
@@ -20,7 +20,7 @@ const SignupPage = () => {
         setErrorMessage(' ');   //Clears error message
     };
     //handleSubmit function for new users, takes an event as an argument
-    const handleSubmit = (event) =>{
+    const handleSubmit = async(event) =>{
         event.preventDefault(); //To prevent default form submission behavior
 
         const validateMessage = validatePassword(password); //Calls validatePassword to ensure it is correctly formatted
@@ -29,7 +29,14 @@ const SignupPage = () => {
             return;
         }
 
-        //Placeholder for when form is submitted
+        //Use the createUserWithEmailAndPassword function to create a new user
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            console.log('userCredential:', userCredential.user); //If successful then log userCredential        
+        } catch(error){
+            console.error("error signing up", error);   //If error occurs then log error
+            setErrorMessage(error.message); //If error occurs then set error message as error message
+        }
         console.log('Form submitted successfully!')
     };
 
