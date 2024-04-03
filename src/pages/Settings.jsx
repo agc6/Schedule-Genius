@@ -18,7 +18,6 @@ const Settings = () => {
                 <select id='theme' name='theme'>
                     <option value='light'>Light</option>
                     <option value='dark'>Dark</option>
-                    <option value='custom'>Custom</option>
                 </select>
 
                 {/* Filler code for settings if we do notifications
