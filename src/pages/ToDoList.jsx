@@ -4,7 +4,6 @@ import './ToDolist.css';
 const ToDoList = () => {
     const [tasks, setTasks] = useState([]);
     const [newTask, setNewTask] = useState("");
-    const [checkedTask, setCheckedTask] = useState([]);
 
     // Function to handle input change
     function handleInputChange(event) {
@@ -15,7 +14,6 @@ const ToDoList = () => {
     function addTask() {
         if (newTask.trim() !== "") {
             setTasks([...tasks, newTask]);
-            setCheckedTask([...checkedTask, false]);
             setNewTask("");
         }
     }
@@ -25,16 +23,6 @@ const ToDoList = () => {
         const updatedTasks = [...tasks];
         updatedTasks.splice(index, 1);
         setTasks(updatedTasks);
-
-        const updatedCheckedTasks = [...checkedTask];
-        updatedCheckedTasks.splice(index, 1);
-        setCheckedTask(updatedCheckedTasks);
-    }
-    // Function to check off tasks
-    function checkTask(index){
-        const updatedCheckedTasks = [...checkTask];
-        updatedCheckedTasks[index] = !updatedCheckedTasks[index];
-        setCheckedTask(updatedCheckedTasks);
     }
 
     // Function to move a task down by index
@@ -75,10 +63,9 @@ const ToDoList = () => {
                 {tasks.map((task, index) => (
                     <li key={index} className={task.completed ? 'completed-task' : ''}>
                         {task}
-                        <button onClick={() => checkTask(index)}>✓</button>
                         <button onClick={() => deleteTask(index)}>✘</button>
-                        <button onClick={() => moveTaskDown(index)}>👇🏻</button>
-                        <button onClick={() => moveTaskUp(index)}>☝🏻</button>
+                        <button onClick={() => moveTaskDown(index)}>↓</button>
+                        <button onClick={() => moveTaskUp(index)}>↑</button>
                     </li>
                 ))}
             </ul>
