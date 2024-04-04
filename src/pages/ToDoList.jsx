@@ -1,49 +1,71 @@
-import React, {useState, useTransition} from 'react';
-import './ToDolist.css';
+import React, { useState } from 'react';
+import './ToDo.css'
+
 const ToDoList = () => {
-    //ToDoList function
-    const ToDoList = () => {
-        const [tasks, setTasks] = useState([]); //Define tasks as array and function to update task
-        const [input, setInput] = useState(''); //Define user input and function to set input
+    const [tasks, setTasks] = useState([]);
+    const [newTask, setNewTask] = useState("");
 
-        //Function for user changing value of text field
-        const handleInputChange = (e) => {
-            setInput(e.target.value);
-        };
+    // Function to handle input change
+    function handleInputChange(event) {
+        setNewTask(event.target.value);
+    }
 
-        //Function to add a task
-        const addTask = () => {
-            if(input.trim() !== ''){
-                setTasks([...tasks, input]);
-                setInput('');
-            }
-        };
+    // Function to add a new task
+    function addTask() {
+        if (newTask.trim() !== "") {
+            setTasks([...tasks, newTask]);
+            setNewTask("");
+        }
+    }
 
-        //Function to delete a task
-        const deleteTask = (index) => {
-            const updatedTasks = tasks.filter((task, i) => i !== index);
+    // Function to delete a task by index
+    function deleteTask(index) {
+        const updatedTasks = [...tasks];
+        updatedTasks.splice(index, 1);
+        setTasks(updatedTasks);
+    }
+
+    // Function to move a task down by index
+    function moveTaskDown(index) {
+        if (index < tasks.length - 1) {
+            const updatedTasks = [...tasks];
+            const temp = updatedTasks[index];
+            updatedTasks[index] = updatedTasks[index + 1];
+            updatedTasks[index + 1] = temp;
             setTasks(updatedTasks);
-        };
+        }
+    }
 
-    };
+    // Function to move a task up by index
+    function moveTaskUp(index) {
+        if (index > 0) {
+            const updatedTasks = [...tasks];
+            const temp = updatedTasks[index];
+            updatedTasks[index] = updatedTasks[index - 1];
+            updatedTasks[index - 1] = temp;
+            setTasks(updatedTasks);
+        }
+    }
 
     return (
-        <div className='todo-list'>
-            <h2>To-Do List</h2>
-            <div className='input-container'>
-                <input 
-                type='Text' 
-                placeholder='Add a task...'
-                value={input}
-                onChange={handleInputChange}
+        <div className='to-do-list'>
+            <h1>Create a To-Do List!</h1>
+            <div>
+                <input
+                    type="text"
+                    placeholder="Enter a task..."
+                    value={newTask}
+                    onChange={handleInputChange}
                 />
-                <button onClick={addTask}>Add</button>
+                <button onClick={addTask}>Add Task</button>
             </div>
             <ul>
                 {tasks.map((task, index) => (
                     <li key={index}>
                         {task}
-                        <button onClick={()=> deleteTask(index)}>X</button>
+                        <button onClick={() => deleteTask(index)}>❌</button>
+                        <button onClick={() => moveTaskDown(index)}>👇🏻</button>
+                        <button onClick={() => moveTaskUp(index)}>☝🏻</button>
                     </li>
                 ))}
             </ul>
