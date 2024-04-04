@@ -9,8 +9,8 @@ import { auth } from './firebase/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
 import ToDoList from './pages/ToDoList';
 import Features from './pages/Features';
-import { adminRoutes,} from "./routes/routes";
-import Adminlayout from "./layout/Adminlayout";
+//import { adminRoutes,} from "./routes/routes";
+//import Adminlayout from "./layout/Adminlayout";
 import Dashboard from './pages/admin/Dashboard';
 
 
@@ -27,6 +27,7 @@ const monitorAuthState = async () => {
 
 monitorAuthState();
 
+{/*
 const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
   <Route
     {...rest}
@@ -38,6 +39,7 @@ const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
     exact
   ></Route>
 );
+*/}
 
 function App() {
   return (
@@ -53,14 +55,14 @@ function App() {
           <Route path="/features" element={<Features />} />
           <Route path="/todo" element={<ToDoList />} />
         </Routes>
-        {adminRoutes.map((route, idx) => (
+        {/* {adminRoutes.map((route, idx) => (
           <AppRoute
             key={idx}
             path={route.path}
             component={route.component}
             layout={Adminlayout}
           />
-        ))}
+        ))} */}
       </Router>
     </div>
   );
