@@ -1,10 +1,19 @@
 import React from 'react';
 import { Route, Navigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../hooks/useAuth';
 
-function PrivateRoute({ element, ...rest }) {
-    const { currentUser } = useAuth(); // Custom hook to access authentication state
-    return currentUser ? <Route {...rest} element={element} /> : <Navigate to="/signin" replace />;
-}
 
-export default PrivateRoute;
+const ProtectedRoute = ({ component: Component, ...rest }) => {
+    const { user } = useAuth();
+
+    return (
+        <Route
+            {...rest}
+            element={
+                user ? <Component /> : <Navigate to="/signin" replace />
+            }
+        />
+    );
+};
+
+export default ProtectedRoute;
