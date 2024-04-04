@@ -46,6 +46,9 @@ const Home = () => {
                             <li>
                                 <Link to="/todo">ToDoList</Link>
                             </li>
+                            <li>
+                                <Link to="/calendar">Calendar</Link>
+                            </li>
                         </ul>
                     </nav>
                     <div className="right flex-center">
