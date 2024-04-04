@@ -1,44 +1,51 @@
-import React, { useState, useEffect } from 'react';  //useState to save user info that could change
-import './Signin.css'; // Reusing the CSS file from the Signin page for consistency
-import logo from '../images/logo.jpg'; // Using the same logo
+import React, { useState, useEffect } from 'react';
+import './Signin.css';
+import logo from '../images/logo.jpg';
 import { Link, useNavigate } from 'react-router-dom'; // Import Link component for SPA navigation
-import validatePassword from '../components/passwordValidator'; //Import for password validator
-import { togglePasswordVisibility } from '../components/passwordVisibility'; //Import for password visibility
-import { auth } from '../firebase/firebase-config'; //Import the auth object from firebase-config
-import { createUserWithEmailAndPassword } from "firebase/auth"; //use this function to create a new user
+import validatePassword from '../components/passwordValidator'; // Import for password validator
+import { togglePasswordVisibility } from '../components/passwordVisibility'; // Import for password visibility
+import { auth } from '../firebase/firebase-config'; // Import the auth object from firebase-config
+import { createUserWithEmailAndPassword } from "firebase/auth"; // Use this function to create a new user
 
 const SignupPage = () => {
-    //Const vars for user input using useState incase of user changing
+    // Const vars for user input using useState incase of user changing
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
     const navigate = useNavigate(); // Access the navigate function to handle redirection
 
-    //handlePasswordChange function that takes an event as an argument
+    // Handle password change function that takes an event as an argument
     const handlePasswordChange = (event) => {
-        setPassword(event.target.value);    //Updates state of password
-        setErrorMessage(' ');   //Clears error message
+        setPassword(event.target.value); // Updates state of password
+        setErrorMessage(''); // Clears error message
+        setSuccessMessage(''); // Clears success message
     };
-    //handleSubmit function for new users, takes an event as an argument
-    const handleSubmit = async (event) => {
-        event.preventDefault(); //To prevent default form submission behavior
 
-        const validateMessage = validatePassword(password); //Calls validatePassword to ensure it is correctly formatted
+    // Handle submit function for new users, takes an event as an argument
+    const handleSubmit = async (event) => {
+        event.preventDefault(); // To prevent default form submission behavior
+
+        const validateMessage = validatePassword(password); // Calls validatePassword to ensure it is correctly formatted
         if (validateMessage !== 'Password is valid.') {
-            setErrorMessage(validateMessage);   //If password not valid then set error message as validate message
+            setErrorMessage(validateMessage); // If password not valid then set error message as validate message
             return;
         }
 
-        //Use the createUserWithEmailAndPassword function to create a new user
+        // Use the createUserWithEmailAndPassword function to create a new user
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            console.log('userCredential:', userCredential.user); //If successful then log userCredential        
+            console.log('userCredential:', userCredential.user); // If successful then log userCredential
+            setSuccessMessage('You have successfully signed up!'); // Set success message
+            setTimeout(() => {
+                navigate('/signin'); // Redirect to sign-in page after 3 seconds
+            }, 3000);
         } catch (error) {
-            console.error("error signing up", error);   //If error occurs then log error
-            setErrorMessage(error.message); //If error occurs then set error message as error message
+            console.error("error signing up", error); // If error occurs then log error
+            setErrorMessage(error.message); // If error occurs then set error message as error message
         }
-        console.log('Form submitted successfully!')
+        console.log('Form submitted successfully!');
     };
 
     useEffect(() => {
@@ -88,6 +95,7 @@ const SignupPage = () => {
                                     />
                                 </div>
                                 {errorMessage && <p className="error-message">{errorMessage}</p>}
+                                {successMessage && <p className="success-message">{successMessage}</p>}
                                 <button className="btn">Sign Up</button>
                                 <p className="bottom-text">
                                     Already have an account?
