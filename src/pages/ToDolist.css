@@ -10,6 +10,7 @@
 .to-do-list h1 {
     font-size: 25px;
     margin-bottom: 20px;
+    color: #907fdc;
 }
 
 .to-do-list input[type="text"] {
@@ -23,15 +24,15 @@
 .to-do-list button {
     padding: 10px 15px;
     border: none;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #7fdc90;
+    color: #907fdc;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
 }
 
 .to-do-list button:hover {
-    background-color: #0056b3;
+    background-color: #907fdc;
 }
 
 .to-do-list ul {
