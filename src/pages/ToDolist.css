@@ -1,62 +1,48 @@
-.todo-list{
-    max-width:max-content;
-    margin: auto;
+.to-do-list {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
     padding: 20px;
-    border: 1px solid #907fdc;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #111111;
-}
-
-.todo-list h2{
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.input-container{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.input-container input{
-    flex: 2;
-    width: 75%;
-    border: 1px solid #111111;
-    color: #907fdc;
+    border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.input-container button{
-    background-color: #907fdc;
-    width: 25%;
-    color: #fff;
-    border: 1px solid #111111;
+.to-do-list h1 {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.to-do-list input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    cursor: pointer;
 }
 
-.input-container button:hover{
-    background-color: darkviolet;
-}
-
-ul{
-    list-style-type: disc;
-    padding: 0px;
-}
-
-li{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 0px;
-}
-
-li button{
-    background-color: orange;
-    color: black;
+.to-do-list button {
+    padding: 10px 15px;
     border: none;
+    background-color: #007bff;
+    color: #fff;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 10px;
+}
+
+.to-do-list button:hover {
+    background-color: #0056b3;
+}
+
+.to-do-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.to-do-list li {
+    margin-bottom: 10px;
+}
+
+.to-do-list li button {
     margin-left: 10px;
 }
