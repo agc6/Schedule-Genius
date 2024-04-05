@@ -9,7 +9,7 @@ import { auth } from './firebase/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
 import Features from './pages/Features';
 import ToDoList from './pages/ToDoList';
-import Dashboard from './pages/Dashboard';
+import Dashboard from './pages/dashboard';
 
 const monitorAuthState = async () => {
   onAuthStateChanged(auth, (user) => {
