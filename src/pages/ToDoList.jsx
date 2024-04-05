@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './ToDo.css'
+import './ToDolist.css';
 
 const ToDoList = () => {
     const [tasks, setTasks] = useState([]);
@@ -61,11 +61,11 @@ const ToDoList = () => {
             </div>
             <ul>
                 {tasks.map((task, index) => (
-                    <li key={index}>
+                    <li key={index} className={task.completed ? 'completed-task' : ''}>
                         {task}
-                        <button onClick={() => deleteTask(index)}>❌</button>
-                        <button onClick={() => moveTaskDown(index)}>👇🏻</button>
-                        <button onClick={() => moveTaskUp(index)}>☝🏻</button>
+                        <button onClick={() => deleteTask(index)}>✘</button>
+                        <button onClick={() => moveTaskDown(index)}>↓</button>
+                        <button onClick={() => moveTaskUp(index)}>↑</button>
                     </li>
                 ))}
             </ul>

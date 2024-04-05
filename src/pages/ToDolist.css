@@ -1,0 +1,58 @@
+.to-do-list {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #907fdc;
+    border-radius: 5px;
+}
+
+.to-do-list h1 {
+    font-size: 25px;
+    margin-bottom: 20px;
+    color: #907fdc;
+}
+
+.to-do-list input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.to-do-list button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #7fdc90;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.to-do-list button:hover {
+    background-color: #907fdc;
+}
+
+.to-do-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.to-do-list li {
+    margin-bottom: 10px;
+}
+
+.to-do-list li button {
+    margin-left: 10px;
+    background-color:#907fdc;
+    color:white;
+}
+.to-do-list li button:hover{
+    margin-left: 10px;
+    background-color:#7fdc90;
+    color:black;
+}
+
+
