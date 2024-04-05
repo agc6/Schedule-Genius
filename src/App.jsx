@@ -9,10 +9,10 @@ import { auth } from './firebase/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
 import ToDoList from './pages/ToDoList';
 import Features from './pages/Features';
+import Dashboard from './pages/dashboard';
+import ToDoList from './pages/ToDoList';
 //import { adminRoutes,} from "./routes/routes";
 //import Adminlayout from "./layout/Adminlayout";
-import Dashboard from './pages/admin/Dashboard';
-
 
 const monitorAuthState = async () => {
   onAuthStateChanged(auth, (user) => {
@@ -44,7 +44,7 @@ const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
 function App() {
   return (
     <div>
-      <Router> {/* Fixed BrowserRouter */}
+      <Router>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -54,6 +54,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/features" element={<Features />} />
           <Route path="/todo" element={<ToDoList />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         {/* {adminRoutes.map((route, idx) => (
           <AppRoute
