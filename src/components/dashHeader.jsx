@@ -1,7 +1,7 @@
 import React from "react";
 import Dropdown from "./Dropdown";
 import { Link } from "react-router-dom";
-const dashHeader = () => {
+const Header = () => {
   return (
     <div className="admin-header">
       <Dropdown
@@ -73,4 +73,4 @@ const dashHeader = () => {
   );
 };
 
-export default dashHeader;
+export default Header;

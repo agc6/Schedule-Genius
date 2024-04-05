@@ -2,13 +2,13 @@ import React from "react";
 import Decoreleft from "../../assets/img/decore-left.png";
 import Decoreright from "../../assets/img/decore-right.png";
 import Sidebar from "../../components/Sidebar";
-import dashHeader from "../../components/dashHeader";
+import Header from "../../components/dashHeader";
 
 const Dashboard = () => {
   return (
     <React.Fragment>
       <Sidebar /> 
-      <dashHeader /> 
+      <Header /> 
       <div className="dashboard-widgets row">
         <div className="col-lg-6">
           <div className="card-widget widget-user mb-2">
