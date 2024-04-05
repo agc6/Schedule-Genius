@@ -5,36 +5,12 @@ import logo from '../images/logo.jpg'; // Adjusted path to logo.png
 import featureImage1 from '../images/tempIMG.jpg'; // Adjusted path to featureImage1.jpg
 import featureImage2 from '../images/tempIMG.jpg'; // Adjusted path to featureImage2.jpg
 import featureImage3 from '../images/tempIMG.jpg'; // Adjusted path to featureImage3.jpg
+import Header from '../components/Header';
 
 const Features = () => {
     return (
         <div>
-            <header>
-                <div className="container flex-row">
-                    <div className="header_logo">
-                        <img src={logo} alt="Schedule Genius Logo" />
-                    </div>
-                    <nav>
-                        <ul className="header_menu flex-row">
-                            <li>
-                                <Link to="/about">About</Link>
-                            </li>
-                            <li>
-                                <Link to="/features">Features</Link>
-                            </li>
-                            <li>
-                                <Link to="/support">Support</Link>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div className="right flex-center">
-                        <Link to="/signin" className="btn btn-secondary">Sign In</Link>
-                        <div className="menu-btn">
-                            <i className="fas fa-bars"></i>
-                        </div>
-                    </div>
-                </div>
-            </header>
+            <Header />
             <div className="image-row">
                 <img src={featureImage1} alt="Feature 1" className="feature-image" />
             </div>
@@ -62,7 +38,7 @@ const Features = () => {
                     <button>Coming Soon..</button>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
