@@ -2,6 +2,15 @@ import React, {useState} from "react";
 import "./ScheduleBlocker.css";
 const ScheduleBlocker = () =>{
     const [blockedTimes, setBlockedTimes] = useState([]);   //Keeps track of blocked off times
+    const daysofWeek = [
+        {name: "Monday", short: "Mon"},
+        {name: "Tuesday", short: "Tue"},
+        {name: "Wednesday", short: "Wed"},
+        {name: "Thursday", short: "Thu"},
+        {name: "Friday", short: "Fri"},
+        {name: "Saturday", short: "Sat"},
+        {name: "Sunday", short: "Sun"},
+    ];
     //Function to handle blocking a time slot
     const blockTime = (time) => {
         setBlockedTimes([...blockedTimes, time]);
@@ -11,13 +20,12 @@ const ScheduleBlocker = () =>{
         <div className="schedule-blocker">
             <h1>Calendar Schedule Blocker</h1>
             <div className="calendar">
-                <div className="calendar-slots">
-                    <div className="calendar-slot" onClick={() => blockTime('9:00 AM - 10:00 AM')}>
-                        <span>9:00 AM - 10:00 AM</span>
-                    </div>
-                    <div className="calendar-slot" onClick={() => blockTime('10:00 AM - 11:00 AM')}>
-                        <span>10:00 AM - 11:00 AM</span>
-                    </div>
+            <div className="calendar-slots">
+                    {daysofWeek.map((day, index) => (
+                        <div key={index} className="calendar-slot" onClick={() => blockTime(`${day.short} - 9:00 AM - 10:00 AM`)}>
+                            <span>{day.short}</span>
+                        </div>
+                    ))}
                 </div>
             </div>
 
