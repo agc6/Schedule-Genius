@@ -24,9 +24,6 @@ const Header = () => {
                         <li>
                             <Link to="/todo">ToDoList</Link>
                         </li>
-                        <li>
-                            <Link to="/dashboard">Dashboard</Link>
-                        </li>
                     </ul>
                 </nav>
                 <div className="right flex-center">
