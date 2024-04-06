@@ -10,6 +10,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import Features from './pages/Features';
 import ToDoList from './pages/ToDoList';
 import Dashboard from './pages/dashboard';
+import ScheduleBlocker from './pages/ScheduleBlocker';
 
 const monitorAuthState = async () => {
   onAuthStateChanged(auth, (user) => {
@@ -37,6 +38,7 @@ function App() {
           <Route path="/features" element={<Features />} />
           <Route path="/todo" element={<ToDoList />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/scheduleblocker" element={<ScheduleBlocker />} />
         </Routes>
       </Router>
     </div>

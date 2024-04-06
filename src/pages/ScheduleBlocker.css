@@ -3,3 +3,39 @@
     padding: 20px;
     border: 1px solid gray;
   }
+
+  .schedule-blocker h1{
+    color: #907fdc;
+    font: 'Poppins', sans-serif;
+  }
+
+  .time-slots{
+    margin-bottom: 20px;
+  }
+
+  .blocked-times{
+    margin-top: 20px;
+  }
+
+  .block-time-button{
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .block-time-btn:hover {
+    background-color: #0056b3;
+  }
+
+  .blocked-times ul {
+    list-style-type: none;
+  }
+  
+  .blocked-times li {
+    margin-bottom: 5px;
+  }
