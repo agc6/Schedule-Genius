@@ -9,27 +9,30 @@
     font: 'Poppins', sans-serif;
   }
 
-  .time-slots{
+  .calendar{
     margin-bottom: 20px;
   }
 
-  .blocked-times{
-    margin-top: 20px;
+  .calendar-slots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
+    grid-gap: 10px;
   }
 
-  .block-time-button{
-    margin-right: 10px;
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
+  .calendar-slot {
+    background-color: #f0f0f0;
+    border: 1px solid #907fdc;
+    padding: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
 
-  .block-time-btn:hover {
-    background-color: #0056b3;
+  .calendar-slot:hover {
+    background-color: #e0e0e08a;
+  }
+
+  .blocked-times{
+    margin-top: 20px;
   }
 
   .blocked-times ul {
