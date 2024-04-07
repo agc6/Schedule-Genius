@@ -1,11 +1,17 @@
 import React from 'react';
+import './dashboard.css'; // Import CSS file for styling
+import Header from '../components/dashHeader';
+import Sidebar from '../components/Sidebar';
+import MainContent from '../components/MainContent';
 
-const Dashboard = () => {
-    return (
-        <div>
-            <h1>Dashboard</h1>
-        </div>
-    )
-};
+function Dashboard() {
+  return (
+    <div className="dashboard">
+      <Header />
+      <Sidebar />
+      <MainContent />
+    </div>
+  );
+}
 
 export default Dashboard;

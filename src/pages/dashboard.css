@@ -1,0 +1,65 @@
+/* Container */
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+/* Header */
+.dash-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 92px;
+    background-color: var(--sidebar-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000; 
+}
+
+  
+  /* Logo */
+  .logo {
+    font-size: 1.5rem;
+    color: var(--primary-color); /* Use the primary color */
+  }
+  
+  /* User Profile */
+  .user-profile {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px; 
+  }
+  
+  .logout-button {
+    background-color: transparent;
+    border: none;
+    color: var(--primary-color); /* Use the primary color for the button */
+    font-weight: bold;
+    cursor: pointer;
+    transition: color var(--tran-03); /* Add transition for smooth color change */
+  }
+  
+  .logout-button:hover {
+    color: #5c4efc; /* Darken the color on hover */
+  }
+  
+  
+  
+  /* Main Content */
+  .main-content {
+    position: absolute;
+    left:178px; top:92px; right:0; bottom:0;
+    background-color: rgb(250, 242, 252);
+  }
+  
