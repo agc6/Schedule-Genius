@@ -27,5 +27,3 @@ yarn-error.log*
 /Resources
 Resources/toks/tok.txt
 .vscode/settings.json
-
-src/firebase/firebase-config.jsx
