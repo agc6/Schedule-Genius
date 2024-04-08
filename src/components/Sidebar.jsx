@@ -22,11 +22,11 @@ function Sidebar() {
             <img src="logo.png" alt="" />
           </span>
 
-{/*          <div className="text logo-text">
+          {/*          <div className="text logo-text">
             <span className="name">Schedule Genius</span>
             <span className="profession">WIP</span>
           </div> */}
-        </div> 
+        </div>
 
         <i className='bx bx-chevron-right toggle' onClick={toggleSidebar}></i>
       </header>
@@ -47,25 +47,31 @@ function Sidebar() {
             </li>
 
             <li className="nav-link">
-            <Link to="/todo"> {/* Change anchor tag to Link component */}
-            <i className='bx bx-bell icon'></i>
-            <span className="text nav-text">To Do</span>
-          </Link>
+              <Link to="/todo"> {/* Change anchor tag to Link component */}
+                <i className='bx bx-bell icon'></i>
+                <span className="text nav-text">To Do</span>
+              </Link>
             </li>
 
             <li className="nav-link">
-          <Link to="/calendar">
-            <i className='bx bx-calendar icon'></i>
-            <span className="text nav-text">Calendar</span>
-          </Link>
-        </li>
+              <Link to="/calendar">
+                <i className='bx bx-calendar icon'></i>
+                <span className="text nav-text">Calendar</span>
+              </Link>
+            </li>
 
-        <li className="nav-link">
-          <Link to="/settings">
-            <i className='bx bx-cog icon'></i>
-            <span className="text nav-text">Settings</span>
-          </Link>
-        </li>
+            <li className="nav-link">
+              <Link to="/settings">
+                <i className='bx bx-cog icon'></i>
+                <span className="text nav-text">Settings</span>
+              </Link>
+            </li>
+            <li className="nav-link">
+              <Link to="/scheduleblocker">
+                <i className='bx bx-cog icon'></i>
+                <span className="text nav-text">ScheduleBlocker</span>
+              </Link>
+            </li>
           </ul>
         </div>
 
