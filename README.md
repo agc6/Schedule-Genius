@@ -152,6 +152,11 @@ In the development of the "Schedule Genius" web application, a variety of techno
 * **Noah Masoud**: `Implement a re-direct page upon user authentication via firebase.`
   * [SCRUM-116](https://cs3398s24io.atlassian.net/browse/SCRUM-116?atlOrigin=eyJpIjoiNGJlODZjNTVlNjI1NGJlYzgwMjI5NzQyYTJhNTgxODMiLCJwIjoiaiJ9), [Bitbucket](https://bitbucket.org/%7B%7D/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-116-implement-a-re-direct-page-upo)
 
+**Unnasigned**: General Tasks
+
+* **Evan Smith**: `Import and Update team info in project readme`
+  * [SCRUM-123](https://cs3398s24io.atlassian.net/browse/SCRUM-123?atlOrigin=eyJpIjoiZjMyNTdkN2FjYjhkNDE0NmE0YjFiZGE3NTE1ODRhNjMiLCJwIjoiaiJ9), [Bitbucket](https://bitbucket.org/%7B%7D/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-123-import-and-update-team-info-in)
+
 ## Project Status
 
 * Project is: **_in progress_**
@@ -159,14 +164,14 @@ In the development of the "Schedule Genius" web application, a variety of techno
 ### To do
 
 * Nil Ceylan
-  * Feature to be added 1
-  * Feature to be added 1
-  * Feature to be added 1
+  * make schedule blocker more accessible for user
+  * implement dark mode
+  * make settings more accessible
 
 * Arely Gutierrez
-  * Feature to be added 1
-  * Feature to be added 1
-  * Feature to be added 1
+  * add events to calendar
+  * expand dashboard ui components
+  * 
 
 * Noah Masoud
   * Feature to be added 1
