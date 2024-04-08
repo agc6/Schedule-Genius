@@ -21,15 +21,6 @@ const Header = () => {
                         <li>
                             <Link to="/support">Support</Link>
                         </li>
-                        <li>
-                            <Link to="/todo">ToDoList</Link>
-                        </li>
-                        <li>
-                            <Link to="/calendar">Calendar</Link>
-                        </li>
-                        <li>
-                            <Link to="/dashboard">Dasboard</Link>
-                        </li>
                     </ul>
                 </nav>
                 <div className="right flex-center">
