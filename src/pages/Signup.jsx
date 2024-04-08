@@ -41,7 +41,7 @@ const SignupPage = () => {
             setSuccessMessage('You have successfully signed up!'); // Set success message
             setTimeout(() => {
                 navigate('/signin'); // Redirect to sign-in page after 3 seconds
-            }, 3000);
+            }, 1000);
         } catch (error) {
             console.error("error signing up", error); // If error occurs then log error
             setErrorMessage(error.message); // If error occurs then set error message as error message
