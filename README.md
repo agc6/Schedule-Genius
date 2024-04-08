@@ -171,12 +171,12 @@ In the development of the "Schedule Genius" web application, a variety of techno
 * Arely Gutierrez
   * add events to calendar
   * expand dashboard ui components
-  * 
+  * clean up the ui
 
 * Noah Masoud
-  * Feature to be added 1
-  * Feature to be added 1
-  * Feature to be added 1
+  * setup routing for website
+  * added private routes for user upon sign in
+  * created to do list feature
 
 * Evan Smith
   * Save user tasks and calandar via firebase.
