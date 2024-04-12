@@ -55,8 +55,12 @@
   
   /* Main Content */
   .main-content {
-    position: absolute;
-    left:178px; top:92px; right:0; bottom:0;
-    background-color: rgb(250, 242, 252);
+    position: relative;
+    min-height: 100vh;
+    top:0;
+    left: 80px;
+    transition: all 0.5s ease;
+    width: calc(100% - 80px);
+    padding: 1rem;
   }
   
