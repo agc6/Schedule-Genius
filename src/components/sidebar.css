@@ -68,11 +68,7 @@ body.dark {
   margin-top: 10px;
 }
 
-.sidebar header .image,
-.sidebar .icon {
-  min-width: 60px;
-  border-radius: 6px;
-}
+
 
 .sidebar .icon {
   min-width: 60px;
@@ -103,26 +99,7 @@ body.dark {
 
 .sidebar header {
   position: relative;
-}
-
-.sidebar header .image-text {
-  display: flex;
-  align-items: center;
-}
-.sidebar header .logo-text {
-  display: flex;
-  flex-direction: column;
-}
-header .image-text .name {
-  margin-top: 2px;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-header .image-text .profession {
-  font-size: 16px;
-  margin-top: -2px;
-  display: block;
+  box-shadow: none;
 }
 
 .sidebar header .image {
@@ -138,18 +115,14 @@ header .image-text .profession {
 
 .sidebar header .toggle {
   position: absolute;
-  top: 50%;
+  top: 100%;
   right: -25px;
   transform: translateY(-50%) rotate(180deg);
   height: 25px;
-  width: 25px;
-  background-color: var(--primary-color);
-  color: var(--sidebar-color);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
   cursor: pointer;
   transition: var(--tran-05);
 }
@@ -163,28 +136,9 @@ body.dark .sidebar header .toggle {
 }
 
 .sidebar .menu {
-  margin-top: 40px;
+  margin-top: 15px;
 }
 
-.sidebar li.search-box {
-  border-radius: 6px;
-  background-color: var(--primary-color-light);
-  cursor: pointer;
-  transition: var(--tran-05);
-}
-
-.sidebar li.search-box input {
-  height: 100%;
-  width: 100%;
-  outline: none;
-  border: none;
-  background-color: var(--primary-color-light);
-  color: var(--text-color);
-  border-radius: 6px;
-  font-size: 17px;
-  font-weight: 500;
-  transition: var(--tran-05);
-}
 .sidebar li a {
   list-style: none;
   height: 100%;
@@ -211,7 +165,7 @@ body.dark .sidebar li a:hover .text {
 }
 
 .sidebar .menu-bar {
-  height: calc(100% - 55px);
+  height: calc(90% - 55px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;

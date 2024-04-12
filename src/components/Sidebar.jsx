@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './sidebar.css'; // Import your CSS file
 import { Link } from 'react-router-dom';
+import logo from '../images/logo.jpg';
 
 function Sidebar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -14,58 +15,44 @@ function Sidebar() {
     setIsDarkMode(!isDarkMode);
   };
 
+  const handleLogoClick = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <nav className={`sidebar ${isSidebarOpen ? 'close' : ''}`}>
       <header>
         <div className="image-text">
           <span className="image">
-            <img src="logo.png" alt="" />
+            <img src={logo} alt="" onClick={handleLogoClick} /> 
           </span>
-
-{/*          <div className="text logo-text">
-            <span className="name">Schedule Genius</span>
-            <span className="profession">WIP</span>
-          </div> */}
-        </div> 
-
+        </div>
         <i className='bx bx-chevron-right toggle' onClick={toggleSidebar}></i>
       </header>
 
       <div className="menu-bar">
         <div className="menu">
-          <li className="search-box">
-            <i className='bx bx-search icon'></i>
-            <input type="text" placeholder="Search..." />
-          </li>
-
           <ul className="menu-links">
             <li className="nav-link">
-              <a href="#">
-                <i className='bx bx-home-alt icon'></i>
-                <span className="text nav-text">Dashboard</span>
-              </a>
+              <Link to="/todo">
+                <i className='bx bx-bell icon'></i>
+                <span className="text nav-text">To Do</span>
+              </Link>
             </li>
 
             <li className="nav-link">
-            <Link to="/todo"> {/* Change anchor tag to Link component */}
-            <i className='bx bx-bell icon'></i>
-            <span className="text nav-text">To Do</span>
-          </Link>
+              <Link to="/calendar">
+                <i className='bx bx-calendar icon'></i>
+                <span className="text nav-text">Calendar</span>
+              </Link>
             </li>
 
             <li className="nav-link">
-          <Link to="/calendar">
-            <i className='bx bx-calendar icon'></i>
-            <span className="text nav-text">Calendar</span>
-          </Link>
-        </li>
-
-        <li className="nav-link">
-          <Link to="/settings">
-            <i className='bx bx-cog icon'></i>
-            <span className="text nav-text">Settings</span>
-          </Link>
-        </li>
+              <Link to="/settings">
+                <i className='bx bx-cog icon'></i>
+                <span className="text nav-text">Settings</span>
+              </Link>
+            </li>
           </ul>
         </div>
 
