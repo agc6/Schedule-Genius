@@ -10,7 +10,7 @@ import ToDoList from './pages/ToDoList';
 import Dashboard from './pages/dashboard';
 import ScheduleBlocker from './pages/ScheduleBlocker';
 import Calendar from './pages/Calendar';
-import useAuth from './useAuth';
+import useAuth from './hooks/useAuth';
 
 function App() {
   const user = useAuth();

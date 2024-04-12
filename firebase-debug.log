@@ -19278,3 +19278,65 @@ Issues? Report them at https://github.com/firebase/firebase-tools/issues and att
     at Console.log (/Users/noahmasoud/.cache/firebase/tools/lib/node_modules/winston/lib/winston/transports/console.js:79:23)
     at Console._write (/Users/noahmasoud/.cache/firebase/tools/lib/node_modules/winston-transport/index.js:103:17)
     at doWrite (/Users/noahmasoud/.cache/firebase/tools/lib/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+[debug] [2024-04-12T21:46:39.073Z] ----------------------------------------------------------------------
+[debug] [2024-04-12T21:46:39.076Z] Command:       /usr/local/bin/firebase /Users/noahmasoud/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase emulators:start
+[debug] [2024-04-12T21:46:39.077Z] CLI Version:   12.6.2
+[debug] [2024-04-12T21:46:39.077Z] Platform:      darwin
+[debug] [2024-04-12T21:46:39.078Z] Node Version:  v16.16.0
+[debug] [2024-04-12T21:46:39.082Z] Time:          Fri Apr 12 2024 16:46:39 GMT-0500 (Central Daylight Time)
+[debug] [2024-04-12T21:46:39.083Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-04-12T21:46:39.093Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2024-04-12T21:46:39.268Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-04-12T21:46:39.269Z] > authorizing via signed-in user (noahmascs@gmail.com)
+[info] i  emulators: Starting emulators: auth, hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, hosting"}}
+[debug] [2024-04-12T21:46:40.487Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-04-12T21:46:40.489Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[warn] ⚠  hosting: Hosting Emulator unable to start on port 5001, starting on 5002 instead. {"metadata":{"emulator":{"name":"hosting"},"message":"Hosting Emulator unable to start on port 5001, starting on 5002 instead."}}
+[debug] [2024-04-12T21:46:40.492Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-04-12T21:46:40.493Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5002}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2024-04-12T21:46:40.514Z] [hub] writing locator at /var/folders/wg/_dp2c5c933qcn1d903z3ytrm0000gn/T/hub-schedulegenius-v1.json
+[debug] [2024-04-12T21:46:49.029Z] > refreshing access token with scopes: []
+[debug] [2024-04-12T21:46:49.033Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-04-12T21:46:49.034Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-04-12T21:46:49.459Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-04-12T21:46:49.463Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2024-04-12T21:46:49.498Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-04-12T21:46:49.498Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-04-12T21:46:49.512Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/schedulegenius-v1/sites 
+[debug] [2024-04-12T21:46:50.604Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/schedulegenius-v1/sites 200
+[debug] [2024-04-12T21:46:50.611Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/schedulegenius-v1/sites {"sites":[{"name":"projects/schedulegenius-v1/sites/schedulegenius-v1","defaultUrl":"https://schedulegenius-v1.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-04-12T21:46:50.617Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/schedulegenius-v1/webApps/-/config [none]
+[debug] [2024-04-12T21:46:51.194Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/schedulegenius-v1/webApps/-/config 200
+[debug] [2024-04-12T21:46:51.197Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/schedulegenius-v1/webApps/-/config {"projectId":"schedulegenius-v1","storageBucket":"schedulegenius-v1.appspot.com","apiKey":"AIzaSyC7yfxdEreqfmrtzHszHljVy6MQwgNK9wY","authDomain":"schedulegenius-v1.firebaseapp.com","messagingSenderId":"761579963073"}
+[debug] [2024-04-12T21:46:51.215Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/schedulegenius-v1 [none]
+[debug] [2024-04-12T21:46:51.663Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/schedulegenius-v1 200
+[debug] [2024-04-12T21:46:51.666Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/schedulegenius-v1 {"projectId":"schedulegenius-v1","projectNumber":"761579963073","displayName":"ScheduleGenius-v1","name":"projects/schedulegenius-v1","resources":{"hostingSite":"schedulegenius-v1"},"state":"ACTIVE","etag":"1_a70884e3-bd0d-4eb1-b11c-50c19b4a1308"}
+[info] i  hosting[schedulegenius-v2]: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
+[info] ✔  hosting[schedulegenius-v2]: Local server: http://127.0.0.1:5002 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5002\u001b[22m\u001b[24m"}}
+[debug] [2024-04-12T21:46:51.885Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-04-12T21:46:51.887Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2024-04-12T21:46:51.887Z] Starting Emulator UI with command {"binary":"node","args":["/Users/noahmasoud/.cache/firebase/emulators/ui-v1.11.7/server/server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/Users/noahmasoud/.cache/firebase/emulators/ui-v1.11.7/server/server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2024-04-12T21:46:52.158Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2024-04-12T21:46:52.158Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI        │
+├────────────────┼────────────────┼────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth │
+├────────────────┼────────────────┼────────────────────────────┤
+│ Hosting        │ 127.0.0.1:5002 │ n/a                        │
+└────────────────┴────────────────┴────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
