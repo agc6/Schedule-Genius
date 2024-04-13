@@ -34,13 +34,6 @@ function Sidebar() {
         <div className="menu">
           <ul className="menu-links">
             <li className="nav-link">
-              <Link to="/todo">
-                <i className='bx bx-bell icon'></i>
-                <span className="text nav-text">To Do</span>
-              </Link>
-            </li>
-
-            <li className="nav-link">
               <Link to="/calendar">
                 <i className='bx bx-calendar icon'></i>
                 <span className="text nav-text">Calendar</span>
