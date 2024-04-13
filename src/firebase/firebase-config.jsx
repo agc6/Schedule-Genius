@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth, connectAuthEmulator } from "firebase/auth";
+import { getFirestore } from 'firebase/firestore';
 //import { getAnalytics } fsrom "firebase/analytics";
 
 // Your web app's Firebase configuration
@@ -18,5 +19,7 @@ const firebaseConfig = {
 // Initialize Firebase
 export const firebaseapp = initializeApp(firebaseConfig);
 export const auth = getAuth(firebaseapp);
+export const firestoreDB = getFirestore(firebaseapp);
+
 connectAuthEmulator(auth, "http://localhost:9099");
 //const analytics = getAnalytics(firebaseapp);
