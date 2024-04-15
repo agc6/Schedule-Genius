@@ -16,6 +16,7 @@
   z-index: 101; /* Ensure header is above sidebar */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Example shadow */
   transition: left var(--tran-05); /* Ensure smooth transition */
+  box-shadow: none;
 }
 
   
