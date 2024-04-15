@@ -28,4 +28,4 @@ yarn-error.log*
 Resources/toks/tok.txt
 .vscode/settings.json
 
-misc/resources/firebase-react-todo-app/
+misc/resources/firebase-react-todo-app
