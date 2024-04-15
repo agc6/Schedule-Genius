@@ -12,6 +12,7 @@ import ToDoList from './pages/ToDoList';
 import Dashboard from './pages/dashboard';
 import ScheduleBlocker from './pages/ScheduleBlocker';
 import Calendar from './pages/Calendar';
+import Settings from './pages/Settings';
 
 const monitorAuthState = async () => {
   onAuthStateChanged(auth, (user) => {
@@ -41,6 +42,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/scheduleblocker" element={<ScheduleBlocker />} />
           <Route path="/calendar" element={<Calendar />} />
+          <Route path="/settings" element={<Settings />} />
         </Routes>
       </Router>
     </div>
