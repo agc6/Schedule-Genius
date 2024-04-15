@@ -1,10 +1,10 @@
-// MainContent.js
+// MainContent.jsx
 import React from 'react';
-
+import ToDoList from '../pages/ToDoList';
 function MainContent() {
   return (
     <main className="main-content">
-      <h1>Main Content</h1>
+      <ToDoList />
     </main>
   );
 }
