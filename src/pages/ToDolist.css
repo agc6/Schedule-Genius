@@ -5,6 +5,9 @@
     padding: 20px;
     border: 1px solid #907fdc;
     border-radius: 5px;
+    position: absolute;
+    top: 50px;
+    right: 30px;
 }
 
 .to-do-list h1 {
