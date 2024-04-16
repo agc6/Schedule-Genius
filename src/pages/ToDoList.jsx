@@ -1,34 +1,34 @@
 import React, { useState, useEffect } from 'react';
-import { db } from '../firebase/firebase-config';
-import { collection, addDoc, query, onSnapshot, doc, deleteDoc, updateDoc } from 'firebase/firestore';
+import { db, auth } from '../firebase/firebase-config';
+import { collection, where, addDoc, query, onSnapshot, doc, deleteDoc, updateDoc } from 'firebase/firestore';
 import './ToDolist.css';
 
 const ToDoList = () => {
     const [tasks, setTasks] = useState([]);
     const [newTask, setNewTask] = useState("");
 
+    const user = auth.currentUser;
+
+    console.log(user.uid);
     // set up firestore collection reference
     //const tasksCollectionRef = collection(db, 'tasks');
 
     useEffect(() => {
-        //define a query against the firestore collection
-        const q = query(collection(db, "tasks")); // Order tasks by 'order' field
-        // This onSnapshot function sets up a real-time subscription to the Firestore query.
-        // It will automatically invoke the provided callback function whenever the data changes.
-        const unsubscribe = onSnapshot(q, (querySnapshot) => {
-            let tasksArr = []; // Initialize an empty array to hold the tasks
-            // iterate over each doc in the querySnapshot
-            querySnapshot.forEach((doc) => {
-                // push each task into our array with an added id property
-                tasksArr.push({...doc.data(), id: doc.id});
+        if (user) {
+            // Define a query against the firestore collection, filtering by userId
+            const q = query(collection(db, "tasks"), where("userId", "==", user.uid));
+            // This onSnapshot function sets up a real-time subscription to the Firestore query.
+            const unsubscribe = onSnapshot(q, (querySnapshot) => {
+                let tasksArr = [];
+                querySnapshot.forEach((doc) => {
+                    tasksArr.push({...doc.data(), id: doc.id});
+                });
+                setTasks(tasksArr);
             });
-            // update the tasks state with the new array of tasks
-            setTasks(tasksArr)
-        })
-        // Return a cleanup function that unsubscribes from the Firestore subscription when the component unmounts.
-        // This prevents memory leaks and unnecessary data retrieval when the component is no longer in use.
-        return () => unsubscribe;
-    }, []) // The empty dependency array means this effect will only run once when the component mounts.
+            // Cleanup function to unsubscribe from Firestore when the component unmounts
+            return () => unsubscribe();
+        }
+    }, [user]);
 
     // Function to handle input change
     function handleInputChange(event) {
@@ -37,10 +37,14 @@ const ToDoList = () => {
 
     // Function to add a new task
     async function addTask() {
-        if (newTask.trim() !== "") {
-            const order = tasks.length > 0 ? tasks[tasks.length - 1].order + 1 : 0; // Set order for new task
-            await addDoc(collection(db, "tasks"), { text: newTask, completed: false, order: order });
-            //setTasks([...tasks, newTask]);
+        if (newTask.trim() !== "" && user) {
+            const order = tasks.length > 0 ? tasks[tasks.length - 1].order + 1 : 0;
+            await addDoc(collection(db, "tasks"), {
+                text: newTask,
+                completed: false,
+                order: order,
+                userId: user.uid // Include the userId when adding a task
+            });
             setNewTask("");
         }
     }
