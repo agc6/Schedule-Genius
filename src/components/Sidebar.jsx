@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import './sidebar.css'; // Import your CSS file
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate hook
 import logo from '../images/logo.jpg';
+import { signOut } from 'firebase/auth'; // Import the signOut function from firebase/auth
+import { auth } from '../firebase/firebase-config'; // Import the auth object from firebase-config
 
 function Sidebar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const navigate = useNavigate(); // Initialize the navigate function
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -19,12 +22,22 @@ function Sidebar() {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  const handleSignOut = async () => {
+    try {
+      await signOut(auth); // Sign out the user
+      // Redirect to sign-in page after successful sign-out
+      navigate('/signin');
+    } catch (error) {
+      console.error('Error signing out:', error);
+    }
+  };
+
   return (
     <nav className={`sidebar ${isSidebarOpen ? 'close' : ''}`}>
       <header>
         <div className="image-text">
           <span className="image">
-            <img src={logo} alt="" onClick={handleLogoClick} /> 
+            <img src={logo} alt="" onClick={handleLogoClick} />
           </span>
         </div>
         <i className='bx bx-chevron-right toggle' onClick={toggleSidebar}></i>
@@ -50,7 +63,7 @@ function Sidebar() {
         </div>
 
         <div className="bottom-content">
-          <li>
+          <li onClick={handleSignOut}> {/* Add onClick event handler for sign out */}
             <a href="#">
               <i className='bx bx-log-out icon'></i>
               <span className="text nav-text">Logout</span>
