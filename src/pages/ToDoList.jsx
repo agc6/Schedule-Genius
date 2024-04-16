@@ -36,18 +36,20 @@ const ToDoList = () => {
     }
 
     // Function to add a new task
-    function addTask() {
+    async function addTask() {
         if (newTask.trim() !== "") {
-            setTasks([...tasks, newTask]);
+            await addDoc(tasksCollectionRef, { text: newTask, completed: false })
+            //setTasks([...tasks, newTask]);
             setNewTask("");
         }
     }
 
     // Function to delete a task by index
-    function deleteTask(index) {
-        const updatedTasks = [...tasks];
-        updatedTasks.splice(index, 1);
-        setTasks(updatedTasks);
+    async function deleteTask(taskID) {
+        await deleteDoc(doc(db, 'tasks', taskID));
+        //const updatedTasks = [...tasks];
+        //updatedTasks.splice(index, 1);
+        //setTasks(updatedTasks);
     }
 
     // Function to move a task down by index
@@ -86,12 +88,17 @@ const ToDoList = () => {
             </div>
             <ul>
                 {tasks.map((task, index) => (
-                    <li key={index} className={task.completed ? 'completed-task' : ''}>
-                        {task}
-                        <button onClick={() => deleteTask(index)}>✘</button>
-                        <button onClick={() => moveTaskDown(index)}>↓</button>
-                        <button onClick={() => moveTaskUp(index)}>↑</button>
+                    <li key={task.id} className={task.completed ? 'completed-task' : ''}>
+                        {task.text}
+                        <button onClick={() => deleteTask(task.id)}>✘</button>
+                        {/* Moving tasks up and down would require additional logic */}
                     </li>
+                    // <li key={index} className={task.completed ? 'completed-task' : ''}>
+                    //     {task}
+                    //     <button onClick={() => deleteTask(index)}>✘</button>
+                    //     <button onClick={() => moveTaskDown(index)}>↓</button>
+                    //     <button onClick={() => moveTaskUp(index)}>↑</button>
+                    // </li>
                 ))}
             </ul>
         </div>
