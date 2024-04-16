@@ -61,6 +61,18 @@ body.dark {
   width: 88px;
 }
 
+.sidebar.close ~ .main-content {
+  left: 80px; /* Adjust this value to match your sidebar width */
+  width: calc(100% - 80px); /* Adjust this value to match your sidebar width */
+}
+
+body.dark .sidebar.close ~ .main-content {
+  left: 78px; /* Adjust this value to match your sidebar width in dark mode */
+  width: calc(100% - 78px); /* Adjust this value to match your sidebar width in dark mode */
+}
+
+
+
 /* ===== Reusable code - Here ===== */
 .sidebar li {
   height: 50px;
