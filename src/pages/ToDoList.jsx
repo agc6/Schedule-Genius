@@ -28,7 +28,7 @@ const ToDoList = () => {
         // Return a cleanup function that unsubscribes from the Firestore subscription when the component unmounts.
         // This prevents memory leaks and unnecessary data retrieval when the component is no longer in use.
         return () => unsubscribe;
-    }, []) // The empty dependency array means this effect will only run once when the component mounts.
+    }, [tasksCollectionRef]) // The empty dependency array means this effect will only run once when the component mounts.
 
     // Function to handle input change
     function handleInputChange(event) {
@@ -48,21 +48,7 @@ const ToDoList = () => {
     // Function to delete a task by index
     async function deleteTask(taskID) {
         await deleteDoc(doc(db, 'tasks', taskID));
-        //const updatedTasks = [...tasks];
-        //updatedTasks.splice(index, 1);
-        //setTasks(updatedTasks);
     }
-
-    // Function to move a task down by index
-    // function moveTaskDown(index) {
-    //     if (index < tasks.length - 1) {
-    //         const updatedTasks = [...tasks];
-    //         const temp = updatedTasks[index];
-    //         updatedTasks[index] = updatedTasks[index + 1];
-    //         updatedTasks[index + 1] = temp;
-    //         setTasks(updatedTasks);
-    //     }
-    // }
     async function moveTaskDown(index) {
         if (index < tasks.length - 1) {
             // Swap order with the next task
@@ -72,17 +58,6 @@ const ToDoList = () => {
             await updateDoc(doc(db, "tasks", nextTask.id), { order: currentTask.order });
         }
     }
-
-    // Function to move a task up by index
-    // function moveTaskUp(index) {
-    //     if (index > 0) {
-    //         const updatedTasks = [...tasks];
-    //         const temp = updatedTasks[index];
-    //         updatedTasks[index] = updatedTasks[index - 1];
-    //         updatedTasks[index - 1] = temp;
-    //         setTasks(updatedTasks);
-    //     }
-    // }
     async function moveTaskUp(index) {
         if (index > 0) {
             // Swap order with the previous task
@@ -113,12 +88,6 @@ const ToDoList = () => {
                         <button onClick={() => moveTaskDown(index)}>↓</button>
                         <button onClick={() => moveTaskUp(index)}>↑</button>
                     </li>
-                    // <li key={index} className={task.completed ? 'completed-task' : ''}>
-                    //     {task}
-                    //     <button onClick={() => deleteTask(index)}>✘</button>
-                    //     <button onClick={() => moveTaskDown(index)}>↓</button>
-                    //     <button onClick={() => moveTaskUp(index)}>↑</button>
-                    // </li>
                 ))}
             </ul>
         </div>
