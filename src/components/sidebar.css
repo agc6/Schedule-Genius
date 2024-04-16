@@ -54,10 +54,24 @@ body.dark {
   background: var(--sidebar-color);
   transition: var(--tran-05);
   z-index: 100;
+  background-color: #ededf8;
+  border-radius:0px 35px 5px 5px;
 }
 .sidebar.close {
   width: 88px;
 }
+
+.sidebar.close ~ .main-content {
+  left: 80px; /* Adjust this value to match your sidebar width */
+  width: calc(100% - 80px); /* Adjust this value to match your sidebar width */
+}
+
+body.dark .sidebar.close ~ .main-content {
+  left: 78px; /* Adjust this value to match your sidebar width in dark mode */
+  width: calc(100% - 78px); /* Adjust this value to match your sidebar width in dark mode */
+}
+
+
 
 /* ===== Reusable code - Here ===== */
 .sidebar li {
@@ -100,6 +114,7 @@ body.dark {
 .sidebar header {
   position: relative;
   box-shadow: none;
+  background-color: #ededf8;
 }
 
 .sidebar header .image {
@@ -109,7 +124,7 @@ body.dark {
 }
 
 .sidebar header .image img {
-  width: 40px;
+  width: 60px;
   border-radius: 6px;
 }
 
