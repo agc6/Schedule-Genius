@@ -7,7 +7,9 @@ const Header = () => {
         <header>
             <div className="container flex-row">
                 <div className="header_logo">
-                    <img src={logo} alt="Schedule Genius Logo" />
+                    <Link to="/">
+                        <img src={logo} alt="Schedule Genius Logo" />
+                    </Link>
                 </div>
                 <nav> {/* add signout button */}
                     <ul className="header_menu flex-row">

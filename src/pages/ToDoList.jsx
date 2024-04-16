@@ -1,9 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { db } from '../firebase/firebase-config';
+import { collection, addDoc, query, onSnapshot, doc, deleteDoc, updateDoc } from 'firebase/firestore';
 import './ToDolist.css';
 
 const ToDoList = () => {
     const [tasks, setTasks] = useState([]);
     const [newTask, setNewTask] = useState("");
+
+    // set up firestore collection reference
+    //const tasksCollectionRef = collection(db, 'tasks');
+
+    useEffect(() => {
+        //define a query against the firestore collection
+        const q = query(collection(db, "tasks")); // Order tasks by 'order' field
+        // This onSnapshot function sets up a real-time subscription to the Firestore query.
+        // It will automatically invoke the provided callback function whenever the data changes.
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+            let tasksArr = []; // Initialize an empty array to hold the tasks
+            // iterate over each doc in the querySnapshot
+            querySnapshot.forEach((doc) => {
+                // push each task into our array with an added id property
+                tasksArr.push({...doc.data(), id: doc.id});
+            });
+            // update the tasks state with the new array of tasks
+            setTasks(tasksArr)
+        })
+        // Return a cleanup function that unsubscribes from the Firestore subscription when the component unmounts.
+        // This prevents memory leaks and unnecessary data retrieval when the component is no longer in use.
+        return () => unsubscribe;
+    }, []) // The empty dependency array means this effect will only run once when the component mounts.
 
     // Function to handle input change
     function handleInputChange(event) {
@@ -11,39 +36,35 @@ const ToDoList = () => {
     }
 
     // Function to add a new task
-    function addTask() {
+    async function addTask() {
         if (newTask.trim() !== "") {
-            setTasks([...tasks, newTask]);
+            const order = tasks.length > 0 ? tasks[tasks.length - 1].order + 1 : 0; // Set order for new task
+            await addDoc(collection(db, "tasks"), { text: newTask, completed: false, order: order });
+            //setTasks([...tasks, newTask]);
             setNewTask("");
         }
     }
 
     // Function to delete a task by index
-    function deleteTask(index) {
-        const updatedTasks = [...tasks];
-        updatedTasks.splice(index, 1);
-        setTasks(updatedTasks);
+    async function deleteTask(taskID) {
+        await deleteDoc(doc(db, 'tasks', taskID));
     }
-
-    // Function to move a task down by index
-    function moveTaskDown(index) {
+    async function moveTaskDown(index) {
         if (index < tasks.length - 1) {
-            const updatedTasks = [...tasks];
-            const temp = updatedTasks[index];
-            updatedTasks[index] = updatedTasks[index + 1];
-            updatedTasks[index + 1] = temp;
-            setTasks(updatedTasks);
+            // Swap order with the next task
+            const currentTask = tasks[index];
+            const nextTask = tasks[index + 1];
+            await updateDoc(doc(db, "tasks", currentTask.id), { order: nextTask.order });
+            await updateDoc(doc(db, "tasks", nextTask.id), { order: currentTask.order });
         }
     }
-
-    // Function to move a task up by index
-    function moveTaskUp(index) {
+    async function moveTaskUp(index) {
         if (index > 0) {
-            const updatedTasks = [...tasks];
-            const temp = updatedTasks[index];
-            updatedTasks[index] = updatedTasks[index - 1];
-            updatedTasks[index - 1] = temp;
-            setTasks(updatedTasks);
+            // Swap order with the previous task
+            const currentTask = tasks[index];
+            const previousTask = tasks[index - 1];
+            await updateDoc(doc(db, "tasks", currentTask.id), { order: previousTask.order });
+            await updateDoc(doc(db, "tasks", previousTask.id), { order: currentTask.order });
         }
     }
 
@@ -61,9 +82,9 @@ const ToDoList = () => {
             </div>
             <ul>
                 {tasks.map((task, index) => (
-                    <li key={index} className={task.completed ? 'completed-task' : ''}>
-                        {task}
-                        <button onClick={() => deleteTask(index)}>✘</button>
+                    <li key={task.id} className={task.completed ? 'completed-task' : ''}>
+                        {task.text}
+                        <button onClick={() => deleteTask(task.id)}>✘</button>
                         <button onClick={() => moveTaskDown(index)}>↓</button>
                         <button onClick={() => moveTaskUp(index)}>↑</button>
                     </li>
