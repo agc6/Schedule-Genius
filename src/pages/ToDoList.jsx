@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase/firebase-config';
-import { collection, addDoc, query, onSnapshot, doc, deleteDoc, updateDoc, orderBy } from 'firebase/firestore';
+import { collection, addDoc, query, onSnapshot, doc, deleteDoc, updateDoc } from 'firebase/firestore';
 import './ToDolist.css';
 
 const ToDoList = () => {
@@ -8,11 +8,11 @@ const ToDoList = () => {
     const [newTask, setNewTask] = useState("");
 
     // set up firestore collection reference
-    const tasksCollectionRef = collection(db, 'tasks');
+    //const tasksCollectionRef = collection(db, 'tasks');
 
     useEffect(() => {
         //define a query against the firestore collection
-        const q = query(tasksCollectionRef, orderBy("order", "asc")); // Order tasks by 'order' field
+        const q = query(collection(db, "tasks")); // Order tasks by 'order' field
         // This onSnapshot function sets up a real-time subscription to the Firestore query.
         // It will automatically invoke the provided callback function whenever the data changes.
         const unsubscribe = onSnapshot(q, (querySnapshot) => {
@@ -28,7 +28,7 @@ const ToDoList = () => {
         // Return a cleanup function that unsubscribes from the Firestore subscription when the component unmounts.
         // This prevents memory leaks and unnecessary data retrieval when the component is no longer in use.
         return () => unsubscribe;
-    }, [tasksCollectionRef]) // The empty dependency array means this effect will only run once when the component mounts.
+    }, []) // The empty dependency array means this effect will only run once when the component mounts.
 
     // Function to handle input change
     function handleInputChange(event) {
@@ -39,7 +39,7 @@ const ToDoList = () => {
     async function addTask() {
         if (newTask.trim() !== "") {
             const order = tasks.length > 0 ? tasks[tasks.length - 1].order + 1 : 0; // Set order for new task
-            await addDoc(tasksCollectionRef, { text: newTask, completed: false, order });
+            await addDoc(collection(db, "tasks"), { text: newTask, completed: false, order: order });
             //setTasks([...tasks, newTask]);
             setNewTask("");
         }

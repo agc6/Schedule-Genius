@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -10,10 +10,28 @@ import ToDoList from './pages/ToDoList';
 import Dashboard from './pages/dashboard';
 import ScheduleBlocker from './pages/ScheduleBlocker';
 import Calendar from './pages/Calendar';
-import useAuth from './hooks/useAuth';
+import { auth } from './firebase/firebase-config';
+import { onAuthStateChanged } from 'firebase/auth';
+
+
+
 
 function App() {
-  const user = useAuth();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log('User is signed in:', user);
+        setUser(user); // Set the user state to the logged-in user
+      } else {
+        console.log('User is signed out');
+        setUser(null); // Set the user state to null when signed out
+      }
+    });
+
+    return () => unsubscribe(); // Cleanup the subscription
+  }, []);
 
   return (
     <div>
