@@ -1,5 +1,7 @@
 import React from 'react';
 import './Settings.css';
+import Header from '../components/dashHeader'
+import Sidebar from '../components/Sidebar';
 
 const Settings = () => {
 
@@ -15,17 +17,19 @@ const Settings = () => {
                 console.error('Error deleting account:', error);
             });
         */
-       console.log("Account deleted.");
+        console.log("Account deleted.");
     };
 
-    return(
+    return (
         <div className='settings-container'>
+            <Header />
+            <Sidebar />
             <h1>User Settings</h1>
             <p>Customize your experience by adjusting the settings below. <br />
-            <i>Change your username, update your email, choose a theme, and delete your account.</i></p>
+                <i>Change your username, update your email, choose a theme, and delete your account.</i></p>
             <form>
                 <label htmlFor='username'>Username:</label>
-                <input type='text' id='username' name='username'/>
+                <input type='text' id='username' name='username' />
 
                 <label htmlFor='email'>Email:</label>
                 <input type='email' id='email' name='email' />
@@ -45,7 +49,7 @@ const Settings = () => {
                 <button type='button' onClick={deleteAccount} className='delete-button'>Delete Account</button>
 
             </form>
-        </div>
+        </div >
     );
 };
 
