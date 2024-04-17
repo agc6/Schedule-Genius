@@ -1,83 +1,93 @@
-import React, { useState } from 'react';
-import './calendar.css'; 
+import format from "date-fns/format";
+import getDay from "date-fns/getDay";
+import parse from "date-fns/parse";
+import startOfWeek from "date-fns/startOfWeek";
+import React, { useState } from "react";
+import { Calendar, dateFnsLocalizer } from "react-big-calendar";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "./calendar.css";
 
-const Calendar = () => {
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [currentMonth, setCurrentMonth] = useState(new Date());
-
-  const handleDateClick = (date) => {
-    setSelectedDate(date);
-  };
-
-  const goToPreviousMonth = () => {
-    setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1));
-  };
-
-  const goToNextMonth = () => {
-    setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1));
-  };
-
-  const renderDaysOfWeek = () => {
-    const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    return daysOfWeek.map((day, index) => (
-      <div key={index} className="day-of-week">
-        {day}
-      </div>
-    ));
-  };
-
-  const renderDays = () => {
-    const days = [];
-    const totalDaysInMonth = new Date(
-      currentMonth.getFullYear(),
-      currentMonth.getMonth() + 1,
-      0
-    ).getDate();
-    const firstDayOfMonth = new Date(
-      currentMonth.getFullYear(),
-      currentMonth.getMonth(),
-      1
-    ).getDay();
-
-    for (let i = 1; i <= totalDaysInMonth; i++) {
-      const date = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), i);
-      days.push(
-        <div
-          key={i}
-          className={`day ${selectedDate &&
-            date.toDateString() === selectedDate.toDateString() &&
-            'selected'}`}
-          onClick={() => handleDateClick(date)}
-        >
-          {i}
-        </div>
-      );
-    }
-
-    // Add empty placeholders for days before the first day of the month
-    for (let i = 0; i < firstDayOfMonth; i++) {
-      days.unshift(<div key={`empty-${i}`} className="empty-day"></div>);
-    }
-
-    return days;
-  };
-
-  return (
-    <div className="calendar-container">
-      <div className="calendar-header">
-        <button onClick={goToPreviousMonth}>&lt;</button>
-        <h2>{currentMonth.toLocaleString('default', { month: 'long', year: 'numeric' })}</h2>
-        <button onClick={goToNextMonth}>&gt;</button>
-      </div>
-      <div className="days-of-week-container">{renderDaysOfWeek()}</div>
-      <div className="days-container">{renderDays()}</div>
-      {selectedDate && (
-        <div className="selected-date">
-          Selected Date: {selectedDate.toDateString()}
-        </div>
-      )}
-    </div>
-  );
+const locales = {
+    "en-US": require("date-fns/locale/en-US"),
 };
+const localizer = dateFnsLocalizer({
+    format,
+    parse,
+    startOfWeek,
+    getDay,
+    locales,
+});
 
-export default Calendar;
+const events = [
+    {
+        title: "Big Meeting",
+        allDay: true,
+        start: new Date(2021, 6, 0),
+        end: new Date(2021, 6, 0),
+    },
+    {
+        title: "Vacation",
+        start: new Date(2021, 6, 7),
+        end: new Date(2021, 6, 10),
+    },
+    {
+        title: "Conference",
+        start: new Date(2021, 6, 20),
+        end: new Date(2021, 6, 23),
+    },
+];
+
+function BigCalendar() {
+    const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
+    const [allEvents, setAllEvents] = useState(events);
+
+    function handleAddEvent() {
+        
+        for (let i=0; i<allEvents.length; i++){
+
+            const d1 = new Date (allEvents[i].start);
+            const d2 = new Date(newEvent.start);
+            const d3 = new Date(allEvents[i].end);
+            const d4 = new Date(newEvent.end);
+      /*
+          console.log(d1 <= d2);
+          console.log(d2 <= d3);
+          console.log(d1 <= d4);
+          console.log(d4 <= d3);
+            */
+
+             if (
+              ( (d1  <= d2) && (d2 <= d3) ) || ( (d1  <= d4) &&
+                (d4 <= d3) )
+              )
+            {   
+                alert("CLASH"); 
+                break;
+             }
+    
+        }
+        
+        
+        setAllEvents([...allEvents, newEvent]);
+    }
+
+    return (
+        <div className="calendar">
+            <h1>Calendar</h1>
+            <h2>Add New Event</h2>
+            <div>
+                <input type="text" placeholder="Add Title" style={{ width: "20%", marginRight: "10px" }} value={newEvent.title} onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })} />
+                <DatePicker placeholderText="Start Date" style={{ marginRight: "10px" }} selected={newEvent.start} onChange={(start) => setNewEvent({ ...newEvent, start })} />
+                <DatePicker placeholderText="End Date" selected={newEvent.end} onChange={(end) => setNewEvent({ ...newEvent, end })} />
+                <button stlye={{ marginTop: "10px" }} onClick={handleAddEvent}>
+                    Add Event
+                </button>
+            </div>
+            <Calendar localizer={localizer} events={allEvents} startAccessor="start" endAccessor="end" style={{ height: 500, margin: "50px" }} />
+        </div>
+    );
+}
+
+export default BigCalendar;
