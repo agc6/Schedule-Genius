@@ -12,6 +12,7 @@ import ScheduleBlocker from './pages/ScheduleBlocker';
 import Calendar from './pages/Calendar';
 import { auth } from './firebase/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
+import Settings from './pages/Settings';
 
 
 
@@ -47,6 +48,7 @@ function App() {
           <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/signin" />} />
           <Route path="/scheduleblocker" element={user ? <ScheduleBlocker /> : <Navigate to="/signin" />} />
           <Route path="/calendar" element={user ? <Calendar /> : <Navigate to="/signin" />} />
+          <Route path="/settings" element={user ? <Settings /> : <Navigate to="/signin" />} />
         </Routes>
       </Router>
     </div>

@@ -52,12 +52,19 @@ function Sidebar() {
                 <span className="text nav-text">Calendar</span>
               </Link>
             </li>
+            <li className="nav-link">
+              <Link to="/dashboard">
+                <i className='bx bx-cog icon'></i>
+                <span className="text nav-text">Dashboard</span>
+              </Link>
+            </li>
 
             <li className="nav-link">
               <Link to="/settings">
                 <i className='bx bx-cog icon'></i>
                 <span className="text nav-text">Settings</span>
               </Link>
+
             </li>
           </ul>
         </div>
