@@ -2,11 +2,27 @@ import React from 'react';
 import './Settings.css';
 
 const Settings = () => {
+
+    const deleteAccount = () => {
+        /* Need to implement firebase auth to delete account
+            const user = firebase.auth().currentUser; // Get the current user
+            if (user) {
+                user.delete().then(() => {
+                // Account deleted successfully
+                console.log('Account deleted!');
+            }).catch((error) => {
+                // An error occurred while deleting the account
+                console.error('Error deleting account:', error);
+            });
+        */
+       console.log("Account deleted.");
+    };
+
     return(
         <div className='settings-container'>
             <h1>User Settings</h1>
             <p>Customize your experience by adjusting the settings below. <br />
-            Change your username, update your email, and choose a theme </p>
+            <i>Change your username, update your email, choose a theme, and delete your account.</i></p>
             <form>
                 <label htmlFor='username'>Username:</label>
                 <input type='text' id='username' name='username'/>
@@ -24,7 +40,9 @@ const Settings = () => {
                 <label htmlFor='notifications'>Notifications:</label>
                 <input type='checkbox' id='notifications' name='notifications' />
                 */}
+
                 <button type='submit'>Save Settings</button>
+                <button type='button' onClick={deleteAccount} className='delete-button'>Delete Account</button>
 
             </form>
         </div>
