@@ -17,6 +17,14 @@ const Settings = () => {
                 console.error('Error deleting account:', error);
             });
         */
+
+        /* 
+            need to make this function a component ( then call it back into this same spot)
+            you will also need to make a route to settings that authenticates the users state
+            research how to terminate via firebase console 
+            check out the routes for reference on app.jsx
+        */
+         
         console.log("Account deleted.");
     };
 
