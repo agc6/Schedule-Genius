@@ -2,3 +2,6 @@
 	text-align: center;
 }
 
+.rbc-event{
+	background-color: var(--primary-color);
+}
