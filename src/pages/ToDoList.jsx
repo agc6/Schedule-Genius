@@ -10,8 +10,6 @@ const ToDoList = () => {
     const user = auth.currentUser;
 
     console.log(user.uid);
-    // set up firestore collection reference
-    //const tasksCollectionRef = collection(db, 'tasks');
 
     useEffect(() => {
         if (user) {
