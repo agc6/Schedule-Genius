@@ -41,7 +41,8 @@ const ToDoList = () => {
                 text: newTask,
                 completed: false,
                 order: order,
-                userId: user.uid // Include the userId when adding a task
+                userId: user.uid, // Include the userId when adding a task
+                dueDate: new Date() // Set the due date as the current date
             });
             setNewTask("");
         }

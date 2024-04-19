@@ -113,7 +113,8 @@ function BigCalendar() {
             text: `${eventData.title}`,
             completed: false,
             order: tasks.length,
-            userId: user.uid
+            userId: user.uid,
+            dueDate: new Date(eventData.end)
         };
 
         setTasks(prev => [...prev, taskData]); // Update tasks array
