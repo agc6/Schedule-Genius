@@ -4,4 +4,10 @@
 
 .rbc-event{
 	background-color: var(--primary-color);
+	opacity: .8;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background-color: #d2bbf5;
 }
