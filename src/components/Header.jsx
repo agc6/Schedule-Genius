@@ -11,7 +11,7 @@ const Header = () => {
                         <img src={logo} alt="Schedule Genius Logo" />
                     </Link>
                 </div>
-                <nav> {/* add signout button */}
+                <nav>
                     <ul className="header_menu flex-row">
                         {/* Replace anchor tag with Link */}
                         <li>
@@ -26,7 +26,6 @@ const Header = () => {
                     </ul>
                 </nav>
                 <div className="right flex-center">
-                    {/* Replace anchor tag with Link */}
                     <Link to="/signin" className="btn btn-secondary">Sign In</Link>
                     <div className="menu-btn">
                         <i className="fas fa-bars"></i>
