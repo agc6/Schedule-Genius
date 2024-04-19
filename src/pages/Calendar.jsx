@@ -58,20 +58,32 @@ function BigCalendar() {
     }, [newEvent]);
 
     function handleAddEvent() {
+        let clashDetected = false;
+    
         for (let i = 0; i < allEvents.length; i++) {
             const d1 = new Date(allEvents[i].start);
             const d2 = new Date(newEvent.start);
             const d3 = new Date(allEvents[i].end);
             const d4 = new Date(newEvent.end);
-
+    
             if ((d1 <= d2 && d2 <= d3) || (d1 <= d4 && d4 <= d3)) {
-                alert("CLASH");
-                return;
+                clashDetected = true;
+                break;
             }
         }
-
-        setAllEvents([...allEvents, newEvent]);
+    
+        if (clashDetected) {
+            if (window.confirm("There is a clash with existing events. Do you still want to add this event?")) {
+                setAllEvents([...allEvents, newEvent]);
+            }
+        } else {
+            setAllEvents([...allEvents, newEvent]);
+        }
     }
+    
+    
+    
+    
 
     const defaultDate = useMemo(() => new Date(), []);
 
