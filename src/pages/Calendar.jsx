@@ -80,10 +80,6 @@ function BigCalendar() {
             setAllEvents([...allEvents, newEvent]);
         }
     }
-    
-    
-    
-    
 
     const defaultDate = useMemo(() => new Date(), []);
 
@@ -115,16 +111,20 @@ function BigCalendar() {
                 </button>
             </div>
             <div className="height600">
-                <Calendar
-                    defaultDate={defaultDate}
-                    events={allEvents}
-                    localizer={localizer}
-                    onSelectSlot={onSelectSlot}
-                    selectable
-                    startAccessor="start"
-                    endAccessor="end"
-                    style={{ height: 500, margin: "50px" }}
-                />
+            <Calendar
+            defaultDate={defaultDate}
+            events={allEvents}
+            localizer={localizer}
+            onSelectSlot={onSelectSlot}
+            selectable
+            startAccessor="start"
+            endAccessor="end"
+            style={{ height: 500, margin: "50px" }}
+            views={['month', 'week', 'day']}
+            popup={true} // Show truncated events in an overlay
+            popupOffset={{ x: 10, y: 10 }} // Position offset from the edges of the viewport
+/>
+
             </div>
         </div>
     );
