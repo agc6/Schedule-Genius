@@ -1,17 +1,31 @@
+// Import date utility functions from date-fns library
 import format from "date-fns/format";
 import getDay from "date-fns/getDay";
 import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
+
+// Import React and its hooks
 import React, { useState, useEffect, useCallback, useRef, useMemo } from "react";
+
+// Import Calendar component and localization function from react-big-calendar
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
+
+// Import default CSS for react-big-calendar
 import "react-big-calendar/lib/css/react-big-calendar.css";
+
+// Import DatePicker component and its default CSS from react-datepicker
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+
+// Import custom styles for the calendar
 import "./calendar.css";
 
+// Locale configurations for date functions
 const locales = {
     "en-US": require("date-fns/locale/en-US"),
 };
+
+// Configure localizer for calendar with date-fns functions and locale data
 const localizer = dateFnsLocalizer({
     format,
     parse,
@@ -20,6 +34,7 @@ const localizer = dateFnsLocalizer({
     locales,
 });
 
+// Static list of initial calendar events
 const events = [
     {
         title: "Big Meeting",
@@ -39,17 +54,23 @@ const events = [
     },
 ];
 
+// Define the BigCalendar functional component
 function BigCalendar() {
+    // State for managing new event details
     const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
+    // State for managing all calendar events
     const [allEvents, setAllEvents] = useState(events);
+    // Reference to manage the click timeout
     const clickRef = useRef(null);
 
+    // Effect to clean up timeouts when component unmounts
     useEffect(() => {
         return () => {
             window.clearTimeout(clickRef.current);
         };
     }, []);
 
+    // Callback to handle slot selection with a debounced approach
     const onSelectSlot = useCallback((slotInfo) => {
         window.clearTimeout(clickRef.current);
         clickRef.current = window.setTimeout(() => {
@@ -57,6 +78,7 @@ function BigCalendar() {
         }, 250);
     }, [newEvent]);
 
+    // Function to handle adding a new event after checking for clashes
     function handleAddEvent() {
         let clashDetected = false;
     
@@ -81,8 +103,10 @@ function BigCalendar() {
         }
     }
 
+    // Memoize the default date value to avoid recomputation
     const defaultDate = useMemo(() => new Date(), []);
 
+    // Component rendering the calendar and its controls
     return (
         <div className="calendar">
             <h1>Calendar</h1>
@@ -111,23 +135,23 @@ function BigCalendar() {
                 </button>
             </div>
             <div className="height600">
-            <Calendar
-            defaultDate={defaultDate}
-            events={allEvents}
-            localizer={localizer}
-            onSelectSlot={onSelectSlot}
-            selectable
-            startAccessor="start"
-            endAccessor="end"
-            style={{ height: 500, margin: "50px" }}
-            views={['month', 'week', 'day']}
-            popup={true} // Show truncated events in an overlay
-            popupOffset={{ x: 10, y: 10 }} // Position offset from the edges of the viewport
-/>
-
+                <Calendar
+                    defaultDate={defaultDate}
+                    events={allEvents}
+                    localizer={localizer}
+                    onSelectSlot={onSelectSlot}
+                    selectable
+                    startAccessor="start"
+                    endAccessor="end"
+                    style={{ height: 500, margin: "50px" }}
+                    views={['month', 'week', 'day']}
+                    popup={true} // Show events in a popup if they are truncated
+                    popupOffset={{ x: 10, y: 10 }} // Offset position for the popup
+                />
             </div>
         </div>
     );
 }
 
+// Export the BigCalendar component for use in other parts of the application
 export default BigCalendar;
