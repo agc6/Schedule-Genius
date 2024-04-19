@@ -31,7 +31,6 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--secondary-font);
     margin-bottom: 1rem;
 }
 
@@ -40,6 +39,7 @@ h6 {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
+    bottom: 60px;
 }
 
 .text-center {
@@ -152,6 +152,7 @@ header {
     width: 100%;
     position: absolute;
     z-index: 999;
+    box-shadow: none;
 }
 
 .header_logo {
@@ -172,7 +173,7 @@ header {
     color: var(--primary-color);
 }
 
-header .right {
+.header .right {
     gap: 1rem;
 }
 
