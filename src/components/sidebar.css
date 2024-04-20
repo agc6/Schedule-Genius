@@ -60,6 +60,17 @@ body.dark {
 .sidebar.close {
   width: 88px;
 }
+.cog-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px; /* Adjust the size as needed */
+  color: #837f7f; /* Adjust the color as needed */
+  margin-top: auto; /* Push the icon to the bottom of the sidebar */
+  padding-left: 14px;
+  padding-bottom: 10px;
+}
+
 
 .sidebar.close ~ .main-content {
   left: 80px; /* Adjust this value to match your sidebar width */
@@ -105,6 +116,23 @@ body.dark .sidebar.close ~ .main-content {
   font-weight: 500;
   white-space: nowrap;
   opacity: 1;
+}
+
+.sidebar .icontext {
+  font-size: 17px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 1;
+  padding-left: 59px;
+  color: var(--text-color);
+  transition: var(--tran-03);
+}
+
+.sidebar li a:hover .icontext {
+  color: #fff;
+}
+.sidebar.close .icontext {
+  opacity: 0;
 }
 .sidebar.close .text {
   opacity: 0;

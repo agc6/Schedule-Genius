@@ -4,6 +4,9 @@ import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate hook
 import logo from '../images/logo.jpg';
 import { signOut } from 'firebase/auth'; // Import the signOut function from firebase/auth
 import { auth } from '../firebase/firebase-config'; // Import the auth object from firebase-config
+import { HiOutlineCog } from 'react-icons/hi';
+import { HiOutlineTemplate } from "react-icons/hi";
+import { HiOutlineLogout } from "react-icons/hi";
 
 function Sidebar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -48,15 +51,23 @@ function Sidebar() {
           <ul className="menu-links">
             <li className="nav-link">
               <Link to="/dashboard">
-                <i className='bx bx-cog icon'></i>
-                <span className="text nav-text">Dashboard</span>
+              {isSidebarOpen && (
+            <div className="cog-icon">
+            <HiOutlineTemplate />
+          </div>
+          )}
+                <span className="icontext nav-text">Dashboard</span>
               </Link>
             </li>
 
             <li className="nav-link">
               <Link to="/settings">
-                <i className='bx bx-cog icon'></i>
-                <span className="text nav-text">Settings</span>
+              {isSidebarOpen && (
+            <div className="cog-icon">
+            <HiOutlineCog />
+          </div>
+          )}
+                <span className="icontext nav-text">Settings</span>
               </Link>
 
             </li>
@@ -66,8 +77,12 @@ function Sidebar() {
         <div className="bottom-content">
           <li onClick={handleSignOut}> {/* Add onClick event handler for sign out */}
             <a href="#">
-              <i className='bx bx-log-out icon'></i>
-              <span className="text nav-text">Logout</span>
+            {isSidebarOpen && (
+            <div className="cog-icon">
+            <HiOutlineLogout />
+          </div>
+          )}
+              <span className="icontext nav-text">Logout</span>
             </a>
           </li>
 
