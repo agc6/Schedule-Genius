@@ -11,3 +11,24 @@
 .react-calendar__tile:enabled:focus {
   background-color: #d2bbf5;
 }
+
+.rbc-header{
+	background-color: #bb94f6;
+}
+
+.rbc-time-header-cell .rbc-today{
+	background-color: #cfb3fa;
+}
+
+.rbc-time-slot .rbc-today{
+	background-color: #cfb3fa;
+}
+
+.rbc-toolbar button:hover{
+	background-color: rgb(232, 223, 253);
+	transition: 0.7s;
+}
+
+.rbc-today{
+	background-color: #ece8fd;
+}

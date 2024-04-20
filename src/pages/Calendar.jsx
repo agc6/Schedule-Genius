@@ -120,7 +120,7 @@ function BigCalendar() {
             startAccessor="start"
             endAccessor="end"
             style={{ height: 500, margin: "50px" }}
-            views={['month', 'week', 'day']}
+            views={['month', 'week', 'day', 'agenda']}
             popup={true} // Show truncated events in an overlay
             popupOffset={{ x: 10, y: 10 }} // Position offset from the edges of the viewport
 />
