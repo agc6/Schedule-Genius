@@ -12,11 +12,6 @@
 	opacity: .8;
 }
 
-.react-calendar__tile:enabled:hover,
-.react-calendar__tile:enabled:focus {
-  background-color: #d2bbf5;
-}
-
 .rbc-header{
 	background-color: #bb94f6;
 }
@@ -31,12 +26,21 @@
 
 .rbc-toolbar button:hover{
 	background-color: rgb(232, 223, 253);
-	transition: 0.7s;
+	transition: 0.5s;
 }
 .rbc-toolbar{
 	padding-right: -100px;
 }
 
+button{
+	background-color: #5f2fe2;
+}
+button:hover{
+	background-color: #926cfb;
+}
+button:active{
+	background-color: #5428cc;
+}
 
 .rbc-today{
 	background-color: #ece8fd;

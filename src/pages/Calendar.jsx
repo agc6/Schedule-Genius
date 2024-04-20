@@ -127,7 +127,6 @@ function BigCalendar() {
     // Component rendering the calendar and its controls
     return (
         <div className="calendar">
-            <h2>Add New Event</h2>
             <div>
                 <input
                     type="text"
