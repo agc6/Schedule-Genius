@@ -25,7 +25,7 @@ const Home = () => {
                 </div>
             </div>
 
-
+            {/* Features Section */}
             <section id="features" className="features-section">
                 <div className="features-container">
                     <div className="feature">
@@ -68,7 +68,7 @@ const Home = () => {
                 </div>
             </section>
 
-
+            {/* Contact Section */}
             <section id="contact" className="contact-section">
                 <div className="contact-container">
                     <div className="contact-info">

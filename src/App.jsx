@@ -26,7 +26,7 @@ function App() {
       }
     });
 
-    return () => unsubscribe(); // Cleanup the subscription
+    return () => unsubscribe();
   }, []);
 
   return (
