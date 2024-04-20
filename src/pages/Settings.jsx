@@ -2,25 +2,40 @@ import React, {useState} from 'react';
 import './Settings.css';
 import Header from '../components/dashHeader'
 import Sidebar from '../components/Sidebar';
-import { db } from '../firebase/firebase-config';
+import { db, auth } from "../firebase/firebase-config";
 
 const Settings = () => {
 
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    //Handle save function
-    const handleSaveSettings = (e) => {
+    const [newEmail, setNewEmail] = useState('');
+    const [newPassword, setNewPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [saveSuccess, setSaveSuccess] = useState(false); // State to track save success
+
+    const handleChangeSettings = async (e) => {
         e.preventDefault();
 
-        db.collection('users').doc('user_id_here').update({
-            username: username,
-            email: email
-        }).then(() => {
+        if (newPassword !== confirmPassword) {
+            alert('Passwords do not match.');
+            return;
+        }
+
+        try {
+            const user = auth.currentUser;
+            await user.updateEmail(newEmail);
+            await user.updatePassword(newPassword);
+            await db.collection('users').doc(user.uid).update({
+                email: newEmail,
+            });
+            setSaveSuccess(true); // Set state to indicate save success
             console.log('Settings saved successfully!');
-        }).catch((error) => {
-            console.error('Error saving settings:', error);
-        });        
+        } catch (error) {
+            console.error('Error saving settings:', error.message);
+        }
     };
+
+    if (saveSuccess) {
+        return <div>Settings saved successfully!</div>;
+    }
 
     /* 
     const deleteAccount = () => {
@@ -54,12 +69,15 @@ const Settings = () => {
             <h1>User Settings</h1>
             <p>Customize your experience by adjusting the settings below. <br />
                 <i>Change your username, update your email, choose a theme, and delete your account.</i></p>
-            <form onSubmit={handleSaveSettings}>
-                <label htmlFor='username'>Username:</label>
-                <input type='text' id='username' name='username' value={username} onChange={(e) => setUsername(e.target.value)} />
+            <form onSubmit={handleChangeSettings}>
+                <label htmlFor='email'>New Email:</label>
+                <input type='email' id='email' name='email' value={newEmail} onChange={(e) => setNewEmail(e.target.value)} />
 
-                <label htmlFor='email'>Email:</label>
-                <input type='email' id='email' name='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                <label htmlFor='newPassword'>New Password:</label>
+                <input type='password' id='newPassword' name='newPassword' value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
+
+                <label htmlFor='confirmPassword'>Confirm Password:</label>
+                <input type='password' id='confirmPassword' name='confirmPassword' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
 
 
                 {/* 
