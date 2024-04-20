@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link component
-import Header from '../components/Header'; // Import Header component
-import './Home.css'; // Correct path to Home.css
-import flatImage from '../images/flat.jpg'; // Adjusted path to flatImage.png
+import { Link } from 'react-router-dom';
+import { Element } from 'react-scroll';
+import Header from '../components/Header';
+import './Home.css';
+import flatImage from '../images/flat.jpg';
 
 const Home = () => {
     return (

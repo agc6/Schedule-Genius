@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Element } from 'react-scroll';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -13,6 +14,7 @@ import Calendar from './pages/Calendar';
 import { auth } from './firebase/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
 import Settings from './pages/Settings';
+import Header from './components/Header';
 
 
 
@@ -35,23 +37,26 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/signin" element={!user ? <Signin /> : <Navigate to="/dashboard" />} />
-          <Route path="/signup" element={!user ? <Signup /> : <Navigate to="/dashboard" />} />
-          <Route path="/features" element={<Features />} />
-          <Route path="/todo" element={user ? <ToDoList /> : <Navigate to="/signin" />} />
-          <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/signin" />} />
-          <Route path="/scheduleblocker" element={user ? <ScheduleBlocker /> : <Navigate to="/signin" />} />
-          <Route path="/calendar" element={user ? <Calendar /> : <Navigate to="/signin" />} />
-          <Route path="/settings" element={user ? <Settings /> : <Navigate to="/signin" />} />
-        </Routes>
-      </Router>
-    </div>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={
+          <div>
+            <Element name="home" className="element"><Home /></Element>
+            <Element name="about" className="element"><About /></Element>
+            <Element name="features" className="element"><Features /></Element>
+            <Element name="contact" className="element"><Contact /></Element>
+          </div>
+        } />
+        <Route path="/signin" element={!user ? <Signin /> : <Navigate to="/dashboard" />} />
+        <Route path="/signup" element={!user ? <Signup /> : <Navigate to="/dashboard" />} />
+        <Route path="/todo" element={user ? <ToDoList /> : <Navigate to="/signin" />} />
+        <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/signin" />} />
+        <Route path="/scheduleblocker" element={user ? <ScheduleBlocker /> : <Navigate to="/signin" />} />
+        <Route path="/calendar" element={user ? <Calendar /> : <Navigate to="/signin" />} />
+        <Route path="/settings" element={user ? <Settings /> : <Navigate to="/signin" />} />
+      </Routes>
+    </Router>
   );
 }
 
