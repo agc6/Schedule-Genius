@@ -29,8 +29,8 @@ const Header = () => {
                 </div>
                 <nav>
                     <ul className="header_menu flex-row">
-                        <li><ScrollLink to="about" spy={true} smooth={true} duration={500}>About</ScrollLink></li>
                         <li><ScrollLink to="features" spy={true} smooth={true} duration={500}>Features</ScrollLink></li>
+                        <li><ScrollLink to="about" spy={true} smooth={true} duration={500}>About</ScrollLink></li>
                         <li><ScrollLink to="contact" spy={true} smooth={true} duration={500}>Contact</ScrollLink></li>
                     </ul>
                 </nav>

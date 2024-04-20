@@ -24,22 +24,7 @@ const Home = () => {
                     </section>
                 </div>
             </div>
-            {/* About Section */}
-            <section id="about" className="about-section">
-                <div className='about-container'>
-                    <h2>About Page</h2>
-                    <p>As a group of 4 enthusiastic students in Dr. Lehr's Software Engineering class, we successfully developed a scheduling app using React and Firebase.</p>
-                    <p>Our aim is to empower students by providing a tool that helps them organize their assignments and work, fostering better time management skills..</p>
-                    <br />
-                    <p>Please visit our features page for more info.</p>
-                    <br />
-                    <h3>Students that contributed:</h3>
-                    <p><i>Evan Smith</i></p>
-                    <p><i>Nil Ceylan</i></p>
-                    <p><i>Arely Gutierrez Carbajal</i></p>
-                    <p><i>Noah Masoud</i></p>
-                </div>
-            </section>
+
 
             <section id="features" className="features-section">
                 <div className="features-container">
@@ -66,6 +51,24 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+            {/* About Section */}
+            <section id="about" className="about-section">
+                <div className='about-container'>
+                    <h2>About Page</h2>
+                    <p>As a group of 4 enthusiastic students in Dr. Lehr's Software Engineering class, we successfully developed a scheduling app using React and Firebase.</p>
+                    <p>Our aim is to empower students by providing a tool that helps them organize their assignments and work, fostering better time management skills..</p>
+                    <br />
+                    <p>Please visit our features page for more info.</p>
+                    <br />
+                    <h3>Students that contributed:</h3>
+                    <p><i>Evan Smith</i></p>
+                    <p><i>Nil Ceylan</i></p>
+                    <p><i>Arely Gutierrez Carbajal</i></p>
+                    <p><i>Noah Masoud</i></p>
+                </div>
+            </section>
+
+
             <section id="contact" className="contact-section">
                 <div className="contact-container">
                     <div className="contact-info">
