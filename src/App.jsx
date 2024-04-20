@@ -10,7 +10,6 @@ import ScheduleBlocker from './pages/ScheduleBlocker';
 import Calendar from './pages/Calendar';
 import { auth } from './firebase/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
-import Header from './components/Header';
 
 function App() {
   const [user, setUser] = useState(null);

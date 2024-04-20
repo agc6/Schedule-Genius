@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
-import './Home.css'; // Ensure this is the path to your styles
+import './Home.css';
 import flatImage from '../images/flat.jpg';
 
 const Home = () => {
