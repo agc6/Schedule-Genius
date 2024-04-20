@@ -32,3 +32,11 @@
 .rbc-today{
 	background-color: #ece8fd;
 }
+
+.rbc-now .rbc-button-link{
+	background-color: #bb94f6;
+	margin: 5px;
+	padding-left: 4px;
+	padding-right: 4px;
+	border-radius: 10px;
+}
