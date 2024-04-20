@@ -1,32 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link component
-import logo from '../images/logo.jpg'; // Adjusted path to logo.png
+import { Link as ScrollLink } from 'react-scroll';
+import { Link as RouterLink } from 'react-router-dom';
+import logo from '../images/logo.jpg';
 
 const Header = () => {
     return (
         <header>
             <div className="container flex-row">
                 <div className="header_logo">
-                    <Link to="/">
+                    <RouterLink to="/">
                         <img src={logo} alt="Schedule Genius Logo" />
-                    </Link>
+                    </RouterLink>
                 </div>
                 <nav>
                     <ul className="header_menu flex-row">
-                        {/* Replace anchor tag with Link */}
-                        <li>
-                            <Link to="/about">About</Link>
-                        </li>
-                        <li>
-                            <Link to="/features">Features</Link>
-                        </li>
-                        <li>
-                            <Link to="/support">Support</Link>
-                        </li>
+                        <li><ScrollLink to="about" spy={true} smooth={true} duration={500}>About</ScrollLink></li>
+                        <li><ScrollLink to="features" spy={true} smooth={true} duration={500}>Features</ScrollLink></li>
+                        <li><RouterLink to="/support">Support</RouterLink></li>
                     </ul>
                 </nav>
                 <div className="right flex-center">
-                    <Link to="/signin" className="btn btn-secondary">Sign In</Link>
+                    <RouterLink to="/signin" className="btn btn-secondary">Sign In</RouterLink>
                     <div className="menu-btn">
                         <i className="fas fa-bars"></i>
                     </div>
