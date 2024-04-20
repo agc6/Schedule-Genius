@@ -47,12 +47,6 @@ function Sidebar() {
         <div className="menu">
           <ul className="menu-links">
             <li className="nav-link">
-              <Link to="/calendar">
-                <i className='bx bx-calendar icon'></i>
-                <span className="text nav-text">Calendar</span>
-              </Link>
-            </li>
-            <li className="nav-link">
               <Link to="/dashboard">
                 <i className='bx bx-cog icon'></i>
                 <span className="text nav-text">Dashboard</span>
