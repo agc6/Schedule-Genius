@@ -2,35 +2,41 @@ import React, {useState} from 'react';
 import './Settings.css';
 import Header from '../components/dashHeader'
 import Sidebar from '../components/Sidebar';
-import { db, auth } from "../firebase/firebase-config";
+import { db, auth} from "../firebase/firebase-config";
+import { updateEmail, updatePassword ,sendEmailVerification } from 'firebase/auth';
 
 const Settings = () => {
 
     const [newEmail, setNewEmail] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [saveSuccess, setSaveSuccess] = useState(false); // State to track save success
+    const [error, setError] = useState(null);
+    const [saveSuccess, setSaveSuccess] = useState(false);
 
     const handleChangeSettings = async (e) => {
         e.preventDefault();
 
-        if (newPassword !== confirmPassword) {
-            alert('Passwords do not match.');
-            return;
+        if (newEmail !== auth.currentUser.email) {
+            try {
+                await updateEmail(auth.currentUser, newEmail);
+                await db.collection('users').doc(auth.currentUser.email).update({ email: newEmail });
+                setSaveSuccess(true);
+            } catch (error) {
+                setError(error.message);
+            }
         }
 
-        try {
-            const user = auth.currentUser;
-            await user.updateEmail(newEmail);
-            await user.updatePassword(newPassword);
-            await db.collection('users').doc(user.uid).update({
-                email: newEmail,
-            });
-            setSaveSuccess(true); // Set state to indicate save success
-            console.log('Settings saved successfully!');
-        } catch (error) {
-            console.error('Error saving settings:', error.message);
+        if (newPassword && newPassword === confirmPassword) {
+            try {
+                await updatePassword(auth.currentUser, newPassword);
+                setSaveSuccess(true);
+            } catch (error) {
+                setError(error.message);
+            }
+        } else if (newPassword && newPassword !== confirmPassword) {
+            setError("Passwords don't match.");
         }
+        
     };
 
     if (saveSuccess) {
@@ -68,11 +74,11 @@ const Settings = () => {
             <Sidebar />
             <h1>User Settings</h1>
             <p>Customize your experience by adjusting the settings below. <br />
-                <i>Change your username, update your email, choose a theme, and delete your account.</i></p>
+                <i>Change your password, update your email, and delete your account.</i></p>
             <form onSubmit={handleChangeSettings}>
                 <label htmlFor='email'>New Email:</label>
                 <input type='email' id='email' name='email' value={newEmail} onChange={(e) => setNewEmail(e.target.value)} />
-
+        
                 <label htmlFor='newPassword'>New Password:</label>
                 <input type='password' id='newPassword' name='newPassword' value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
 
@@ -88,6 +94,7 @@ const Settings = () => {
                  </select>
                 */}
 
+                {error && <div className='error'>{error}</div>}
                 <button type='submit'>Save Settings</button>
                  {/*
                 <button type='button' onClick={deleteAccount} className='delete-button'>Delete Account</button>
