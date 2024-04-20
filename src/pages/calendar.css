@@ -40,3 +40,12 @@
 	padding-right: 4px;
 	border-radius: 10px;
 }
+
+.rbc-show-more {
+	color: var(--primary-color); }
+
+.rbc-show-more:hover {
+	color: #5f2fe2; }
+
+.rbc-show-more:focus {
+	color: var(--primary-color); }
