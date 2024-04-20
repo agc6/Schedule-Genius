@@ -1,5 +1,10 @@
 .calendar{
 	text-align: center;
+	padding-top: 100px;
+	margin-left: -170px;
+	margin-right: 170px;
+	margin-top: -130px;
+	margin-bottom: 130px;
 }
 
 .rbc-event{
@@ -28,6 +33,10 @@
 	background-color: rgb(232, 223, 253);
 	transition: 0.7s;
 }
+.rbc-toolbar{
+	padding-right: -100px;
+}
+
 
 .rbc-today{
 	background-color: #ece8fd;
