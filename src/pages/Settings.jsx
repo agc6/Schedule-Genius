@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import './Settings.css';
 import Header from '../components/dashHeader'
 import Sidebar from '../components/Sidebar';
-import { db, auth} from "../firebase/firebase-config";
-import { updateEmail, updatePassword ,sendEmailVerification } from 'firebase/auth';
+import {auth} from "../firebase/firebase-config";
+import { updateEmail, updatePassword, deleteUser, sendEmailVerification} from 'firebase/auth';
 
 const Settings = () => {
 
@@ -12,30 +12,39 @@ const Settings = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState(null);
     const [saveSuccess, setSaveSuccess] = useState(false);
+    const user = auth.currentUser;
 
     const handleChangeSettings = async (e) => {
         e.preventDefault();
-
-        if (newEmail !== auth.currentUser.email) {
+        if (newEmail !== user.email) {
             try {
-                await updateEmail(auth.currentUser, newEmail);
-                await db.collection('users').doc(auth.currentUser.email).update({ email: newEmail });
-                setSaveSuccess(true);
+              await sendEmailVerification(user);
+              setError('Please verify the new email address. Check your inbox for a verification email.');
             } catch (error) {
-                setError(error.message);
+              setError(error.message);
+              return;
             }
-        }
-
-        if (newPassword && newPassword === confirmPassword) {
+          }
+      
+          // Proceed with updating email if verification is successful
+          try {
+            await updateEmail(user, newEmail);
+            setNewEmail('');
+            setSaveSuccess(true);
+          } catch (error) {
+            setError(error.message);
+          }
+      
+          if (newPassword && newPassword === confirmPassword) {
             try {
-                await updatePassword(auth.currentUser, newPassword);
-                setSaveSuccess(true);
+              await updatePassword(user, newPassword);
+              setSaveSuccess(true);
             } catch (error) {
-                setError(error.message);
+              setError(error.message);
             }
-        } else if (newPassword && newPassword !== confirmPassword) {
+          } else if (newPassword && newPassword !== confirmPassword) {
             setError("Passwords don't match.");
-        }
+          }
         
     };
 
@@ -43,30 +52,16 @@ const Settings = () => {
         return <div>Settings saved successfully!</div>;
     }
 
-    /* 
-    const deleteAccount = () => {
-        Need to implement firebase auth to delete account
-            const user = firebase.auth().currentUser; // Get the current user
-            if (user) {
-                user.delete().then(() => {
-                // Account deleted successfully
-                console.log('Account deleted!');
-            }).catch((error) => {
-                // An error occurred while deleting the account
-                console.error('Error deleting account:', error);
-            });
-        */
-
-        /* 
-            need to make this function a component ( then call it back into this same spot)
-            you will also need to make a route to settings that authenticates the users state
-            research how to terminate via firebase console 
-            check out the routes for reference on app.jsx
-        
-         
-        console.log("Account deleted.");
-    };
-    */
+    const handleDeleteAccount = async () => {
+        if (window.confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
+          try {
+            await deleteUser(auth.currentUser);
+            console.log('Account deleted successfully.');
+          } catch (error) {
+            setError(error.message);
+          }
+        }
+      };
 
     return (
         <div className='settings-container'>
@@ -96,9 +91,9 @@ const Settings = () => {
 
                 {error && <div className='error'>{error}</div>}
                 <button type='submit'>Save Settings</button>
-                 {/*
-                <button type='button' onClick={deleteAccount} className='delete-button'>Delete Account</button>
-                */}
+
+                <button type='button' onClick={handleDeleteAccount} className='delete-button'>Delete Account</button>
+
             </form>
         </div >
     );
