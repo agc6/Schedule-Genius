@@ -60,23 +60,8 @@ header {
     cursor: pointer;
 }
 
-.image-row {
-    width: 100%;
-    margin-bottom: 30px;
-    overflow: hidden;
-    /* Hide overflow to prevent large images from dominating */
-}
-
-.feature-image {
-    width: 100%;
-    height: auto;
-    max-height: 300px;
-    /* Set a maximum height for the images */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
 .features-container {
+    padding-top: 50px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -116,8 +101,6 @@ header {
     cursor: pointer;
 }
 
-
-
 .feature button:hover {
-    background-color: #0056b3;
+    background-color:#9f8bf9;;
 }
