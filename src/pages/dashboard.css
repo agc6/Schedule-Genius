@@ -11,7 +11,7 @@
   top: 10;
   left: 250px; /* Adjust this value to match the width of your sidebar */
   width: calc(100% - 250px); /* Subtract the width of the sidebar from 100% */
-  height: 90px; /* Adjust as needed */
+  height: 45px; /* Adjust as needed */
   background-color: #fff; /* Example background color */
   z-index: 101; /* Ensure header is above sidebar */
   transition: left var(--tran-05); /* Ensure smooth transition */

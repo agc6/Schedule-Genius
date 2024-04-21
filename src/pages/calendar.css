@@ -1,77 +1,64 @@
-.calendar-container {
-    max-width: 300px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .calendar-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  
-  .calendar-header button {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    font-size: 20px;
-  }
-  
-  .days-of-week-container {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-  }
-  
-  .day-of-week {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    border-radius: 5px;
-    font-weight: bold;
-  }
-  
-  .days-container {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-  }
-  
-  .day {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .day:hover {
-    background-color: #e3e3e3;
-  }
-  
-  .selected {
-    background-color: var(--primary-color);
-    color: #fff;
-  }
-  
-  .selected:hover {
-    background-color: #a99aed;
-  }
-  
-  .selected-date {
-    margin-top: 10px;
-    font-size: 16px;
-    color: #555;
-  }
-  
-  .empty-day {
-    visibility: hidden;
-  }
-  
+.calendar{
+	text-align: center;
+	padding-top: 100px;
+	margin-left: -170px;
+	margin-right: 170px;
+	margin-top: -130px;
+	margin-bottom: 130px;
+}
+
+.rbc-event{
+	background-color: var(--primary-color);
+	opacity: .8;
+}
+
+.rbc-header{
+	background-color: #bb94f6;
+}
+
+.rbc-time-header-cell .rbc-today{
+	background-color: #cfb3fa;
+}
+
+.rbc-time-slot .rbc-today{
+	background-color: #cfb3fa;
+}
+
+.rbc-toolbar button:hover{
+	background-color: rgb(232, 223, 253);
+	transition: 0.5s;
+}
+.rbc-toolbar{
+	padding-right: -100px;
+}
+
+button{
+	background-color: #5f2fe2;
+}
+button:hover{
+	background-color: #926cfb;
+}
+button:active{
+	background-color: #5428cc;
+}
+
+.rbc-today{
+	background-color: #ece8fd;
+}
+
+.rbc-now .rbc-button-link{
+	background-color: #bb94f6;
+	margin: 5px;
+	padding-left: 4px;
+	padding-right: 4px;
+	border-radius: 10px;
+}
+
+.rbc-show-more {
+	color: var(--primary-color); }
+
+.rbc-show-more:hover {
+	color: #5f2fe2; }
+
+.rbc-show-more:focus {
+	color: var(--primary-color); }

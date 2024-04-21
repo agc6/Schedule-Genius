@@ -1,0 +1,84 @@
+.study-timer {
+    border: 1px solid  #907fdc;
+    border-radius: 5px;
+    padding: 10px 50px 30px 50px;
+    margin-bottom: 85px;
+    position: relative;
+    top: -70px; 
+    left: -10px;
+    margin-left: -150px;
+    margin-right: 150px;
+    margin-top: -85px;
+
+  }
+  
+  .timer {
+    font-size: 24px;
+    margin-top: 10px;
+    color: #907fdc;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 20px;
+    margin-right: -20px;
+  }
+  .hour-box,
+  .minute-box{
+    border-radius: 6px;
+    border: 2px solid #907fdc;
+  }
+  .hour-box{
+    margin-left: -9px;
+    margin-right: 9px;
+  }
+  .minute-box{
+    margin-left: 12px;
+    margin-right: -12px;
+  }
+  .timer-buttons {
+    margin-top: 20px;
+  }
+  
+  .timer-buttons button {
+    margin-right: 10px;
+    padding: 5px 10px 0 -5px;
+    border: none;
+    border-radius: 3px;
+    background-color: #907fdc;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .timer-buttons button:hover {
+    background-color: #ab9de9;
+  }
+  
+  .timer-buttons button:disabled {
+    background-color: #ccc;
+    color: #555;
+    cursor: not-allowed;
+  }
+
+  .alert-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .alert-message p {
+    margin: 0;
+  }
+  
+  .alert-message button {
+    margin-top: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #dc3545;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .alert-message button:hover {
+    background-color: #c82333;
+  }
