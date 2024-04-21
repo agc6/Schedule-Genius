@@ -95,8 +95,6 @@ const Home = () => {
                      we successfully developed a scheduling app using React and Firebase. 
                      Our aim is to empower students by providing a tool that helps them organize 
                      their assignments and work, fostering better time management skills.</p>
-                     <h3>Students that contributed:</h3>
-                     <p>Evan Smith, Nil Ceylan, Arely Gutierrez Carbajal, and Noah Masoud</p>
             </div>
             </section>
 
