@@ -48,7 +48,6 @@ const SignInPage = () => {
 
     return (
         <main>
-            <Header />
             <div className="box">
                 <div className="inner-box">
                     <div className="forms-wrap"></div>
