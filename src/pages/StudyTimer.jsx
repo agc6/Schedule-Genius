@@ -76,6 +76,7 @@ function StudyTimer() {
           <input
             type="number"
             value={hours}
+            className="hour-box"
             onChange={e => setHours(parseInt(e.target.value))}
             min="0"
             max="24"
@@ -84,6 +85,7 @@ function StudyTimer() {
           <input
             type="number"
             value={minutes}
+            className="minute-box"
             onChange={e => setMinutes(parseInt(e.target.value))}
             min="0"
             max="59"
