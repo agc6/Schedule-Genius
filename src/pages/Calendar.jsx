@@ -64,8 +64,8 @@ function BigCalendar() {
             text: eventData.title,
             dueDate: eventData.end,
             startDate: eventData.start,
-            //save the duration of the event in the database
-            duration: eventData.end - eventData.start,
+            //save the duration of the event in the database in hours
+            duration: (eventData.end.getTime() - eventData.start.getTime()) / (1000 * 60 * 60),
             userId: user.uid,
             completed: false
         });
@@ -82,8 +82,13 @@ function BigCalendar() {
             />
             <DatePicker
                 selected={newEvent.start}
-                onChange={date => setNewEvent({ ...newEvent, start: date, end: date })}
+                onChange={(start) => setNewEvent({ ...newEvent, start })}
                 placeholderText="Select date"
+            />
+            <DatePicker
+                    placeholderText="End Date"
+                    selected={newEvent.end}
+                    onChange={(end) => setNewEvent({ ...newEvent, end })}
             />
             <button onClick={handleAddEvent}>Add Event</button>
             <Calendar
