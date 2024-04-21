@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './Signin.css';
-import Header from '../components/Header';
 import logo from '../images/logo.jpg';
 import { Link, useNavigate } from 'react-router-dom'; // Import Link component for SPA navigation
 import validatePassword from '../components/passwordValidator'; // Import for password validator
@@ -64,7 +63,6 @@ const SignupPage = () => {
 
     return (
         <main>
-            <Header />
             <div className="box">
                 <div className="inner-box">
                     <div className="forms-wrap"></div>
