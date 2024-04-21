@@ -326,7 +326,7 @@ header {
 .about-section {
     padding: 80px 0;
     /* Adjust padding as needed */
-    background-color: #fff;
+    background-color: #ffffff;
     /* Change background color as per your design */
 }
 
@@ -371,7 +371,7 @@ header {
 .features-section {
     padding: 80px 0;
     /* Adjust padding as needed */
-    background-color: #f8f9fa;
+    background-color: #e7e7e7;
     /* Change background color as per your design */
 }
 
@@ -429,7 +429,7 @@ header {
 }
 
 .contact-section {
-    background-color: #f8f9fa;
+    background-color: #e7e7e7;
     padding: 80px 0;
 }
 

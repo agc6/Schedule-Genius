@@ -67,7 +67,6 @@ const Home = () => {
             {/* About Section */}
             <section id="about" className="about-section">
                 <div className='about-container'>
-                    <br />
                     <h2>About Page</h2>
                     <p>As a group of 4 enthusiastic students in Dr. Lehr's Software Engineering class, we successfully developed a scheduling app using React and Firebase.</p>
                     <p>Our aim is to empower students by providing a tool that helps them organize their assignments and work, fostering better time management skills..</p>
