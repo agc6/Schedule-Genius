@@ -27,29 +27,53 @@ const Home = () => {
 
             {/* Features Section */}
             <section id="features" className="features-section">
-                <div className="features-container">
-                    <div className="feature">
-                        <h3>Schedule Generator</h3>
-                        <p>Create your schedule with just a few clicks. Our intuitive interface makes it easy to add, remove, and edit your dynamic schedule.</p>
+            <div class="cards">
+            <div class="card card-1">
+                <div class="card__icon"></div>
+                <div class="item_title">
+                Schedule Generator
+        </div>
+                <h2 class="card__title">
+                    Create your schedule with just a few clicks. Our intuitive interface makes it easy to add, remove, and edit your dynamic schedule.
+                </h2>
+                <p class="card__apply">
+                    <a class="card__link">
                         <Link to="/signup">
-                            <button className="btn-custom">Try Schedule Generator</button>
-                        </Link>
-                    </div>
-                    <div className="feature">
-                        <h3>To-Do Generator</h3>
-                        <p>Create a seamless To-Do list that can be adjusted. This is for the daily tasks!</p>
+                        Try Now </Link>
+                    </a>
+                </p>
+            </div>
+            <div class="card card-3">
+                <div class="card__icon"></div>
+                <div class="item_title">
+                To-Do Generator
+        </div>
+                <h2 class="card__title">
+                    Create a seamless To-Do list that can be adjusted. This is for the daily tasks!
+                </h2>
+                <p class="card__apply">
+                    <a class="card__link">
                         <Link to="/signup">
-                            <button className="btn-custom">Try To-Do List</button>
-                        </Link>
-                    </div>
-                    <div className="feature">
-                        <h3>Student Organizer</h3>
-                        <p>Stay organized and manage your academic tasks effectively. Our tool helps you plan your schedule, track assignments, and stay on top of your studies!</p>
+                        Try Now </Link>
+                    </a>
+                </p>
+            </div>
+            <div class="card card-5">
+                <div class="card__icon"></div>
+                <div class="item_title">
+                Student Organizer
+        </div>
+                <h2 class="card__title">
+                    Stay organized and manage your academic tasks effectively. Our tool helps you plan your schedule, track assignments, and stay on top of your studies!
+                </h2>
+                <p class="card__apply">
+                    <a class="card__link">
                         <Link to="/signup">
-                            <button className="btn-custom">Get to organizing!</button>
-                        </Link>
-                    </div>
-                </div>
+                        Try Now </Link>
+                    </a>
+                </p>
+            </div>
+            </div>
             </section>
             {/* About Section */}
             <section id="about" className="about-section">
