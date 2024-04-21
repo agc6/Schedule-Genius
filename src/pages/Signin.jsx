@@ -52,6 +52,7 @@ const SignInPage = () => {
                     <div className="forms-wrap"></div>
                     <Link to="/" className="logo">
                         <img src={logo} alt="Schedule Genius Logo" />
+                        <h2>Schedule Genius</h2>
                     </Link>
                     <div className="right">
                         <div className="wrapper">
