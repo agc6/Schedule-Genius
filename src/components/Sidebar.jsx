@@ -10,15 +10,10 @@ import { HiOutlineLogout } from "react-icons/hi";
 
 function Sidebar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const navigate = useNavigate(); // Initialize the navigate function
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
-  };
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
   };
 
   const handleLogoClick = () => {
@@ -86,16 +81,6 @@ function Sidebar() {
             </a>
           </li>
 
-          <li className="mode" onClick={toggleDarkMode}>
-            <div className="sun-moon">
-              <i className={`bx ${isDarkMode ? 'bx-sun' : 'bx-moon'} icon`}></i>
-            </div>
-            <span className="mode-text text">{isDarkMode ? 'Light mode' : 'Dark mode'}</span>
-
-            <div className="toggle-switch">
-              <span className={`switch ${isDarkMode ? 'active' : ''}`}></span>
-            </div>
-          </li>
         </div>
       </div>
     </nav>
