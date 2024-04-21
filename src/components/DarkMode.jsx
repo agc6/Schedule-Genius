@@ -1,3 +1,4 @@
+/*
 import React, {useState, useEffect} from "react";
 import Toggle from "react-toggle";
 import "react-toggle/style.css"; //Default toggle style sheet
@@ -28,3 +29,4 @@ const DarkMode = () => {
 };
 
 export default DarkMode;
+*/
