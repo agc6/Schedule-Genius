@@ -13,9 +13,7 @@ const ToDoList = () => {
 
     useEffect(() => {
         if (user) {
-            // Define a query against the firestore collection, filtering by userId
             const q = query(collection(db, "tasks"), where("userId", "==", user.uid));
-            // This onSnapshot function sets up a real-time subscription to the Firestore query.
             const unsubscribe = onSnapshot(q, (querySnapshot) => {
                 let tasksArr = [];
                 querySnapshot.forEach((doc) => {
@@ -23,17 +21,14 @@ const ToDoList = () => {
                 });
                 setTasks(tasksArr);
             });
-            // Cleanup function to unsubscribe from Firestore when the component unmounts
             return () => unsubscribe();
         }
     }, [user]);
 
-    // Function to handle input change
     function handleInputChange(event) {
         setNewTask(event.target.value);
     }
 
-    // Function to add a new task
     async function addTask() {
         if (newTask.trim() !== "" && user) {
             const order = tasks.length > 0 ? tasks[tasks.length - 1].order + 1 : 0;
@@ -41,21 +36,19 @@ const ToDoList = () => {
                 text: newTask,
                 completed: false,
                 order: order,
-                userId: user.uid, // Include the userId when adding a task
-                startDate: new Date(), // Set the start date as the current date
-                dueDate: new Date() // Set the due date as the current date
+                userId: user.uid,
+                startDate: new Date(),
+                dueDate: new Date()
             });
             setNewTask("");
         }
     }
 
-    // Function to delete a task by index
     async function deleteTask(taskID) {
         await deleteDoc(doc(db, 'tasks', taskID));
     }
     async function moveTaskDown(index) {
         if (index < tasks.length - 1) {
-            // Swap order with the next task
             const currentTask = tasks[index];
             const nextTask = tasks[index + 1];
             await updateDoc(doc(db, "tasks", currentTask.id), { order: nextTask.order });
@@ -64,11 +57,17 @@ const ToDoList = () => {
     }
     async function moveTaskUp(index) {
         if (index > 0) {
-            // Swap order with the previous task
             const currentTask = tasks[index];
             const previousTask = tasks[index - 1];
             await updateDoc(doc(db, "tasks", currentTask.id), { order: previousTask.order });
             await updateDoc(doc(db, "tasks", previousTask.id), { order: currentTask.order });
+        }
+    }
+
+    // Function to handle Enter key press
+    function handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            addTask();
         }
     }
 
@@ -81,6 +80,7 @@ const ToDoList = () => {
                     placeholder="Enter a task..."
                     value={newTask}
                     onChange={handleInputChange}
+                    onKeyPress={handleKeyPress} // Add this line
                 />
                 <button onClick={addTask}>Add Task</button>
             </div>
