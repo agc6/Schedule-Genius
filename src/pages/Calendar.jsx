@@ -62,7 +62,11 @@ function BigCalendar() {
 
         await addDoc(collection(db, "tasks"), {
             text: eventData.title,
-            dueDate: eventData.start,
+            completed: false,
+            dueDate: eventData.end,
+            startDate: eventData.start,
+            //save the duration of the event in the database
+            duration: eventData.end - eventData.start,
             userId: user.uid,
             completed: false
         });
