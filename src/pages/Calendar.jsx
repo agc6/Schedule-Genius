@@ -37,8 +37,8 @@ function BigCalendar() {
                     const task = doc.data();
                     return {
                         title: task.text,
-                        start: task.dueDate.toDate(),  // Assuming dueDate is a Timestamp
-                        end: new Date(task.dueDate.toDate().getTime() + 3600 * 1000),  // Adds one hour to start time
+                        start: task.startDate.toDate(),  // Assuming startDate is a Timestamp
+                        end: task.dueDate.toDate(),  // Assuming dueDate is a Timestamp
                         allDay: false
                     };
                 });
@@ -57,15 +57,13 @@ function BigCalendar() {
             return;
         }
 
-        const eventData = { ...newEvent, allDay: false };
+        const eventData = { ...newEvent };
         setAllEvents([...allEvents, eventData]);
 
         await addDoc(collection(db, "tasks"), {
             text: eventData.title,
-            dueDate: eventData.end,
             startDate: eventData.start,
-            //save the duration of the event in the database in hours
-            duration: (eventData.end.getTime() - eventData.start.getTime()) / (1000 * 60 * 60),
+            dueDate: eventData.end,
             userId: user.uid,
             completed: false
         });
@@ -83,17 +81,20 @@ function BigCalendar() {
             <DatePicker
                 selected={newEvent.start}
                 onChange={(start) => setNewEvent({ ...newEvent, start })}
-                placeholderText="Select date"
+                placeholderText="Start Date and Time"
+                showTimeSelect
+                dateFormat="MMMM d, yyyy h:mm aa"
             />
             <DatePicker
-                    placeholderText="End Date"
-                    selected={newEvent.end}
-                    onChange={(end) => setNewEvent({ ...newEvent, end })}
+                selected={newEvent.end}
+                onChange={(end) => setNewEvent({ ...newEvent, end })}
+                placeholderText="End Date and Time"
+                showTimeSelect
+                dateFormat="MMMM d, yyyy h:mm aa"
             />
             <button onClick={handleAddEvent}>Add Event</button>
             <Calendar
-                localizer={localizer
-                }
+                localizer={localizer}
                 events={allEvents}
                 startAccessor="start"
                 endAccessor="end"
