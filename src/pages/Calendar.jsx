@@ -1,174 +1,101 @@
-// Import date utility functions from date-fns library
+import React, { useState, useEffect } from "react";
+import { Calendar, dateFnsLocalizer } from "react-big-calendar";
+import DatePicker from "react-datepicker";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import "react-datepicker/dist/react-datepicker.css";
+import "./calendar.css";
+import { db, auth } from "../firebase/firebase-config";
+import { collection, addDoc, query, where, onSnapshot } from "firebase/firestore";
 import format from "date-fns/format";
 import getDay from "date-fns/getDay";
 import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
-// Import React and its hooks
-import React, { useState, useEffect, useCallback, useRef, useMemo } from "react";
-// Import Calendar component and localization function from react-big-calendar
-import { Calendar, dateFnsLocalizer } from "react-big-calendar";
-// Import default CSS for react-big-calendar
-import "react-big-calendar/lib/css/react-big-calendar.css";
-// Import DatePicker component and its default CSS from react-datepicker
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-// Import custom styles for the calendar
-import "./calendar.css";
-// Import Firestore functions from the firebase-config file
-import { db, auth } from "../firebase/firebase-config";
-import { collection, addDoc, query, getDocs, where } from "firebase/firestore";
-// Locale configurations for date functions
-const locales = {
-    "en-US": require("date-fns/locale/en-US"),
-};
-// Configure localizer for calendar with date-fns functions and locale data
+import enUS from "date-fns/locale/en-US";
+
+// Configure localizer for the calendar using date-fns functions
 const localizer = dateFnsLocalizer({
     format,
     parse,
     startOfWeek,
     getDay,
-    locales,
+    locales: {
+        'en-US': enUS,
+    },
 });
 
-// Static list of initial calendar events
-const events = [
-    {
-        title: "Big Meeting",
-        allDay: true,
-        start: new Date(2024, 6, 0),
-        end: new Date(2024, 6, 0),
-    },
-    {
-        title: "Vacation",
-        start: new Date(2024, 6, 7),
-        end: new Date(2024, 6, 10),
-    },
-    {
-        title: "Conference",
-        start: new Date(2024, 6, 20),
-        end: new Date(2024, 6, 23),
-    },
-];
-
-// Define the BigCalendar functional component
 function BigCalendar() {
+    const [newEvent, setNewEvent] = useState({ title: "", start: new Date(), end: new Date() });
+    const [allEvents, setAllEvents] = useState([]);
     const user = auth.currentUser;
-    // State for managing new event details
-    const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
-    // State for managing all calendar events
-    const [allEvents, setAllEvents] = useState(events);
-    const [tasks, setTasks] = useState([]); // If tasks are managed here, they should be part of the state
-    // Reference to manage the click timeout
-    const clickRef = useRef(null);
 
-    // Effect to clean up timeouts when component unmounts
+    // Real-time fetching tasks from Firestore and converting them into calendar events
     useEffect(() => {
-        const fetchTasks = async () => {
+        if (user) {
             const q = query(collection(db, "tasks"), where("userId", "==", user.uid));
-            const querySnapshot = await getDocs(q);
-            const fetchedTasks = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-            setTasks(fetchedTasks);
+            const unsubscribe = onSnapshot(q, querySnapshot => {
+                const tasksAsEvents = querySnapshot.docs.map(doc => {
+                    const task = doc.data();
+                    return {
+                        title: task.text,
+                        start: task.dueDate.toDate(),  // Assuming dueDate is a Timestamp
+                        end: new Date(task.dueDate.toDate().getTime() + 3600 * 1000),  // Adds one hour to start time
+                        allDay: false
+                    };
+                });
+                setAllEvents(tasksAsEvents);
+            });
+
+            // Clean up subscription on unmount
+            return () => unsubscribe();
         }
-        fetchTasks();
-        return () => {
-            window.clearTimeout(clickRef.current);
-        };
-    }, [user.uid]);
+    }, [user]);
 
-    // Callback to handle slot selection with a debounced approach
-    const onSelectSlot = useCallback((slotInfo) => {
-        window.clearTimeout(clickRef.current);
-        clickRef.current = window.setTimeout(() => {
-            setNewEvent({ ...newEvent, start: slotInfo.start, end: slotInfo.end });
-        }, 250);
-    }, [newEvent]);
-
-    // Function to handle adding a new event after checking for clashes
-    async function handleAddEvent() {
-        if (!newEvent.start || !newEvent.end) {
-            alert('Please ensure both start and end dates are selected.');
+    // Function to handle the addition of new events from the calendar interface
+    const handleAddEvent = async () => {
+        if (!newEvent.title) {
+            alert('Please add a title to the event.');
             return;
         }
 
-        let clashDetected = false;
-        const startNew = new Date(newEvent.start);
-        const endNew = new Date(newEvent.end);
+        const eventData = { ...newEvent, allDay: false };
+        setAllEvents([...allEvents, eventData]);
 
-        for (let event of allEvents) {
-            if ((new Date(event.start) <= startNew && startNew <= new Date(event.end)) ||
-                (new Date(event.start) <= endNew && endNew <= new Date(event.end))) {
-                clashDetected = true;
-                break;
-            }
-        }
-
-        if (clashDetected && !window.confirm("There is a clash with existing events. Do you still want to add this event?")) {
-            return;
-        }
-
-        const eventData = { ...newEvent, allDay: true };
-        setAllEvents(prev => [...prev, eventData]);
-
-        const taskData = {
-            text: `${eventData.title}`,
-            completed: false,
-            order: tasks.length,
+        await addDoc(collection(db, "tasks"), {
+            text: eventData.title,
+            dueDate: eventData.start,
             userId: user.uid,
-            dueDate: new Date(eventData.end)
-        };
+            completed: false
+        });
+    };
 
-        setTasks(prev => [...prev, taskData]); // Update tasks array
-        await addDoc(collection(db, "tasks"), taskData); // Add to Firestore tasks
-    }
-
-    // Memoize the default date value to avoid recomputation
-    const defaultDate = useMemo(() => new Date(), []);
-
-    // Component rendering the calendar and its controls
     return (
         <div className="calendar">
-            <div>
-                <input
-                    type="text"
-                    placeholder="Add Title"
-                    style={{ width: "20%", marginRight: "10px" }}
-                    value={newEvent.title}
-                    onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
-                />
-                <DatePicker
-                    placeholderText="Start Date"
-                    style={{ marginRight: "10px" }}
-                    selected={newEvent.start}
-                    onChange={(start) => setNewEvent({ ...newEvent, start })}
-                />
-                <DatePicker
-                    placeholderText="End Date"
-                    selected={newEvent.end}
-                    onChange={(end) => setNewEvent({ ...newEvent, end })}
-                />
-                <button style={{ marginTop: "10px" }} onClick={handleAddEvent}>
-                    Add Event
-                </button>
-            </div>
-            <div className="height600">
+            <input
+                type="text"
+                placeholder="Event Title"
+                value={newEvent.title}
+                onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
+                style={{ width: "20%", marginRight: "10px" }}
+            />
+            <DatePicker
+                selected={newEvent.start}
+                onChange={date => setNewEvent({ ...newEvent, start: date, end: date })}
+                placeholderText="Select date"
+            />
+            <button onClick={handleAddEvent}>Add Event</button>
             <Calendar
-            defaultDate={defaultDate}
-            events={allEvents}
-            localizer={localizer}
-            onSelectSlot={onSelectSlot}
-            selectable
-            startAccessor="start"
-            endAccessor="end"
-            style={{ height: 500, margin: "50px" }}
-            views={['month', 'week', 'day', 'agenda']}
-            popup={true} // Show truncated events in an overlay
-            popupOffset={{ x: 10, y: 10 }} // Position offset from the edges of the viewport
-/>
-
-            </div>
+                localizer={localizer
+                }
+                events={allEvents}
+                startAccessor="start"
+                endAccessor="end"
+                style={{ height: 500, margin: "50px" }}
+                selectable
+                onSelectSlot={(slotInfo) => setNewEvent({ ...newEvent, start: slotInfo.start, end: slotInfo.end })}
+                onSelectEvent={event => alert(event.title)}
+            />
         </div>
     );
 }
 
-// Export the BigCalendar component for use in other parts of the application
 export default BigCalendar;
