@@ -75,10 +75,10 @@ const Settings = () => {
                 <input type='email' id='email' name='email' value={newEmail} onChange={(e) => setNewEmail(e.target.value)} />
         
                 <label htmlFor='newPassword'>New Password:</label>
-                <input type='password' id='newPassword' name='newPassword' value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
+                <input type='password' id='newPassword' name='newPassword' className='confirmBox' value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
 
                 <label htmlFor='confirmPassword'>Confirm Password:</label>
-                <input type='password' id='confirmPassword' name='confirmPassword' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+                <input type='password' id='confirmPassword' name='confirmPassword' className='confirmBox' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
 
 
                 {/* 
