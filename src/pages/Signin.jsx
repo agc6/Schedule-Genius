@@ -77,7 +77,7 @@ const SignInPage = () => {
                                 {errorMessage && <p className="error-message">{errorMessage}</p>}
                                 <button type="submit" className="btn">Sign In</button>
                                 <p className="bottom-text">
-                                    Don't have an account?
+                                    Don't have an account? 
                                     <Link to="/signup">Sign Up.</Link>
                                 </p>
                             </form>
