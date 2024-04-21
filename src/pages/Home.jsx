@@ -15,16 +15,22 @@ const Home = () => {
                     <section id="sched" className="container flex-row">
                         <div className="sched__content">
                             <h1 className="title">Schedule Genius: Organize your college life efficiently</h1>
-                            <h2 className="text">Get your stuff done with <i><strong>ease. </strong></i>
-                                The ultimate tool for crafting the perfect schedule.</h2>
-                            <Link to="/signup" className="btn btn-secondary">Sign Up</Link>
-                        </div>
+                            <h2 className="text">
+                                Unlock your genius potential!<br />
+                                Get it done with <i><strong>ease.</strong></i>
+                            </h2>
+                            <Link to="/signup" className="btn btn-secondary">Sign Up</Link>                        </div>
                         <div className="sched__img">
                             <img src={flatImage} alt="Students using laptops." />
                         </div>
+                        <br />
+                        <br />
                     </section>
                 </div>
             </div>
+            <br />
+            <br />
+
 
             {/* Features Section */}
             <section id="features" className="features-section">
@@ -76,6 +82,8 @@ const Home = () => {
             </div>
             </div>
             </section>
+            <br />
+
             {/* About Section */}
             <section id="about" className="about-section">
             <div className="about_img">
@@ -94,9 +102,10 @@ const Home = () => {
 
             {/* Contact Section */}
             <section id="contact" className="contact-section">
+                <br />
                 <div className="contact-container">
                     <div className="contact-info">
-                        <h2>Get In Touch</h2>
+                        <h2>Contact Us</h2>
                         <p>
                             Please fill out the form below to send us an email and we will
                             get back to you as soon as possible.
@@ -105,19 +114,19 @@ const Home = () => {
                             <span>
                                 <i className="fa fa-map-marker"></i> Address
                             </span>
-                            {/* Display your address */}
+                            {"123 Team IO Street San Marcos, Texas 78666 "}
                         </div>
                         <div className="contact-item">
                             <span>
                                 <i className="fa fa-phone"></i> Phone
                             </span>{" "}
-                            {/* Display your phone number */}
+                            {"1+ (234)-567-8910"}
                         </div>
                         <div className="contact-item">
                             <span>
                                 <i className="fa fa-envelope-o"></i> Email
                             </span>{" "}
-                            {/* Display your email address */}
+                            {"support@schedulegenius"}
                         </div>
                     </div>
                     <div className="contact-form">
@@ -153,12 +162,19 @@ const Home = () => {
                             ></textarea>
                         </div>
                         <button type="submit" className="btn btn-custom btn-lg">
-                            Send Message
+                            Submit
                         </button>
                     </div>
                 </div>
             </section>
-        </div>
+
+            <footer class="footer">
+                <div class="container">
+                    <p>&copy; 2024 Schedule Genius. All rights reserved.</p>
+                    <p>Contributors: Evan Smith, Nil Ceylan, Arely Gutierrez Carbajal, Noah Masoud</p>
+                </div>
+            </footer >
+        </div >
     );
 };
 

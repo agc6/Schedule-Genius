@@ -148,15 +148,20 @@ section {
 }
 
 header {
-    padding: 1rem 0;
+    padding: 0.5rem 3;
+    /* Reduced top and bottom padding */
     width: 100%;
-    position: absolute;
-    z-index: 999;
-    box-shadow: none;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    cursor: pointer;
+
 }
 
 .header_logo {
-    width: 70px;
+    width: 40px;
 }
 
 .header_menu {
@@ -196,15 +201,15 @@ header {
 }
 
 .sched__content h1 {
-    font-size: 4rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 800;
     line-height: 1.2;
 }
 
 .sched__content h2 {
     font-size: 1.2rem;
-    font-weight: 300;
-    margin-bottom: 2rem;
+    font-weight: 450;
+    margin-bottom: 1rem;
 }
 
 .sched__img {
@@ -298,7 +303,7 @@ header {
 }
 
 .header_menu li a:hover {
-    color: #907fdc;
+    color: #a99aed;
 }
 
 .right {
@@ -357,7 +362,7 @@ header {
 .features-section {
     padding: 80px 0;
     /* Adjust padding as needed */
-    background-color: #f8f9fa;
+    background-color: #e7e7e7;
     /* Change background color as per your design */
 }
 
@@ -486,7 +491,7 @@ header {
   }
   
 .contact-section {
-    background-color: #f8f9fa;
+    background-color: #e7e7e7;
     padding: 80px 0;
 }
 
@@ -565,4 +570,33 @@ textarea.form-control {
 .btn-custom:hover {
     background-color: #0056b3;
     /* Change hover color as per your design */
+}
+
+.footer {
+    background-color: #8070c8;
+    /* Dark background for the footer */
+    color: #fff;
+    /* White text color */
+    text-align: center;
+    /* Center aligns all text in the footer */
+    padding: 20px 0;
+    /* Top and bottom padding */
+    font-size: 0.8rem;
+    /* Smaller font size */
+    border-top: 1px solid #444;
+    /* Adds a slight border on top for a subtle separation */
+}
+
+.footer p {
+    margin: 5px 0;
+    /* Reduces space between paragraphs to keep it compact */
+}
+
+.container {
+    width: 80%;
+    /* Controlling the width of the container */
+    margin: 0 auto;
+    /* Centers the container horizontally */
+    padding: 10px;
+    /* Padding inside the container */
 }
