@@ -157,6 +157,40 @@ In the development of the "Schedule Genius" web application, a variety of techno
 * **Evan Smith**: `Import and Update team info in project readme`
   * [SCRUM-123](https://cs3398s24io.atlassian.net/browse/SCRUM-123?atlOrigin=eyJpIjoiZjMyNTdkN2FjYjhkNDE0NmE0YjFiZGE3NTE1ODRhNjMiLCJwIjoiaiJ9), [Bitbucket](https://bitbucket.org/%7B%7D/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-123-import-and-update-team-info-in)
 
+### Sprint 3
+
+**Story 1**: "As a user with varying week-to-week responsibilities, I would like the ability to update my schedule dynamically, so that the schedule can adapt to changes in time commitments"
+
+* **Evan Smith**: `Reflect Tasks on Calendar.`
+  * [SCRUM-148](https://cs3398s24io.atlassian.net/browse/SCRUM-148?atlOrigin=eyJpIjoiYzViOTQ1MDY4YTk5NGQ4N2IxYjJiMDM3ZDJhMDg1OWIiLCJwIjoiaiJ9), [Bitbucket](https://bitbucket.org/%7B%7D/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-148-reflect-tasks-on-calendar)
+
+**Story 2**: "As a college student striving for efficiency, I would like the ability to receive reminders and notifications about upcoming assignments and exams, so that I can stay organized and manage my time effectively."
+
+* **user**: ``
+  * [SCRUM-##](), [Bitbucket]()
+
+**Story 3**: "As a student, I would like to easily create and manage my course schedule through an intuitive dashboard interface."
+
+* **user**: ``
+  * [SCRUM-##](), [Bitbucket]()
+
+**Story 4**: "As a developer, I want to be able to store and retrieve data entered by users from all the different UI interfaces, So that I can ensure a seamless data flow and user experience across our application's ecosystem."
+
+* **Evan Smith**: `Save User's Task from Task Page UI`
+  * [SCRUM-121](https://cs3398s24io.atlassian.net/browse/SCRUM-121?atlOrigin=eyJpIjoiNzU2NmZlMTgyN2M1NGQyN2E1Njk3OGYyODI4NzZhMGUiLCJwIjoiaiJ9), [Bitbucket](https://bitbucket.org/%7B%7D/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-121-save-users-task-from-task-page)
+
+* **Evan Smith**: `Save Task Due Date`
+  * [SCRUM-127](https://cs3398s24io.atlassian.net/browse/SCRUM-127?atlOrigin=eyJpIjoiZjZmYmYyYTNjMGU0NDM2NTg2ZDc4MzQzZGNiNDQ5ZTkiLCJwIjoiaiJ9), [Bitbucket](https://bitbucket.org/%7B%7D/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-127-save-task-due-date)
+
+* **Evan Smith**: `Save Task Duration if applicable`
+  * [SCRUM-128](https://cs3398s24io.atlassian.net/browse/SCRUM-128?atlOrigin=eyJpIjoiMjRkYmIwY2VmZGU0NDg1ZGJjNDBiM2Q0MDYzYzc4YzUiLCJwIjoiaiJ9), [Bitbucket](https://bitbucket.org/%7B%7D/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-128-save-task-duration-if-applicab)
+
+* **Evan Smith**: `Learn firestore from video`
+  * [SCRUM-135](https://cs3398s24io.atlassian.net/browse/SCRUM-135?atlOrigin=eyJpIjoiOGI4MDk3NWFiNmViNGI0MWI0NGU3M2RjOWRiZWNjM2MiLCJwIjoiaiJ9), [Bitbucket](https://bitbucket.org/%7B%7D/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-135-learn-firestore-from-video)
+
+* **Evan Smith**: `Redeploy without emulator`
+  * [SCRUM-134](https://cs3398s24io.atlassian.net/browse/SCRUM-134?atlOrigin=eyJpIjoiZDdjMDQ4NmRkMWJjNDBjZGJlZmJkOGUzM2U5OGEyZTEiLCJwIjoiaiJ9), No branch needed for this task.
+
 ## Project Status
 
 * Project is: **_in progress_**
