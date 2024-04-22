@@ -50,10 +50,10 @@ const SignInPage = () => {
             <div className="box">
                 <div className="inner-box">
                     <div className="forms-wrap"></div>
-                    <div className="logo">
+                    <Link to="/" className="logo">
                         <img src={logo} alt="Schedule Genius Logo" />
-                        <h4>Schedule Genius</h4>
-                    </div>
+                        <h2>Schedule Genius</h2>
+                    </Link>
                     <div className="right">
                         <div className="wrapper">
                             <h1 className="heading">Welcome Back</h1>

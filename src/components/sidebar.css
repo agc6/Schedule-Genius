@@ -34,15 +34,6 @@ body {
   color: #fff;
 }
 
-body.dark {
-  --body-color: #18191a;
-  --sidebar-color: #242526;
-  --primary-color: #3a3b3c;
-  --primary-color-light: #3a3b3c;
-  --toggle-color: #fff;
-  --text-color: #ccc;
-}
-
 /* ===== Sidebar ===== */
 .sidebar {
   position: fixed;
@@ -161,10 +152,6 @@ body.dark {
   transition: var(--tran-05);
 }
 
-body.dark .sidebar header .toggle {
-  color: var(--text-color);
-}
-
 .sidebar.close .toggle {
   transform: translateY(-50%) rotate(0deg);
 }
@@ -193,10 +180,6 @@ body.dark .sidebar header .toggle {
 .sidebar li a:hover .text {
   color: var(--sidebar-color);
 }
-body.dark .sidebar li a:hover .icon,
-body.dark .sidebar li a:hover .text {
-  color: var(--text-color);
-}
 
 .sidebar .menu-bar {
   height: calc(90% - 55px);
@@ -224,12 +207,6 @@ body.dark .sidebar li a:hover .text {
   position: absolute;
 }
 .mode .sun-moon i.sun {
-  opacity: 0;
-}
-body.dark .mode .sun-moon i.sun {
-  opacity: 1;
-}
-body.dark .mode .sun-moon i.moon {
   opacity: 0;
 }
 
@@ -266,9 +243,6 @@ body.dark .mode .sun-moon i.moon {
   transition: var(--tran-04);
 }
 
-body.dark .switch::before {
-  left: 20px;
-}
 
 .main-content {
   position: absolute;
@@ -289,7 +263,4 @@ body.dark .switch::before {
   left: 78px;
   height: 100vh;
   width: calc(100% - 78px);
-}
-body.dark .home .text {
-  color: var(--text-color);
 }

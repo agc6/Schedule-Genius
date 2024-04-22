@@ -6,11 +6,15 @@
     border: 1px solid #907fdc;
     border-radius: 5px;
     position: relative;
-    top: 62px;
+    top: 120px;
     margin-left: 670px;
     margin-right: -670px;
     margin-top: -250px;
     margin-bottom: 250px;
+    height: 300px;
+    /* Set a fixed height */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
 }
 
 .to-do-list h1 {
@@ -52,13 +56,12 @@
 
 .to-do-list li button {
     margin-left: 10px;
-    background-color:#907fdc;
-    color:white;
+    background-color: #907fdc;
+    color: white;
 }
-.to-do-list li button:hover{
+
+.to-do-list li button:hover {
     margin-left: 10px;
-    background-color:#b7a9f6;
-    color:black;
+    background-color: #b7a9f6;
+    color: black;
 }
-
-
