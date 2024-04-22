@@ -7,7 +7,6 @@ import Signup from './pages/Signup';
 import ToDoList from './pages/ToDoList';
 import Dashboard from './pages/dashboard';
 import Settings from './pages/Settings';
-import ScheduleBlocker from './pages/ScheduleBlocker';
 import Calendar from './pages/Calendar';
 import { auth } from './firebase/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -41,7 +40,6 @@ function App() {
         <Route path="/signup" element={!user ? <Signup /> : <Navigate to="/dashboard" />} />
         <Route path="/todo" element={user ? <ToDoList /> : <Navigate to="/signin" />} />
         <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/signin" />} />
-        <Route path="/scheduleblocker" element={user ? <ScheduleBlocker /> : <Navigate to="/signin" />} />
         <Route path="/calendar" element={user ? <Calendar /> : <Navigate to="/signin" />} />
         <Route path="/settings" element={user ? <Settings /> : <Navigate to="/signin" />} />
       </Routes>
