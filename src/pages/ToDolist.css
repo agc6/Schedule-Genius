@@ -1,16 +1,16 @@
 .to-do-list {
     font-family: Arial, sans-serif;
-    max-width: 270px;
+    max-width: 255px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #907fdc;
     border-radius: 5px;
     position: relative;
     top: 120px;
-    margin-left: 670px;
-    margin-right: -670px;
-    margin-top: -250px;
-    margin-bottom: 250px;
+    margin-left: 700px;
+    margin-right: -700px;
+    margin-top: -220px;
+    margin-bottom: 220px;
     height: 300px;
     /* Set a fixed height */
     overflow-y: auto;

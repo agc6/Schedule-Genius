@@ -2,14 +2,13 @@
     border: 1px solid  #907fdc;
     border-radius: 5px;
     padding: 10px 50px 30px 50px;
-    margin-bottom: 95px;
     position: relative;
     top: -70px; 
     left: -10px;
-    margin-left: 20px;
-    margin-right: -20px;
-    margin-top: -95px;
-
+    margin-left: 965px;
+    margin-right: -965px;
+    margin-top: 270px;
+    margin-bottom: -270px;
   }
   
   .timer {
