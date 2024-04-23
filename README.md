@@ -164,6 +164,18 @@ In the development of the "Schedule Genius" web application, a variety of techno
 * **Evan Smith**: `Reflect Tasks on Calendar.`
   * [SCRUM-148](https://cs3398s24io.atlassian.net/browse/SCRUM-148?atlOrigin=eyJpIjoiYzViOTQ1MDY4YTk5NGQ4N2IxYjJiMDM3ZDJhMDg1OWIiLCJwIjoiaiJ9), [Bitbucket](https://bitbucket.org/%7B%7D/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-148-reflect-tasks-on-calendar)
 
+* **Arely Gutierrez Carbajal**: `Add the ability for events to be scheduled for a specific time`
+  * [SCRUM-155](https://cs3398s24io.atlassian.net/browse/SCRUM-155?atlOrigin=eyJpIjoiODkxNTA5NDkzODQ3NGI2ZTkwM2I0NzFmMWIyMjkwYzUiLCJwIjoiaiJ9), [Bitbucket](https://bitbucket.org/cs3398s24io/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-155-event-time)
+
+* **Arely Gutierrez Carbajal**: `Fix and improve varying dashboard UI components`
+  * [SCRUM-142](https://cs3398s24io.atlassian.net/browse/SCRUM-142?atlOrigin=eyJpIjoiZTlmM2ZkODE1ZTc2NDRlM2I0ZGRlM2Q4NDI3ZDJmOWUiLCJwIjoiaiJ9), [Bitbucket](https://bitbucket.org/cs3398s24io/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-142-fix-and-improve-varying-dashbo)
+
+* **Arely Gutierrez Carbajal**: `Add calendar to main content`
+  * [SCRUM-141](https://cs3398s24io.atlassian.net/browse/SCRUM-141?atlOrigin=eyJpIjoiN2JmYzg4MWFlMjM5NGQxMzk3YzhiYTgyYjEzYzgyOTAiLCJwIjoiaiJ9), [Bitbucket](https://bitbucket.org/cs3398s24io/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-141-add-calendar-to-main-content)
+
+* **Arely Gutierrez Carbajal**: `More fixes to the dashboard and homepage`
+  * [SCRUM-156](https://cs3398s24io.atlassian.net/browse/SCRUM-156?atlOrigin=eyJpIjoiZDQwMjA5MmIyODdmNDA5M2IxNzQ3MjNmYWMwZDA4MzMiLCJwIjoiaiJ9), [Bitbucket](https://bitbucket.org/cs3398s24io/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-156-more-fixes)
+
 **Story 2**: "As a college student striving for efficiency, I would like the ability to receive reminders and notifications about upcoming assignments and exams, so that I can stay organized and manage my time effectively."
 
 * **user**: ``
@@ -171,8 +183,17 @@ In the development of the "Schedule Genius" web application, a variety of techno
 
 **Story 3**: "As a student, I would like to easily create and manage my course schedule through an intuitive dashboard interface."
 
-* **user**: ``
-  * [SCRUM-##](), [Bitbucket]()
+* **Arely Gutierrez Carbajal**: `Make sidebar collapsible`
+  * [SCRUM-129](https://cs3398s24io.atlassian.net/browse/SCRUM-129?atlOrigin=eyJpIjoiMDliNWZmN2YwY2YzNDE1MDljMjhkYTNjODA1OWU4NzAiLCJwIjoiaiJ9), [Bitbucket](https://bitbucket.org/cs3398s24io/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-129-side-bar-to-popup)
+
+* **Arely Gutierrez Carbajal**: `Make main content responsive to the sidebar`
+  * [SCRUM-140](https://cs3398s24io.atlassian.net/browse/SCRUM-140?atlOrigin=eyJpIjoiZjkyZmM1MWU4YTc1NDkxYWExYmI1MzUzYTdhNmQ2MGIiLCJwIjoiaiJ9), [Bitbucket](https://bitbucket.org/cs3398s24io/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-140-fix-header-in-dashboard.jsx)
+
+* **Arely Gutierrez Carbajal**: `Fix and improve varying landing page UI components`
+  * [SCRUM-143](https://cs3398s24io.atlassian.net/browse/SCRUM-143?atlOrigin=eyJpIjoiM2JiZTI3YTU1ZGQzNDY2N2IxOTkyZDc5MTU2YzU4ZTgiLCJwIjoiaiJ9), [Bitbucket](https://bitbucket.org/cs3398s24io/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-143-improve-landing-page)
+
+* **Arely Gutierrez Carbajal**: `Create the scheduler template UI for the dashboard`
+  * [SCRUM-144](https://cs3398s24io.atlassian.net/browse/SCRUM-144?atlOrigin=eyJpIjoiNDAyNDY3OTY2NzJhNDRmN2EzZTRlOWQ0NTA0YTQ1NmQiLCJwIjoiaiJ9), [Bitbucket](https://bitbucket.org/cs3398s24io/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-144-scheduler-template)
 
 **Story 4**: "As a developer, I want to be able to store and retrieve data entered by users from all the different UI interfaces, So that I can ensure a seamless data flow and user experience across our application's ecosystem."
 
