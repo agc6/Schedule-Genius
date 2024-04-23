@@ -40,10 +40,10 @@ const Home = () => {
                         <div className="sched__content">
                             <h1 className="title">Schedule Genius: Organize your college life efficiently</h1>
                             <h2 className="text">
-                                Unlock your genius potential!<br />
-                                Get it done with <i><strong>ease.</strong></i>
+                                Unlock your genius potential,<br />
+                                with <i><strong>ease.</strong></i>
                             </h2>
-                            <Link to="/signup" className="btn btn-secondary">Sign Up</Link>
+                            <Link to="/signup" className="btn btn-secondary">Get Started</Link>
                         </div>
                         <div className="sched__img">
                             <img src={flatImage} alt="Students using laptops." />
