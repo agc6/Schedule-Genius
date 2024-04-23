@@ -78,6 +78,10 @@ const ToDoList = () => {
         }
     }
 
+        async function toggleTaskCompletion(taskID, completed) {
+            await updateDoc(doc(db, "tasks", taskID), { completed: !completed });
+        }
+
     return (
         <div className='to-do-list'>
             <h1>Your To-Do List:</h1>
@@ -87,14 +91,18 @@ const ToDoList = () => {
                     placeholder="Enter a task..."
                     value={newTask}
                     onChange={handleInputChange}
-                    onKeyPress={handleKeyPress} // Add this line
+                    onKeyPress={handleKeyPress} // Deprecated but works
                 />
                 <button onClick={addTask}>Add Task</button>
             </div>
             <ul>
                 {tasks.map((task, index) => (
                     <li key={task.id} className={task.completed ? 'completed-task' : ''}>
-                        {task.text}
+                        <span
+                            style={{ textDecoration: task.completed ? 'line-through' : 'none' }} // Cross task off
+                            onClick={() => toggleTaskCompletion(task.id, task.completed)}>
+                            {task.text}
+                        </span>
                         <button onClick={() => deleteTask(task.id)}>✘</button>
                         <button onClick={() => moveTaskDown(index)}>↓</button>
                         <button onClick={() => moveTaskUp(index)}>↑</button>
