@@ -209,7 +209,8 @@ header {
 .sched__content h2 {
     font-size: 1.2rem;
     font-weight: 450;
-    margin-bottom: 1rem;
+    margin-bottom: 50px;
+    margin-top: -50px;
 }
 
 .sched__img {
@@ -449,6 +450,8 @@ header {
     grid-row: 3/4;
     font-weight: 400;
     color: #ffffff;
+    margin-top: -10px;
+    margin-bottom: 10px;
   }
   
   .card__apply {

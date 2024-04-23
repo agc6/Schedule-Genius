@@ -100,6 +100,8 @@ function BigCalendar() {
                 endAccessor="end"
                 style={{ height: 500, margin: "50px" }}
                 selectable
+                popup
+                popupOffset={{ x: 30, y: 20 }}
                 onSelectSlot={(slotInfo) => setNewEvent({ ...newEvent, start: slotInfo.start, end: slotInfo.end })}
                 onSelectEvent={event => alert(event.title)}
             />
