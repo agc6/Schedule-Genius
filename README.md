@@ -176,10 +176,13 @@ In the development of the "Schedule Genius" web application, a variety of techno
 * **Arely Gutierrez Carbajal**: `More fixes to the dashboard and homepage`
   * [SCRUM-156](https://cs3398s24io.atlassian.net/browse/SCRUM-156?atlOrigin=eyJpIjoiZDQwMjA5MmIyODdmNDA5M2IxNzQ3MjNmYWMwZDA4MzMiLCJwIjoiaiJ9), [Bitbucket](https://bitbucket.org/cs3398s24io/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-156-more-fixes)
 
+* **Nil Ceylan**: `To-Do list in main content`
+  * [SCRUM - 131](https://cs3398s24io.atlassian.net/jira/software/projects/SCRUM/issues/SCRUM-131?jql=project%20%3D%20%22SCRUM%22%20and%20assignee%20%3D%20currentUser%28%29%20ORDER%20BY%20created%20DESC), [Bitbucket](https://bitbucket.org/cs3398s24io/schedule-genius/branch/SCRUM-131-todo-list-in-main-content)
+
 **Story 2**: "As a college student striving for efficiency, I would like the ability to receive reminders and notifications about upcoming assignments and exams, so that I can stay organized and manage my time effectively."
 
-* **user**: ``
-  * [SCRUM-##](), [Bitbucket]()
+* **Nil Ceylan**: `Update UI for main content`
+  * [SCRUM-138](https://cs3398s24io.atlassian.net/jira/software/projects/SCRUM/issues/SCRUM-138?jql=project%20%3D%20%22SCRUM%22%20and%20assignee%20%3D%20currentUser%28%29%20ORDER%20BY%20created%20DESC), [Bitbucket](https://bitbucket.org/cs3398s24io/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-138-update-ui-for-main-content)
 
 **Story 3**: "As a student, I would like to easily create and manage my course schedule through an intuitive dashboard interface."
 
@@ -194,6 +197,10 @@ In the development of the "Schedule Genius" web application, a variety of techno
 
 * **Arely Gutierrez Carbajal**: `Create the scheduler template UI for the dashboard`
   * [SCRUM-144](https://cs3398s24io.atlassian.net/browse/SCRUM-144?atlOrigin=eyJpIjoiNDAyNDY3OTY2NzJhNDRmN2EzZTRlOWQ0NTA0YTQ1NmQiLCJwIjoiaiJ9), [Bitbucket](https://bitbucket.org/cs3398s24io/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-144-scheduler-template)
+* **Nil Ceylan**: `Implement settings with Firebase`
+  * [SCRUM-137](https://cs3398s24io.atlassian.net/jira/software/projects/SCRUM/issues/SCRUM-137?jql=project%20%3D%20%22SCRUM%22%20and%20assignee%20%3D%20currentUser%28%29%20ORDER%20BY%20created%20DESC), [Bitbucket](https://bitbucket.org/cs3398s24io/schedule-genius/branch/SCRUM-149-implement-settings-page-with-f)
+* **Nil Ceylan**: `Dark mode implementation`
+  * [SCRUM-125](https://cs3398s24io.atlassian.net/jira/software/projects/SCRUM/issues/SCRUM-125?jql=project%20%3D%20%22SCRUM%22%20and%20assignee%20%3D%20currentUser%28%29%20ORDER%20BY%20created%20DESC), [Bitbucket](https://bitbucket.org/cs3398s24io/schedule-genius/branch/SCRUM-125-implement-dark-mode-feature)
 
 **Story 4**: "As a developer, I want to be able to store and retrieve data entered by users from all the different UI interfaces, So that I can ensure a seamless data flow and user experience across our application's ecosystem."
 
@@ -211,6 +218,8 @@ In the development of the "Schedule Genius" web application, a variety of techno
 
 * **Evan Smith**: `Redeploy without emulator`
   * [SCRUM-134](https://cs3398s24io.atlassian.net/browse/SCRUM-134?atlOrigin=eyJpIjoiZDdjMDQ4NmRkMWJjNDBjZGJlZmJkOGUzM2U5OGEyZTEiLCJwIjoiaiJ9), No branch needed for this task.
+* **Nil Ceylan**: `Terminate account option`
+  * [SCRUM-137](https://cs3398s24io.atlassian.net/jira/software/projects/SCRUM/issues/SCRUM-137?jql=project%20%3D%20%22SCRUM%22%20and%20assignee%20%3D%20currentUser%28%29%20ORDER%20BY%20created%20DESC), [Bitbucket](https://bitbucket.org/cs3398s24io/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-137-terminate-account-option)
 
 ## Project Status
 
