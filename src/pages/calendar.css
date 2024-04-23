@@ -9,9 +9,9 @@
 	height: 100%;
 	display: flex;
 	flex-direction: column;
+	align-items: stretch;
 	width: 130%;
-	align-items: stretch; }
-
+ }
 .rbc-event{
 	background-color: var(--primary-color);
 	opacity: .8;
@@ -67,3 +67,11 @@ button:active{
 
 .rbc-show-more:focus {
 	color: var(--primary-color); }
+
+.rbc-toolbar{
+	max-width: 90%;
+}
+
+.rbc-agenda-table{
+	max-width: 90%;
+}
