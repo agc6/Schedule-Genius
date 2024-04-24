@@ -75,3 +75,15 @@ button:active{
 .rbc-agenda-table{
 	max-width: 90%;
 }
+
+.rbc-event-allday{
+	background-color: #56c7ff;
+}
+
+.rbc-overlay-header{
+	background-color: #c0caff;
+}
+
+.rbc-current-time-indicator {
+	background-color: #22b9e7;
+}
