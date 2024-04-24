@@ -176,6 +176,9 @@ In the development of the "Schedule Genius" web application, a variety of techno
 * **Arely Gutierrez Carbajal**: `More fixes to the dashboard and homepage`
   * [SCRUM-156](https://cs3398s24io.atlassian.net/browse/SCRUM-156?atlOrigin=eyJpIjoiZDQwMjA5MmIyODdmNDA5M2IxNzQ3MjNmYWMwZDA4MzMiLCJwIjoiaiJ9), [Bitbucket](https://bitbucket.org/cs3398s24io/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-156-more-fixes)
 
+  * **Arely Gutierrez Carbajal**: `Add drag and drop feature to calendar events and tasks`
+  * [SCRUM-157](https://cs3398s24io.atlassian.net/browse/SCRUM-157?atlOrigin=eyJpIjoiZmIwZTY4NDRkNzZjNDgwYjgwM2FmYjQ4N2I0MDEyMTkiLCJwIjoiaiJ9), [Bitbucket](https://bitbucket.org/cs3398s24io/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-157-drag-and-drop-feature)
+
 * **Nil Ceylan**: `To-Do list in main content`
   * [SCRUM - 131](https://cs3398s24io.atlassian.net/jira/software/projects/SCRUM/issues/SCRUM-131?jql=project%20%3D%20%22SCRUM%22%20and%20assignee%20%3D%20currentUser%28%29%20ORDER%20BY%20created%20DESC), [Bitbucket](https://bitbucket.org/cs3398s24io/schedule-genius/branch/SCRUM-131-todo-list-in-main-content)
 
