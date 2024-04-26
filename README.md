@@ -182,10 +182,20 @@ In the development of the "Schedule Genius" web application, a variety of techno
 * **Nil Ceylan**: `To-Do list in main content`
   * [SCRUM - 131](https://cs3398s24io.atlassian.net/jira/software/projects/SCRUM/issues/SCRUM-131?jql=project%20%3D%20%22SCRUM%22%20and%20assignee%20%3D%20currentUser%28%29%20ORDER%20BY%20created%20DESC), [Bitbucket](https://bitbucket.org/cs3398s24io/schedule-genius/branch/SCRUM-131-todo-list-in-main-content)
 
+
 **Story 2**: "As a college student striving for efficiency, I would like the ability to receive reminders and notifications about upcoming assignments and exams, so that I can stay organized and manage my time effectively."
+
+
+* **Noah Masoud**: `implment private routing `
+  * [SCRUM - 131](https://cs3398s24io.atlassian.net/browse/SCRUM-139SCRUM-153jql=project%20%3D%20%22SCRUM%22%20and%20assignee%20%3D%20currentUser%28%29%20ORDER%20BY%20created%20DESC), [Bitbucket](https://bitbucket.org/cs3398s24io/schedule-genius/branch/SCRUM-131-todo-list-in-main-content)
+
 
 * **Nil Ceylan**: `Update UI for main content`
   * [SCRUM-138](https://cs3398s24io.atlassian.net/jira/software/projects/SCRUM/issues/SCRUM-138?jql=project%20%3D%20%22SCRUM%22%20and%20assignee%20%3D%20currentUser%28%29%20ORDER%20BY%20created%20DESC), [Bitbucket](https://bitbucket.org/cs3398s24io/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-138-update-ui-for-main-content)
+
+
+* **Noah Masoud**: `Connect Front end to back end`
+  * [SCRUM - 131](https://cs3398s24io.atlassian.net/browse/SCRUM-153jql=project%20%3D%20%22SCRUM%22%20and%20assignee%20%3D%20currentUser%28%29%20ORDER%20BY%20created%20DESC), [Bitbucket](https://bitbucket.org/cs3398s24io/schedule-genius/branch/SCRUM-131-todo-list-in-main-content)
 
 **Story 3**: "As a student, I would like to easily create and manage my course schedule through an intuitive dashboard interface."
 
@@ -222,7 +232,22 @@ In the development of the "Schedule Genius" web application, a variety of techno
 * **Evan Smith**: `Redeploy without emulator`
   * [SCRUM-134](https://cs3398s24io.atlassian.net/browse/SCRUM-134?atlOrigin=eyJpIjoiZDdjMDQ4NmRkMWJjNDBjZGJlZmJkOGUzM2U5OGEyZTEiLCJwIjoiaiJ9), No branch needed for this task.
 * **Nil Ceylan**: `Terminate account option`
-  * [SCRUM-137](https://cs3398s24io.atlassian.net/jira/software/projects/SCRUM/issues/SCRUM-137?jql=project%20%3D%20%22SCRUM%22%20and%20assignee%20%3D%20currentUser%28%29%20ORDER%20BY%20created%20DESC), [Bitbucket](https://bitbucket.org/cs3398s24io/%7B79c09805-1a11-4852-8aca-47c274334fc2%7D/branch/SCRUM-137-terminate-account-option)
+  * [SCRUM-137](https://cs3398s24io.atlassian.net/jira/software/projects/SCRUM/list?direction=ASC&filter=%22assignee%22%20%3D%20%27712020%3A0664254d-502d-4eab-adfe-a465899355a1%27&selectedIssue=SCRUM-136&sortBy=customfield_10020), [Bitbucket](https://
+
+
+* **Noah Masoud**: `continuous scroll`
+  * [SCRUM - 131](https://cs3398s24io.atlassian.net/browse/SCRUM-153jql=project%20%3D%20%22SCRUM%22%20and%20assignee%20%3D%20currentUser%28%29%20ORDER%20BY%20created%20DESC), [Bitbucket](https://bitbucket.org/cs3398s24io/schedule-genius/branch/SCRUM-131-todo-list-in-main-content)
+
+
+* **Noah Masoud**: `Sign Out Function`
+  * [SCRUM - 131](https://cs3398s24io.atlassian.net/browse/SCRUM-133?jql=project%20%3D%20%22SCRUM%22%20and%20assignee%20%3D%20currentUser%28%29%20ORDER%20BY%20created%20DESC), [Bitbucket](https://bitbucket.org/cs3398s24io/schedule-genius/branch/SCRUM-131-todo-list-in-main-content)
+
+* **Noah Masoud**: `hide api keys `
+  * [SCRUM - 131](https://cs3398s24io.atlassian.net/browse/SCRUM-145SCRUM-139SCRUM-153jql=project%20%3D%20%22SCRUM%22%20and%20assignee%20%3D%20currentUser%28%29%20ORDER%20BY%20created%20DESC), [Bitbucket](https://bitbucket.org/cs3398s24io/schedule-genius/branch/SCRUM-131-todo-list-in-main-content)
+
+* **Noah Masoud**: `add homebutton to signup/signin `
+  * [SCRUM - 131](https://cs3398s24io.atlassian.net/browse/SCRUM-154SCRUM-145SCRUM-139SCRUM-153jql=project%20%3D%20%22SCRUM%22%20and%20assignee%20%3D%20currentUser%28%29%20ORDER%20BY%20created%20DESC), [Bitbucket](https://bitbucket.org/cs3398s24io/schedule-genius/branch/SCRUM-131-todo-list-in-main-content)
+  
 
 ## Project Status
 
