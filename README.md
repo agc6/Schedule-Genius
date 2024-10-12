@@ -23,7 +23,7 @@ Team members: Nil Ceylan, Arely Gutierrez Carbajal, Evan Smith, Noah Masoud
 
 ### What are we creating?
 
-We are creating a Web application utalizing the Flask Framework (python) , This web app will, track tasks and Manage schedule.
+We are creating a Web application utalizing ReactJS and FireBase, This web app will, track tasks and Manage schedule.
 
 Regarding the audience, This will primarily be used by College students.
 
