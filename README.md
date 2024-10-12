@@ -38,7 +38,7 @@ applications and help with time mangagement, because we won't have to manually i
 
 * This project was undertaken to provide a solution for the difficulty in keeping track of all events each week, updating agendas, and managing calendars.
 
-![Project image](misc/readme/sched_ss.png)
+![Project image](misc/readme/sched-g.gif)
 
 ## Technologies Used
 
